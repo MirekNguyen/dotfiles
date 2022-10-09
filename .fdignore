@@ -1,0 +1,40 @@
+.git
+.vscode
+.gitignore
+.cache
+.npm
+.tmux
+.local
+.DS_Store
+.idea
+.Trash
+*.jpg
+*.jpeg
+*.png
+*.srt
+*.mp4
+*.app
+*.pdf
+vendor
+node_modules
+
+/* Apple */
+Movies
+Pictures
+Music
+Library/*
+!Library/Mobile Documents/
+Library/Mobile Documents/*
+!Library/Mobile Documents/com~apple~CloudDocs
+
+/* Optional */
+*.glsl
+*.localized
+*.iterm2
+*.ini
+*.ico
+Alfred.alfredpreferences
+cache
+Youtube
+[_]*.fish
+**/tide/configure
