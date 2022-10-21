@@ -22,6 +22,7 @@ alias youtube='cd ~/Downloads/Youtube'
 alias soffice='/Applications/_Casks/LibreOffice.app/Contents/MacOS/soffice'
 alias w='webtorrent download --out "$HOME"/Downloads'
 alias bat='bat --style=plain --theme gruvbox-dark --color=always'
+alias update='brew upgrade && brew autoremove && brew cleanup && fisher update &>/dev/null & nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"'
 
 # pnpm
 set -gx PNPM_HOME "/Users/mireknguyen/Library/pnpm"
