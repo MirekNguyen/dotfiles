@@ -23,6 +23,7 @@ alias soffice='/Applications/_Casks/LibreOffice.app/Contents/MacOS/soffice'
 alias w='webtorrent download --out "$HOME"/Downloads'
 alias bat='bat --style=plain --theme gruvbox-dark --color=always'
 alias update='brew upgrade && brew autoremove && brew cleanup && fisher update &>/dev/null & nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"'
+alias cleanup='brew autoremove && brew cleanup && npm cache clean --force && pnpm store prune'
 
 # pnpm
 set -gx PNPM_HOME "/Users/mireknguyen/Library/pnpm"
