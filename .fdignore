@@ -15,6 +15,9 @@
 *.mp4
 *.app
 *.pdf
+*.pptx
+*.localized
+*.ico
 vendor
 node_modules
 
@@ -26,13 +29,13 @@ Library/*
 !Library/Mobile Documents/
 Library/Mobile Documents/*
 !Library/Mobile Documents/com~apple~CloudDocs
+!Library/Mobile Documents/com~apple~CloudDocs/Downloads
+
 
 /* Optional */
 *.glsl
-*.localized
 *.iterm2
 *.ini
-*.ico
 Alfred.alfredpreferences
 cache
 Youtube
