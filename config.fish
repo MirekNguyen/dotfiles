@@ -25,10 +25,3 @@ alias ido='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Downloads'
 alias notes='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Notes'
 alias soffice='/Applications/_Casks/LibreOffice.app/Contents/MacOS/soffice'
 alias w='webtorrent download --out "$HOME"/Downloads'
-alias update='brew upgrade && brew autoremove && brew cleanup && fisher update &>/dev/null & nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"'
-alias cleanup='brew autoremove && brew cleanup && npm cache clean --force && pnpm store prune'
-
-# pnpm
-set -gx PNPM_HOME "/Users/mireknguyen/Library/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
