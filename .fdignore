@@ -3,7 +3,6 @@
 .gitignore
 .cache
 .npm
-.tmux
 .local
 .DS_Store
 .idea
@@ -31,13 +30,13 @@ Library/Mobile Documents/*
 !Library/Mobile Documents/com~apple~CloudDocs
 !Library/Mobile Documents/com~apple~CloudDocs/Downloads
 
-
 /* Optional */
 *.glsl
-*.iterm2
 *.ini
 Alfred.alfredpreferences
 cache
 Youtube
-[_]*.fish
+.config/fish/functions/*
+
+/* [_]*.fish */
 **/tide/configure
