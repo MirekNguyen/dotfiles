@@ -3,7 +3,7 @@
 .gitignore
 .cache
 .npm
-.local
+.local/*
 .DS_Store
 .idea
 .Trash
@@ -19,6 +19,7 @@
 *.ico
 vendor
 node_modules
+.dotnet/*
 
 /* Apple */
 Movies
@@ -29,6 +30,7 @@ Library/*
 Library/Mobile Documents/*
 !Library/Mobile Documents/com~apple~CloudDocs
 !Library/Mobile Documents/com~apple~CloudDocs/Downloads
+!/.local/bin
 
 /* Optional */
 *.glsl
