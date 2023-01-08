@@ -17,9 +17,14 @@
 *.pptx
 *.localized
 *.ico
+*.ini
 vendor
 node_modules
 .dotnet/*
+.aspnet
+.nuget/packages/*
+.next
+_next
 
 /* Apple */
 Movies
@@ -34,11 +39,7 @@ Library/Mobile Documents/*
 
 /* Optional */
 *.glsl
-*.ini
 Alfred.alfredpreferences
-cache
-Youtube
 .config/fish/functions/*
-
-/* [_]*.fish */
+**/mpv/watch_later/*
 **/tide/configure
