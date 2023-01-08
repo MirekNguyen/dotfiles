@@ -1,0 +1,80 @@
+bookmark-cmd ~/.local/bin/rss-open-url.sh
+bookmark-autopilot yes
+# general settings
+max-items 5
+history-limit 0
+cleanup-on-quit yes
+confirm-mark-feed-read no
+prepopulate-query-feeds yes
+
+show-title-bar no
+show-keymap-hint no
+
+# reload
+auto-reload yes
+reload-time 10
+reload-threads 10
+
+# browser
+browser "open -a safari '%u'"
+# text-width 80
+
+# key bindings
+unbind-key o
+bind-key ; toggle-article-read
+bind-key o open-in-browser-and-mark-read
+
+# vim
+unbind-key j
+unbind-key k
+unbind-key g
+unbind-key G
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key g home
+bind-key G end
+unbind-key o
+bind-key o bookmark
+macro o bookmark; toggle-article-read "read"; prev;
+
+# macro
+bind-key SPACE macro-prefix
+
+macro l set browser "echo %u | pbcopy"; open-in-browser; set browser "open -a safari '%u'"
+macro d set browser "kitty @ launch --type=tab --title Webtorrent && kitty @ send-text --match 'title:^Webtorrent' webtorrent download %u -o $HOME/Downloads/ \r"; open-in-browser-noninteractively; set browser "open -a safari '%u'"
+  # there is an option --keep-focus
+
+# theme
+color background          color223   color0
+color listnormal          color223   color0
+color listnormal_unread   color2     color0
+color listfocus           color223   color237
+color listfocus_unread    color223   color237
+color info                color8     color0
+color article             color223   color0
+
+# highlights
+highlight article "^(Feed|Link):.*$" color11 default bold
+highlight article "^(Title|Date|Author):.*$" color11 default bold
+highlight article "https?://[^ ]+" color2 default underline
+highlight article "\\[[0-9]+\\]" color2 default bold
+highlight article "\\[image\\ [0-9]+\\]" color2 default bold
+highlight feedlist "^─.*$" color6 color6 bold
+
+# highlight feedlist "[║│]" default default bold
+# highlight feedlist "╠═.*" default default bold
+# feedlist-format "%?T?║%4i %n %8u %t (%T) &╠#%-8t════════════════════════════════════════?"
+feedlist-format "%?T? %8u %t &%t?"
+articlelist-format "%D %f %?T?|%-17T| ?%t"
+
+# T = tag
+# i = index
+# n = read/unread
+# u = number of articles
+# t = title
+
+# ignore
+ignore-mode "display"
+ignore-article "*" "title =~ \"\#shorts\" or title =~ \"LIVE\""

@@ -1,0 +1,8 @@
+--Youtube--
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8ENHE5xdFSwx71u3fDH5Xw "~ThePrimeagen" "Youtube"
+
+--Anime--
+https://nyaa.si/?page=rss&f=0&c=0_0&q=Jujutsu+Kaisen+1080&u=subsplease "~Jujutsu Kaisen" "Anime" "^kitty @ launch --type=tab --title Webtorrent && kitty @ send-text --match 'title:Webtorrent' webtorrent download {url} -o $HOME/Downloads/ \\r"
+
+--Manga--
+https://www.taadd.com/book/rss/id-54492.xml "~Mieruko-Chan" "Manga" "^open -a safari https://mangabuddy.com/mieruko-chan/chapter-{chapter}"
