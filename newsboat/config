@@ -1,4 +1,4 @@
-bookmark-cmd ~/.local/bin/rss-open-url.sh
+bookmark-cmd ~/.dotfiles/newsboat/rss-open-url.sh
 bookmark-autopilot yes
 # general settings
 max-items 5
