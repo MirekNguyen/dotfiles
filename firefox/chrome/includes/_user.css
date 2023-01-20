@@ -1,0 +1,36 @@
+#forward-button[disabled="true"] {
+  margin-top: 1.2px !important;
+  margin-left: -22px !important;
+  opacity: 0 !important;
+  transform: scale(0.8, 0.8) !important;
+  pointer-events: none !important;
+}
+#back-button[disabled="true"] {
+  margin-top: 1.2px !important;
+  margin-left: -26px !important;
+  opacity: 0 !important;
+  transform: scale(0.8, 0.8) !important;
+  pointer-events: none !important;
+}
+#unified-extensions-button {
+  display: none !important;
+}
+#library-button {
+  display: none !important;
+}
+#urlbar-input::placeholder {
+  color: transparent;
+} /* empty search bar */
+#nav-bar-overflow-button {
+  display: none !important;
+} /* >> button */
+#tracking-protection-icon-container {
+  /* tracing protection button */
+  display: none !important;
+}
+#identity-box {
+  display: none !important;
+}
+#urlbar:not([focused]) {
+  opacity: 0;
+}

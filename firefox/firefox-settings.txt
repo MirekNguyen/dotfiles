@@ -1,0 +1,5 @@
+toolkit.legacyUserProfileCustomizations.stylesheets > true
+extensions.unifiedExtensions.enabled > false
+full-screen-api.warning.timeout > 0 (from 3000)
+full-screen-api.transition-duration.enter > 0 0 (from 200 200)
+full-screen-api.transition-duration.leave > 0 0 (from 200 200)

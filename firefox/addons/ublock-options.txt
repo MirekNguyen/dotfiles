@@ -1,0 +1,49 @@
+play.typeracer.com##.sidebarBlocks
+play.typeracer.com##.statsView
+play.typeracer.com###school-edition-promo
+play.typeracer.com##.footer-cont
+play.typeracer.com##.upgradeButton
+play.typeracer.com##.acctButtons
+play.typeracer.com###themeHeader > tbody > tr > td.navigation:nth-child(2) > div
+play.typeracer.com###tr_textHeader
+play.typeracer.com##[id^="gwt-uid-"] > table.gameView > tbody > tr:last-child
+play.typeracer.com##[id^="gwt-uid-"] > table.gameView > tbody > tr:nth-child(3) > td > table.navControls > tbody > tr > td:first-child > a.gwt-Anchor
+play.typeracer.com##[id^="gwt-uid-"] > table.gameView > tbody > tr:nth-child(2) > td > table.inputPanel > tbody > tr:first-child > td > table > tbody > tr:last-child > td
+play.typeracer.com###dUI > table.view > tbody > tr:nth-child(2) > td:last-child
+play.typeracer.com###dUI > table.view > tbody > tr:first-child
+play.typeracer.com###dUI > table.view > tbody > tr:last-child
+play.typeracer.com###userInfo > div > div.profilePicContainer:first-child
+play.typeracer.com###dUI > table.view > tbody > tr:nth-child(2) > td:nth-child(2) > div.mainViewportHolder > div.mainViewport:first-child > div.mainMenu > div.podContainer.medium.enterRace:nth-child(2) > div.OptionsWrapper:last-child
+youtube.com###sponsor-button
+youtube.com###subscribe-button
+youtube.com###flexible-item-buttons
+youtube.com###button-shape
+youtube.com###header > ytd-comments-header-renderer.style-scope.ytd-item-section-renderer
+youtube.com###below > ytd-merch-shelf-renderer.style-scope.ytd-watch-flexy:nth-child(8)
+youtube.com###reply-button-end
+youtube.com###super-title
+youtube.com###guide-button
+youtube.com###content > ytd-mini-guide-renderer.style-scope.ytd-app:nth-child(3)
+youtube.com###search-icon-legacy
+youtube.com###voice-search-button
+youtube.com###search-clear-button
+youtube.com###header > ytd-feed-filter-chip-bar-renderer.style-scope.ytd-rich-grid-renderer
+youtube.com###secondary
+youtube.com###content > ytd-rich-shelf-renderer.style-scope.ytd-rich-section-renderer
+youtube.com###below > ytd-watch-metadata.watch-active-metadata.style-scope.ytd-watch-flexy:nth-child(5) > ytd-metadata-row-container-renderer.style-scope.ytd-watch-metadata:last-child
+youtube.com###top-level-buttons-computed > ytd-button-renderer.style-scope.ytd-menu-renderer:last-child > yt-button-shape:first-child > button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading
+youtube.com###movie_player > div.ytp-chrome-top:nth-child(3)
+youtube.com###hover-overlays
+youtube.com###button > yt-icon.style-scope.ytd-menu-renderer > svg.style-scope.yt-icon > g.style-scope.yt-icon > path.style-scope.yt-icon
+youtube.com##.ytp-subtitles-button
+youtube.com##.ytp-miniplayer-button
+youtube.com##.ytp-volume-area
+youtube.com##.ytp-size-button
+youtube.com##.ytp-airplay-button
+youtube.com##.ytp-next-button
+youtube.com##.ytp-prev-button
+youtube.com##.ytp-autonav-toggle-button-container
+youtube.com###guide
+youtube.com###buttons > ytd-topbar-menu-button-renderer.style-scope.ytd-masthead.style-default:first-child
+youtube.com###buttons > ytd-button-renderer.style-scope.ytd-masthead:last-child
+
