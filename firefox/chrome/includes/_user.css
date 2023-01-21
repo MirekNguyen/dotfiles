@@ -34,3 +34,6 @@
 #urlbar:not([focused]) {
   opacity: 0;
 }
+#urlbar-results {
+  display: none;
+}
