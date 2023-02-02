@@ -1,30 +1,34 @@
-bookmark-cmd ~/.dotfiles/newsboat/rss-open-url.sh
-bookmark-autopilot yes
 # general settings
 max-items 5
 history-limit 0
 cleanup-on-quit yes
 confirm-mark-feed-read no
 prepopulate-query-feeds yes
-
 show-title-bar no
 show-keymap-hint no
+
+# browser
+browser "open '%u'"
 
 # reload
 auto-reload yes
 reload-time 10
 reload-threads 10
 
-# browser
-browser "open -a safari '%u'"
-# text-width 80
+# bookmark
+bookmark-cmd ~/.dotfiles/newsboat/rss-open-url.sh
+bookmark-autopilot yes
+
+# macro
+bind-key SPACE macro-prefix
+macro o bookmark; toggle-article-read "read"; prev;
 
 # key bindings
 unbind-key o
+bind-key o bookmark
 bind-key ; toggle-article-read
-bind-key o open-in-browser-and-mark-read
 
-# vim
+# vim key bindings
 unbind-key j
 unbind-key k
 unbind-key g
@@ -35,16 +39,10 @@ bind-key l open
 bind-key h quit
 bind-key g home
 bind-key G end
-unbind-key o
-bind-key o bookmark
-macro o bookmark; toggle-article-read "read"; prev;
 
-# macro
-bind-key SPACE macro-prefix
-
-macro l set browser "echo %u | pbcopy"; open-in-browser; set browser "open -a safari '%u'"
-macro d set browser "kitty @ launch --type=tab --title Webtorrent && kitty @ send-text --match 'title:^Webtorrent' webtorrent download %u -o $HOME/Downloads/ \r"; open-in-browser-noninteractively; set browser "open -a safari '%u'"
-  # there is an option --keep-focus
+# ignore
+ignore-mode "display"
+ignore-article "*" "title =~ \"\#shorts\" or title =~ \"LIVE\""
 
 # theme
 color background          color223   color0
@@ -74,7 +72,3 @@ articlelist-format "%D %f %?T?|%-17T| ?%t"
 # n = read/unread
 # u = number of articles
 # t = title
-
-# ignore
-ignore-mode "display"
-ignore-article "*" "title =~ \"\#shorts\" or title =~ \"LIVE\""

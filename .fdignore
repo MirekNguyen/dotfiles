@@ -12,6 +12,7 @@
 *.png
 *.srt
 *.mp4
+*.mov
 *.app
 *.pdf
 *.pptx

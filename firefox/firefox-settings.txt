@@ -1,6 +1,6 @@
-toolkit.legacyUserProfileCustomizations.stylesheets > true
-extensions.unifiedExtensions.enabled > false
-full-screen-api.warning.timeout > 0 (from 3000)
+toolkit.legacyUserProfileCustomizations.stylesheets > true - allow firefox-css
+extensions.unifiedExtensions.enabled > false - stop unification of addons into one button
+full-screen-api.warning.timeout > 0 (from 3000) - turn off fullscreen animation
 full-screen-api.transition-duration.enter > 0 0 (from 200 200)
 full-screen-api.transition-duration.leave > 0 0 (from 200 200)
-accessibility.typeaheadfind.manual > false
+accessibility.typeaheadfind.manual > false - turn off quick search '/'
