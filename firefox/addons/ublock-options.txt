@@ -46,4 +46,5 @@ youtube.com##.ytp-autonav-toggle-button-container
 youtube.com###guide
 youtube.com###buttons > ytd-topbar-menu-button-renderer.style-scope.ytd-masthead.style-default:first-child
 youtube.com###buttons > ytd-button-renderer.style-scope.ytd-masthead:last-child
+youtube.com###top-level-buttons-computed > ytd-button-renderer.ytd-menu-renderer.style-scope
 
