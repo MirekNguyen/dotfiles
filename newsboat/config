@@ -1,5 +1,5 @@
 # general settings
-max-items 5
+max-items 9
 history-limit 0
 cleanup-on-quit yes
 confirm-mark-feed-read no
@@ -64,8 +64,9 @@ highlight feedlist "^─.*$" color6 color6 bold
 # highlight feedlist "[║│]" default default bold
 # highlight feedlist "╠═.*" default default bold
 # feedlist-format "%?T?║%4i %n %8u %t (%T) &╠#%-8t════════════════════════════════════════?"
+# articlelist-format "%D %f %?T?|%-17T| ?%t"
 feedlist-format "%?T? %8u %t &%t?"
-articlelist-format "%D %f %?T?|%-17T| ?%t"
+articlelist-format "%D %f %?T? ?%t"
 
 # T = tag
 # i = index

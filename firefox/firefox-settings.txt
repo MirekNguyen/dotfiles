@@ -4,3 +4,4 @@ full-screen-api.warning.timeout > 0 (from 3000) - turn off fullscreen animation
 full-screen-api.transition-duration.enter > 0 0 (from 200 200)
 full-screen-api.transition-duration.leave > 0 0 (from 200 200)
 accessibility.typeaheadfind.manual > false - turn off quick search '/'
+layout.css.overflow-overlay.enabled > true - for bing chat
