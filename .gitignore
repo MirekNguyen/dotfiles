@@ -3,3 +3,4 @@ newsboat/urls
 newsboat/cache.db
 .DS_Store
 Alfred.alfredpreferences
+.fdignore
