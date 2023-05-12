@@ -1,0 +1,46 @@
+{
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "extensions.ignoreRecommendations": true,
+  "breadcrumbs.enabled": false,
+  // Vim ---------------------------------
+  "vim.commandLineModeKeyBindings": [],
+  "vim.useSystemClipboard": true,
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  // Editor ------------------------------
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingDelete": "never",
+  "editor.autoClosingOvertype": "never",
+  "editor.autoSurround": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.cursorBlinking": "solid",
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.matchBrackets": "never",
+  "editor.occurrencesHighlight": false,
+  "editor.renderLineHighlight": "none",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": false,
+  "editor.suggest.showSnippets": false,
+  "editor.suggest.showWords": false,
+  //-- "editor.scrollbar.horizontal": "hidden",
+  //-- "editor.scrollbar.vertical": "hidden",
+  // Workbench colors --------------------
+  "workbench.colorCustomizations": {
+    // Scrollbar
+    "editorOverviewRuler.addedForeground": "#0000",
+    "editorOverviewRuler.modifiedForeground": "#0000",
+    "editorOverviewRuler.deletedForeground": "#0000",
+    "editorOverviewRuler.errorForeground": "#0000",
+    // Gutter (same as tweaking scm.diffDecorations?)
+    "editorGutter.addedBackground": "#0000",
+    "editorGutter.modifiedBackground": "#0000",
+    "editorGutter.deletedBackground": "#0000"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.layoutControl.enabled": false
+}

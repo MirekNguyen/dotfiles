@@ -16,7 +16,7 @@ reload-time 10
 reload-threads 10
 
 # bookmark
-bookmark-cmd ~/.dotfiles/newsboat/rss-open-url.sh
+bookmark-cmd ~/.local/dotfiles/newsboat/rss-open-url.sh
 bookmark-autopilot yes
 
 # macro

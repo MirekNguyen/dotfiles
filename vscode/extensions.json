@@ -1,0 +1,236 @@
+[
+  {
+    "identifier": {
+      "id": "jdinhlife.gruvbox",
+      "uuid": "c6d564c4-ca8c-45ba-abf6-c85f2d1468d8"
+    },
+    "version": "1.8.0",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/jdinhlife.gruvbox-1.8.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "jdinhlife.gruvbox-1.8.0",
+    "metadata": {
+      "id": "c6d564c4-ca8c-45ba-abf6-c85f2d1468d8",
+      "publisherId": "571210a8-f372-43c2-8b5a-018868d4ac96",
+      "publisherDisplayName": "jdinhlife",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1682882971005,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "genieai.chatgpt-vscode",
+      "uuid": "daf35080-6889-46fc-89bf-288dce8f8ed2"
+    },
+    "version": "0.0.8",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/genieai.chatgpt-vscode-0.0.8",
+      "scheme": "file"
+    },
+    "relativeLocation": "genieai.chatgpt-vscode-0.0.8",
+    "metadata": {
+      "id": "daf35080-6889-46fc-89bf-288dce8f8ed2",
+      "publisherId": "d82a67a2-767d-433e-89ae-4cee53efb2de",
+      "publisherDisplayName": "Genie AI",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1682882999122,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "bmewburn.vscode-intelephense-client",
+      "uuid": "ffda6552-0ad5-431b-a4fa-0905a7e4f3f0"
+    },
+    "version": "1.9.5",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/bmewburn.vscode-intelephense-client-1.9.5",
+      "scheme": "file"
+    },
+    "relativeLocation": "bmewburn.vscode-intelephense-client-1.9.5",
+    "metadata": {
+      "id": "ffda6552-0ad5-431b-a4fa-0905a7e4f3f0",
+      "publisherId": "3209eeb0-2b1a-4484-8c83-2627b29db88e",
+      "publisherDisplayName": "Ben Mewburn",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1682883073531,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "aswinkumar863.smarty-template-support",
+      "uuid": "47c157f1-2267-47a6-92bb-659b05f1a3ce"
+    },
+    "version": "2.1.0",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/aswinkumar863.smarty-template-support-2.1.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "aswinkumar863.smarty-template-support-2.1.0",
+    "metadata": {
+      "id": "47c157f1-2267-47a6-92bb-659b05f1a3ce",
+      "publisherId": "3aedd8c4-51e5-4fc1-9632-2e3471769522",
+      "publisherDisplayName": "Aswin Kumar",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1682883079860,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "vscodevim.vim",
+      "uuid": "d96e79c6-8b25-4be3-8545-0e0ecefcae03"
+    },
+    "version": "1.25.2",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/vscodevim.vim-1.25.2",
+      "scheme": "file"
+    },
+    "relativeLocation": "vscodevim.vim-1.25.2",
+    "metadata": {
+      "id": "d96e79c6-8b25-4be3-8545-0e0ecefcae03",
+      "publisherId": "5d63889b-1b67-4b1f-8350-4f1dce041a26",
+      "publisherDisplayName": "vscodevim",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1682883108651,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "esbenp.prettier-vscode",
+      "uuid": "96fa4707-6983-4489-b7c5-d5ffdfdcce90"
+    },
+    "version": "9.12.0",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/esbenp.prettier-vscode-9.12.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "esbenp.prettier-vscode-9.12.0",
+    "metadata": {
+      "id": "96fa4707-6983-4489-b7c5-d5ffdfdcce90",
+      "publisherId": "d16f4e39-2ffb-44e3-9c0d-79d873570e3a",
+      "publisherDisplayName": "Prettier",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1682883115368,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ecmel.vscode-html-css",
+      "uuid": "aaee577c-f062-495a-9816-0cbd442f1d25"
+    },
+    "version": "1.13.1",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/ecmel.vscode-html-css-1.13.1",
+      "scheme": "file"
+    },
+    "relativeLocation": "ecmel.vscode-html-css-1.13.1",
+    "metadata": {
+      "id": "aaee577c-f062-495a-9816-0cbd442f1d25",
+      "publisherId": "7aa35068-d7c4-4220-b9c1-10360795fd5f",
+      "publisherDisplayName": "ecmel",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1682883607027,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-vscode.cpptools",
+      "uuid": "690b692e-e8a9-493f-b802-8089d50ac1b2"
+    },
+    "version": "1.15.4",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/ms-vscode.cpptools-1.15.4-darwin-arm64",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-vscode.cpptools-1.15.4-darwin-arm64",
+    "metadata": {
+      "id": "690b692e-e8a9-493f-b802-8089d50ac1b2",
+      "publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "darwin-arm64",
+      "isApplicationScoped": false,
+      "updated": true,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1683382719596,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-dotnettools.csharp",
+      "uuid": "d0bfc4ab-1d3a-4487-8782-7cf6027b4fff"
+    },
+    "version": "1.25.7",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/mireknguyen/.vscode/extensions/ms-dotnettools.csharp-1.25.7-darwin-arm64",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-dotnettools.csharp-1.25.7-darwin-arm64",
+    "metadata": {
+      "id": "d0bfc4ab-1d3a-4487-8782-7cf6027b4fff",
+      "publisherId": "d05e23de-3974-4ff0-8d47-23ee77830092",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "darwin-arm64",
+      "isApplicationScoped": false,
+      "updated": true,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1683382719585,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "cweijan.vscode-database-client2",
+      "uuid": "6ba92c55-a4a0-43f8-8aeb-cc3a03558814"
+    },
+    "version": "6.4.5",
+    "location": {
+      "$mid": 1,
+      "fsPath": "/Users/mireknguyen/.vscode/extensions/cweijan.vscode-database-client2-6.4.5",
+      "path": "/Users/mireknguyen/.vscode/extensions/cweijan.vscode-database-client2-6.4.5",
+      "scheme": "file"
+    },
+    "relativeLocation": "cweijan.vscode-database-client2-6.4.5",
+    "metadata": {
+      "id": "6ba92c55-a4a0-43f8-8aeb-cc3a03558814",
+      "publisherId": "43004267-e6e4-497f-b826-dda371e4ec49",
+      "publisherDisplayName": "Weijan Chen",
+      "targetPlatform": "undefined",
+      "isApplicationScoped": false,
+      "updated": true,
+      "isPreReleaseVersion": false,
+      "installedTimestamp": 1683915008129,
+      "preRelease": false
+    }
+  }
+]
