@@ -1,0 +1,11 @@
+yabai -m config layout stack
+
+yabai -m config top_padding    05
+yabai -m config bottom_padding 10
+yabai -m config left_padding   50
+yabai -m config right_padding  50
+yabai -m config window_gap     10
+
+# mouse
+yabai -m config mouse_modifier alt
+yabai -m config mouse_follows_focus on
