@@ -1,11 +1,20 @@
 Bitwarden
+Buster
+ChatGPT for Google
 I don't care about cookies
 Return Youtube Dislike
 Sponsorblock for Youtube
 uBlock Origin
 Unhook
-Vimium
+Vimium C
 Youtube Auto HD + FPS
 
 Dark Reader
 OneTab
+Bing Chat for All Browsers
+Bypass Paywalls
+
+Debug CSS
+Fake Filler
+Grepper
+Wave Evaluation Tool
