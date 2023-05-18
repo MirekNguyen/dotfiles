@@ -1,6 +1,6 @@
-mpv/watch_later
-newsboat/urls
-newsboat/cache.db
+watch_later
+urls
+cache.db
 .DS_Store
 Alfred.alfredpreferences
-.fdignore
+fdignore
