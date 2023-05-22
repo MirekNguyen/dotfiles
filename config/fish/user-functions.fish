@@ -50,3 +50,11 @@ function mac_info
   sleep 5 &&
   terminal-notifier -remove notifier
 end
+
+function z
+  if test -f "$argv[1]"
+    nohup zathura -- "$argv[1]" >/dev/null 2>&1 &;
+  else
+    echo "File doesn't exist";
+  end
+end
