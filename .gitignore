@@ -4,3 +4,5 @@ cache.db
 .DS_Store
 Alfred.alfredpreferences
 fdignore
+__init__.py
+__pycache__/
