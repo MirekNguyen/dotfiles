@@ -26,6 +26,8 @@ function clean
   rm -rf "$HOME/.omnisharp/"
   rm -rf "$HOME/.composer/"
   rm -rf "$HOME/.prettierd/"
+  rm -rf "$HOME/.wget-hsts"
+  rm -rf "$HOME/.python_history"
 end
 
 function audio_switch

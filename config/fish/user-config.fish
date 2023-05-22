@@ -7,6 +7,7 @@ export LESSHISTFILE=-
 
 set fish_greeting
 set -gx EDITOR nvim 
+set -gx MANPAGER "sh -c 'col -bx | bat --theme=gruvbox-dark -l man -p'"
 set -gx TERM xterm-256color
 
 # nnn

@@ -6,15 +6,15 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m config window_shadow off
 
 # Layout
-yabai -m config layout stack
+yabai -m config --space 1 layout stack
 yabai -m config --space 2 layout bsp
 yabai -m config --space 3 layout bsp
 
 # Padding and gaps
 yabai -m config top_padding    00
 yabai -m config bottom_padding 00
-yabai -m config left_padding   00
-yabai -m config right_padding  00
+yabai -m config left_padding   10
+yabai -m config right_padding  10
 yabai -m config window_gap     10
 
 # Mouse
@@ -26,11 +26,14 @@ yabai -m config focus_follows_mouse autofocus
 yabai -m rule --add app="^Firefox$" space=^1
 yabai -m rule --add app="^kitty$" space=^2
 yabai -m rule --add app="^Finder$" space=^3
-yabai -m rule --add app="^(LibreOffice|mpv|Google Chrome|Docker|Microsoft Word|Photos|Maps)$" space=^4
+yabai -m rule --add app="^(LibreOffice|mpv|Google Chrome|Docker|Microsoft Word|Photos|Maps|Mail|zathura|sioyek)$" space=^4
+yabai -m rule --add app="^(Parallels Desktop|Fedora Linux|Windows 11)$" space=^4
+yabai -m rule --add app="^(Honkai|Genshin)" space=^4 native-fullscreen=on
 # yabai -m rule --add app!="^(Firefox|kitty|Finder|Alfred)$" space=^4
 
 # Apps
 yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add title="^Developer Tools" manage=off grid=6:4:1:1:2:4
 
 
 function setup_space {

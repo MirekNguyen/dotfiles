@@ -31,9 +31,9 @@ shift + alt - f : yabai -m window --toggle native-fullscreen
 lctrl + alt - b : yabai -m space --balance
 
 # switch layout
-shift + alt - q : yabai -m config layout bsp
-shift + alt - w : yabai -m config layout float
-shift + alt - e : yabai -m config layout stack
+shift + alt - q : yabai -m space --layout bsp
+shift + alt - w : yabai -m space --layout stack
+shift + alt - e : yabai -m space --layout float
 
 # resize
 lctrl + alt - h : yabai -m window --resize left:-20:0; \
@@ -52,3 +52,7 @@ shift + alt - y : yabai -m space --mirror y-axis
 shift + alt - o : audio_switch
 shift + alt - p : mac_info
 cmd - return : open -a "kitty"
+
+shift + alt - u : yabai -m window --toggle float; yabai -m window --grid 8:8:1:1:6:6
+shift + alt - space : \
+    yabai -m window --toggle float; \
