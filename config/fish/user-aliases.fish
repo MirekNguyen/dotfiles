@@ -2,6 +2,7 @@ alias v='nvim'
 alias w='webtorrent download --out "$HOME"/Downloads'
 alias n "newsboat -q"
 alias n3 "nnn -A -d -H -P f"
+alias f "ranger"
 alias icat="kitty +kitten icat"
 alias libreoffice="soffice"
 
