@@ -1,10 +1,10 @@
 alias v='nvim'
 alias w='webtorrent download --out "$HOME"/Downloads'
 alias n "newsboat -q"
-alias n3 "nnn -A -d -H -P f"
+alias n3 "nnn -A -d -P f -c"
 alias f "ranger"
 alias b "btm -b --color gruvbox"
-alias m "ncmpcpp -b $HOME/.config/ncmpcpp/bindings"
+alias m "musikcube"
 alias icat="kitty +kitten icat"
 alias libreoffice="soffice"
 

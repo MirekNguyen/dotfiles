@@ -6,6 +6,7 @@ confirm-mark-feed-read no
 prepopulate-query-feeds yes
 show-title-bar no
 show-keymap-hint no
+refresh-on-startup yes
 
 # browser
 browser "open '%u'"
