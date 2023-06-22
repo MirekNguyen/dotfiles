@@ -6,3 +6,4 @@ Alfred.alfredpreferences
 fdignore
 __init__.py
 __pycache__/
+.lastd

@@ -19,6 +19,9 @@ shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
 # space focus
 alt - j : yabai -m space --focus next
 alt - k : yabai -m space --focus prev
+alt - h : yabai -m window --focus stack.prev
+alt - l : yabai -m window --focus stack.next
+
 
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
