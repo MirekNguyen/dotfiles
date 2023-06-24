@@ -49,4 +49,4 @@ youtube.com###buttons > ytd-button-renderer.style-scope.ytd-masthead:last-child
 youtube.com###top-level-buttons-computed > ytd-button-renderer.ytd-menu-renderer.style-scope
 youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope
 youtube.com##ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app:style(margin-left: 0 !important)
-
+youtube.com##.ytp-button.ytp-fullerscreen-edu-button
