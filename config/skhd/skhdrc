@@ -2,11 +2,9 @@ lctrl + alt - r : yabai --restart-service; skhd --restart-service
 
 # window focus within space
 shift + alt - j : yabai -m window --focus south; \
-          yabai -m window --focus stack.next; \
-          yabai -m window --focus next;
+          yabai -m window --focus stack.next;
 shift + alt - k : yabai -m window --focus north; \
-          yabai -m window --focus stack.prev; \
-          yabai -m window --focus prev;
+          yabai -m window --focus stack.prev;
 shift + alt - h : yabai -m window --focus west;
 shift + alt - l : yabai -m window --focus east;
 
