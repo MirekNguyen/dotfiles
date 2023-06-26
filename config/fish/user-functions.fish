@@ -53,7 +53,15 @@ end
 
 function z
   if test -f "$argv[1]"
-    nohup zathura -- "$argv[1]" >/dev/null 2>&1 &;
+    if file "$argv[1]" | grep -iE 'microsoft|opendocument' &>/dev/null;
+      set -l tmpdir "/tmp/zathura";
+      set -l file $(bash -c "filename=$argv[1]; echo \"\${filename%.*}\"")
+      soffice --convert-to pdf --outdir "$tmpdir" "$argv[1]" &>/dev/null;
+      nohup zathura -- "$tmpdir/$file.pdf" >/dev/null 2>&1 &;
+      sleep 1 && rm -rf "$tmpdir";
+    else
+      nohup zathura -- "$argv[1]" >/dev/null 2>&1 &;
+    end
   else
     echo "File doesn't exist";
   end
