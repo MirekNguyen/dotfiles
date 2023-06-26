@@ -84,3 +84,8 @@ function gc
     gh repo clone "$repo";
   end
 end
+function ltex
+  latexmk -halt-on-error -f -pvc -pdf "$argv[1]";
+  latexmk -c "$argv[1]";
+end
+
