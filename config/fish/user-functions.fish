@@ -89,3 +89,17 @@ function ltex
   latexmk -c "$argv[1]";
 end
 
+function convert-search
+    set input_string (string join " " $argv)
+    set output_string ""
+    
+    for i in (string split "" $input_string)
+      set output_string (string join "" "$output_string" "[[=$i=]]")
+    end
+
+    echo $output_string
+end
+
+function convert-pdf
+  libreoffice --headless --convert-to pdf "$argv[1]"
+end
