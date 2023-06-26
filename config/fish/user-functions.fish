@@ -58,3 +58,29 @@ function z
     echo "File doesn't exist";
   end
 end
+
+function cheat-fzf
+  set -l color $(string join '' \
+    "fg:#f8f8f2,bg:#282a36,hl:#bd93f9,"\
+    "fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9,"\
+    "info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,"\
+    "marker:#ff79c6,spinner:#ffb86c,header:#6272a4")
+  set -l fzf "fzf -e --preview="$fzf_find_preview" --cycle --preview-window="$fzf_find_preview" --height 30% --border rounded --color="$color""
+  cat $(cheat -l | tail +2 | eval "$fzf" | tr -s ' ' | cut -d' ' -f2,2) | nvim -R
+  commandline --function repaint;
+end
+
+function gc
+  set -l color $(string join '' \
+    "fg:#f8f8f2,bg:#282a36,hl:#bd93f9,"\
+    "fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9,"\
+    "info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,"\
+    "marker:#ff79c6,spinner:#ffb86c,header:#6272a4")
+  set -l fzf "fzf -e --preview="$fzf_find_preview" --cycle --preview-window="$fzf_find_preview" --height 30% --border rounded --color="$color""
+  set -l repo "$(gh repo list | sed 's/\t/§/g' | cut -d'§' -f1,1 | eval "$fzf")"
+  if test "$repo" = ""
+    return
+  else
+    gh repo clone "$repo";
+  end
+end
