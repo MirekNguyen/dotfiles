@@ -53,7 +53,7 @@ end
 
 function z
   if test -f "$argv[1]"
-    if file "$argv[1]" | grep -iE 'microsoft|opendocument' &>/dev/null;
+    if file -bL --mime-type "$argv[1]" | grep -iE 'openxmlformats|opendocument' &>/dev/null;
       set -l tmpdir "/tmp/zathura";
       set -l file $(bash -c "filename=$argv[1]; echo \"\${filename%.*}\"")
       soffice --convert-to pdf --outdir "$tmpdir" "$argv[1]" &>/dev/null;
