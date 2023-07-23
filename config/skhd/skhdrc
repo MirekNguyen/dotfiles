@@ -55,7 +55,7 @@ shift + alt - y : yabai -m space --mirror y-axis
 # shortcuts
 shift + alt - o : audio_switch
 shift + alt - p : mac_info
-alt - return : open -a "kitty"
+# alt - return : open -a "kitty"
 
 shift + alt - u : yabai -m window --toggle float; yabai -m window --grid 8:8:1:1:6:6
 shift + alt - i : yabai -m window --grid 12:12:3:3:3:3

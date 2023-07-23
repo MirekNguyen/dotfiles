@@ -34,7 +34,3 @@ alias mount-next="rclone mount --vfs-cache-mode writes 'ncloud:' $HOME/.local/mo
 alias unmount-next="umount -f $HOME/.local/mount/nextcloud/"
 alias cd-next="cd ~/.local/mount/nextcloud"
 alias unmount-all="umount -f $HOME/.local/mount/*"
-
-# chatgpt
-alias chatgpt="chatgpt-cli --settings="$HOME/.local/share/chatgpt-cli/settings.js""
-alias bing="chatgpt-cli --settings="$HOME/.local/share/chatgpt-cli/settings-bing.js""

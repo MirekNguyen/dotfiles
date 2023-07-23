@@ -111,3 +111,8 @@ end
 function convert-pdf
   libreoffice --headless --convert-to pdf "$argv[1]"
 end
+function mp 
+  nohup mpv --player-operation-mode=pseudo-gui "$argv[1]" >/dev/null 2>&1 &;
+  disown;
+end
+

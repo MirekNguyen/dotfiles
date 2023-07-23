@@ -7,7 +7,7 @@ yabai -m config window_shadow off
 yabai -m config layout bsp
 
 # Layout
-yabai -m config --space 1 layout stack
+yabai -m config --space 1 layout bsp
 yabai -m config --space 2 layout bsp
 yabai -m config --space 3 layout bsp
 yabai -m config --space 4 layout bsp
@@ -28,9 +28,10 @@ yabai -m config focus_follows_mouse autofocus
 yabai -m rule --add app="^Firefox$" space=^1
 yabai -m rule --add app="^kitty$" space=^2
 yabai -m rule --add app="^Finder$" space=^3
-yabai -m rule --add app="^(LibreOffice|Google Chrome|Docker|Microsoft Word|Photos|Maps|Mail|zathura|sioyek|Preview)$" space=^4
-yabai -m rule --add app="^(Parallels Desktop|Fedora Linux|Windows 11)$" space=^4
-yabai -m rule --add app="^(Honkai|Genshin|mpv)" space=^4 native-fullscreen=on
+yabai -m rule --add app="^(mpv)$" space=^4 native-fullscreen=on
+# yabai -m rule --add app="^(LibreOffice|Google Chrome|Docker|Microsoft Word|Photos|Maps|Mail|zathura|sioyek|Preview)$" space=^4
+# yabai -m rule --add app="^(Parallels Desktop|Fedora Linux|Windows 11)$" space=^4
+# yabai -m rule --add app="^(Honkai|Genshin|mpv)" space=^4 native-fullscreen=on
 # yabai -m rule --add app!="^(Firefox|kitty|Finder|Alfred)$" space=^4
 
 # Apps
