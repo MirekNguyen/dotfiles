@@ -2,10 +2,8 @@ alias v='nvim'
 alias w='webtorrent download --out "$HOME"/Downloads'
 alias n "newsboat -q"
 alias n3 "nnn -A -d -P f -c"
-alias f "ranger"
 alias b "btm -b"
 alias btm "btm --color gruvbox"
-alias m "musikcube"
 alias icat="kitty +kitten icat"
 alias libreoffice="soffice"
 
@@ -24,13 +22,3 @@ alias ls='exa -g --oneline'
 alias la='exa -g -a --oneline'
 alias ll='exa -g -l'
 alias lla='exa -g -la'
-
-#mount
-alias mount-notes="rclone mount --vfs-cache-mode writes 'ncloud:Media/Notes' $HOME/.local/mount/nextcloud-notes/"
-alias unmount-notes="umount -f $HOME/.local/mount/nextcloud-notes/"
-alias cd-notes="cd ~/.local/mount/nextcloud-notes"
-
-alias mount-next="rclone mount --vfs-cache-mode writes 'ncloud:' $HOME/.local/mount/nextcloud/"
-alias unmount-next="umount -f $HOME/.local/mount/nextcloud/"
-alias cd-next="cd ~/.local/mount/nextcloud"
-alias unmount-all="umount -f $HOME/.local/mount/*"
