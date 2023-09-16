@@ -1,6 +1,7 @@
 function update
   brew upgrade;
   fisher update &>/dev/null;
+  nvim --headless empty +'Lazy update' +'TSUpdateSync' +'MasonUpdate' +qa;
 end
 
 function clean
