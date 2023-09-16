@@ -13,6 +13,6 @@ set -gx TERM xterm-256color
 
 # nnn
 set -gx NNN_FIFO '/tmp/nnn.fifo'
-set -gx NNN_PLUG 'f:-preview-tui;q:-quicklook'
+set -gx NNN_PLUG 'p:-preview-tui;q:-quicklook;f:-fzcd'
 set -gx NNN_OPENER "$HOME/.config/nnn/plugins/nuke"
 set -gx NNN_FCOLORS 'c1e2042e006033f7c6d6abc4'
