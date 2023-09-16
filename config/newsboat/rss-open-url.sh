@@ -3,13 +3,12 @@ cd "$(dirname "${BASH_SOURCE[0]}")";
 row=$(grep "$4" "./urls");
 if ! echo "$row" | grep '\^'; then 
   if [[ "$(uname -s)" == "Darwin" ]]; then
-    # if echo "$1" | grep -i "youtube"; then
-    #   # nohup mpv --player-operation-mode=pseudo-gui "$1" >/dev/null 2>&1 &
-    #   nohup mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format="bestvideo[height<=?1080][fps<=?30][vcodec!=?vp9]+bestaudio/best" "$1" >/dev/null 2>&1 &
-    #   disown;
-    # else
+    if echo "$1" | grep -i "youtube"; then
+      nohup mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format="best" "$1" >/dev/null 2>&1 &
+      disown;
+    else
       open "$1";
-    # fi
+    fi
   else
     xdg-open "$1";
   fi
