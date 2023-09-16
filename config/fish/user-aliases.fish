@@ -1,7 +1,6 @@
 alias v='nvim'
 alias w='webtorrent download --out "$HOME"/Downloads'
 alias n "newsboat -q"
-alias n3 "nnn -A -d -P f -c"
 alias b "btm -b"
 alias btm "btm --color gruvbox"
 alias icat="kitty +kitten icat"
@@ -17,8 +16,8 @@ alias do='cd ~/downloads/'
 alias ido='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Downloads'
 alias notes='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Notes'
 
-# exa
-alias ls='exa -g --oneline'
-alias la='exa -g -a --oneline'
-alias ll='exa -g -l'
-alias lla='exa -g -la'
+# eza
+alias ls='eza -g --oneline'
+alias la='eza -g -a --oneline'
+alias ll='eza -g -l'
+alias lla='eza -g -la'
