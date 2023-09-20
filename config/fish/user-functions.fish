@@ -117,6 +117,15 @@ function mp
   disown;
 end
 
+function diffstring
+  command bash -c "delta <(printf '%s\n' \"$argv[1]\"; echo) <(printf '%s\n' \"$argv[2]\"; echo)"
+end
+
+function yabaiinstall
+  sudo echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai)) --load-sa" | sudo EDITOR="tee" visudo -f /private/etc/sudoers.d/yabai &&
+  yabai --restart-service;
+end
+
 
 function n3 --wraps nnn --description 'support nnn quit and change directory'
     # Block nesting of nnn in subshells
@@ -150,4 +159,3 @@ function n3 --wraps nnn --description 'support nnn quit and change directory'
         rm $NNN_TMPFILE
     end
 end
-
