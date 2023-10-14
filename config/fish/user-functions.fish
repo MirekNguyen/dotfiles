@@ -75,7 +75,7 @@ function cheat-fzf
     "info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,"\
     "marker:#ff79c6,spinner:#ffb86c,header:#6272a4")
   set -l fzf "fzf -e --preview="$fzf_find_preview" --cycle --preview-window="$fzf_find_preview" --height 30% --border rounded --color="$color""
-  cat $(cheat -l | tail +2 | eval "$fzf" | tr -s ' ' | cut -d' ' -f2,2) | nvim -R
+  cat $(cheat -l | tail +2 | eval "$fzf" | tr -s ' ' | cut -d ' ' -f2- | rev | cut -d ' ' -f2- | rev) | nvim -R
   commandline --function repaint;
 end
 
