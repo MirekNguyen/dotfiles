@@ -1,0 +1,13 @@
+hide_display_names= true
+library_tabs=["tracks", "albums", "artists", "playlists"]
+[keybindings]
+"[" = "focus queue"
+"]" = "focus library"
+"?" = "focus search"
+"Space" = "playpause"
+"Escape" = "back"
+";" = "play"
+"'" = "queue"
+"§" = "help"
+"Ctrl+up" = "volup 5"
+"Ctrl+down" = "voldown 5"
