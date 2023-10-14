@@ -9,3 +9,6 @@ layout.css.overflow-overlay.enabled > true - for bing chat
 
 # librewolf
 full-screen-api.ignore-widgets > true - turn off mouse hover fullscreen notification
+
+full-screen-api.ignore-widgets > true
+browser.fullscreen.autohide > true

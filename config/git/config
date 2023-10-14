@@ -1,6 +1,6 @@
 [user]
 	name = Mirek Nguyen
-	email = nguyemir@fit.cvut.cz
+	email = mireknguyenbinh@seznam.cz
 [core]
 	editor = nvim
 	excludesfile = /Users/mireknguyen/.gitignore_global
