@@ -9,5 +9,6 @@ library_tabs=["tracks", "albums", "artists", "playlists"]
 ";" = "play"
 "'" = "queue"
 "§" = "help"
-"Ctrl+up" = "volup 5"
-"Ctrl+down" = "voldown 5"
+"+" = "volup 5"
+"-" = "voldown 5"
+
