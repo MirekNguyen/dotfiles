@@ -21,3 +21,5 @@ alias ls='eza -g --oneline'
 alias la='eza -g -a --oneline'
 alias ll='eza -g -l'
 alias lla='eza -g -la'
+
+alias f="yazi"

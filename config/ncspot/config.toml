@@ -1,5 +1,6 @@
 hide_display_names= true
-library_tabs=["tracks", "albums", "artists", "playlists"]
+library_tabs=["tracks", "playlists"]
+
 [keybindings]
 "[" = "focus queue"
 "]" = "focus library"
@@ -11,4 +12,8 @@ library_tabs=["tracks", "albums", "artists", "playlists"]
 "§" = "help"
 "+" = "volup 5"
 "-" = "voldown 5"
-
+"s" = "save"
+"." = "seek +10s"
+"," = "seek -10s"
+"g" = "move top"
+"G" = "move bottom"
