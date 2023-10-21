@@ -5,6 +5,7 @@ alias b "btm -b"
 alias btm "btm --color gruvbox"
 alias icat="kitty +kitten icat"
 alias libreoffice="soffice"
+alias mans="apropos . | grep \(1\) | sed 's/(1)//g' | fzf | cut -d' ' -f1,1 | xargs -I {} man {}"
 
 # ssh
 alias r "ssh binh@mirekng.com"
