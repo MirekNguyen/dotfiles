@@ -159,3 +159,12 @@ function n3 --wraps nnn --description 'support nnn quit and change directory'
         rm $NNN_TMPFILE
     end
 end
+
+function open_images
+  set my_files
+  for file in *.jpg *.png
+    set -a my_files $file
+  end
+  # qlmanage -p $my_files
+  open -a "Preview" $my_files
+end
