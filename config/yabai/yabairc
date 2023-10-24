@@ -29,7 +29,6 @@ yabai -m rule --add app="^(Firefox|LibreWolf)$" space=^1
 yabai -m rule --add app="^kitty$" space=^2
 yabai -m rule --add app="^Finder$" space=^3
 yabai -m rule --add app="^(mpv)$" space=^4
-# yabai -m rule --add app="^(LibreOffice|Google Chrome|Docker|Microsoft Word|Photos|Maps|Mail|zathura|sioyek|Preview)$" space=^4
 yabai -m rule --add app="^(Parallels Desktop|Fedora Linux|Windows 11)$" space=^4
 
 # Apps
