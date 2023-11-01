@@ -45,22 +45,49 @@ bind-key G end
 ignore-mode "display"
 ignore-article "*" "title =~ \"\#shorts\" or title =~ \"LIVE\""
 
-# theme
-color background          color223   color0
-color listnormal          color223   color0
-color listnormal_unread   color2     color0
-color listfocus           color223   color237
-color listfocus_unread    color223   color237
-color info                color8     color0
-color article             color223   color0
+# gruvbox
+# color article                              color223 color236
+# # color background                           color100 color236
+# color info                                 color142 color235
+# color listfocus                            color214 color239
+# # color listfocus_unread                     color214 color96
+# # color listnormal                           color246 color237
+# # color listnormal_unread                    color175 color237
+# # highlight article "^Feed:.*"               color175 color237
+# # highlight article "^Title:.*"              color214 color237 bold
+# # highlight article "^Author:.*"             color167 color237
+# # highlight article "^Link:.*"               color109 color237
+# # highlight article "^Date:.*"               color142 color237
+# # highlight article "\\[[0-9]\\+\\]"         color208 color237 bold
+# # highlight article "\\[[^0-9].*[0-9]\\+\\]" color167 color237 bold
+# #
+color listnormal_unread   color2     color237
+# color listfocus_unread    color223   color0
 
-# highlights
-highlight article "^(Feed|Link):.*$" color11 default bold
-highlight article "^(Title|Date|Author):.*$" color11 default bold
+# color background          color223   color0
+# color listnormal          color223   color0
+# color listnormal_unread   color2     color0
+color listfocus           color223   color237
+color listfocus_unread    color2     color237
+color info                color248   color234
+# color article             color223   color0
+
+# # theme
+#  color background          color223   color0
+# # color listnormal          color223   color0
+# color listnormal_unread   color2     color0
+# color listfocus           color223   color237
+# color listfocus_unread    color223   color237
+# color info                color8     color0
+# color article             color223   color0
+# 
+# # highlights
+# highlight article "^(Feed|Link):.*$" color11 default bold
+# highlight article "^(Title|Date|Author):.*$" color11 default bold
 highlight article "https?://[^ ]+" color2 default underline
-highlight article "\\[[0-9]+\\]" color2 default bold
-highlight article "\\[image\\ [0-9]+\\]" color2 default bold
-highlight feedlist "^─.*$" color6 color6 bold
+# highlight article "\\[[0-9]+\\]" color2 default bold
+# highlight article "\\[image\\ [0-9]+\\]" color2 default bold
+# highlight feedlist "^─.*$" color6 color6 bold
 
 # highlight feedlist "[║│]" default default bold
 # highlight feedlist "╠═.*" default default bold
