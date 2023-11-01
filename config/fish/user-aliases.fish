@@ -15,7 +15,6 @@ alias r "ssh binh@mirekng.com"
 
 # cd
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
-alias d='cd ~/desktop'
 alias do='cd ~/downloads/'
 alias ido='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Downloads'
 alias notes='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Notes'
