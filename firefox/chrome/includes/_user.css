@@ -1,16 +1,24 @@
+#forward-button, #back-button {
+  /* margin-top: 7px !important; */
+  margin-top: 8px !important;
+}
 #forward-button[disabled="true"] {
-  margin-top: 1.2px !important;
+  opacity: 0 !important;
+  /*
   margin-left: -22px !important;
   opacity: 0 !important;
   transform: scale(0.8, 0.8) !important;
   pointer-events: none !important;
+  */
 }
 #back-button[disabled="true"] {
-  margin-top: 1.2px !important;
+  opacity: 0 !important;
+  /*
   margin-left: -26px !important;
   opacity: 0 !important;
   transform: scale(0.8, 0.8) !important;
   pointer-events: none !important;
+  */
 }
 #unified-extensions-button {
   display: none !important;
