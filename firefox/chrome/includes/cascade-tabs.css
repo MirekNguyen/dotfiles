@@ -9,9 +9,11 @@
 
 
 /* remove tab shadow */
+/*
 .tabbrowser-tab
   >.tab-stack
   > .tab-background { box-shadow: none !important;  }
+*/
 
 
 /* multi tab selection */
