@@ -163,3 +163,15 @@ function open_images
   # qlmanage -p $my_files
   open -a "Preview" $my_files
 end
+function switch_tabs
+  set new_tab_id (kitty @ ls | jq -r '
+  .[]
+  | select(.is_active)
+  | .tabs[]
+  | select(.is_focused == false)
+  | [.title, "id:\(.id)"]
+  | @tsv' | column -ts \t | fzf | awk '{ print $NF }'
+  )
+  kitty @ focus-tab -m $new_tab_id
+
+end
