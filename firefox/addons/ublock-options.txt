@@ -1,19 +1,3 @@
-play.typeracer.com##.sidebarBlocks
-play.typeracer.com##.statsView
-play.typeracer.com###school-edition-promo
-play.typeracer.com##.footer-cont
-play.typeracer.com##.upgradeButton
-play.typeracer.com##.acctButtons
-play.typeracer.com###themeHeader > tbody > tr > td.navigation:nth-child(2) > div
-play.typeracer.com###tr_textHeader
-play.typeracer.com##[id^="gwt-uid-"] > table.gameView > tbody > tr:last-child
-play.typeracer.com##[id^="gwt-uid-"] > table.gameView > tbody > tr:nth-child(3) > td > table.navControls > tbody > tr > td:first-child > a.gwt-Anchor
-play.typeracer.com##[id^="gwt-uid-"] > table.gameView > tbody > tr:nth-child(2) > td > table.inputPanel > tbody > tr:first-child > td > table > tbody > tr:last-child > td
-play.typeracer.com###dUI > table.view > tbody > tr:nth-child(2) > td:last-child
-play.typeracer.com###dUI > table.view > tbody > tr:first-child
-play.typeracer.com###dUI > table.view > tbody > tr:last-child
-play.typeracer.com###userInfo > div > div.profilePicContainer:first-child
-play.typeracer.com###dUI > table.view > tbody > tr:nth-child(2) > td:nth-child(2) > div.mainViewportHolder > div.mainViewport:first-child > div.mainMenu > div.podContainer.medium.enterRace:nth-child(2) > div.OptionsWrapper:last-child
 youtube.com###sponsor-button
 youtube.com###subscribe-button
 youtube.com###flexible-item-buttons
@@ -50,3 +34,7 @@ youtube.com###top-level-buttons-computed > ytd-button-renderer.ytd-menu-renderer
 youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope
 youtube.com##ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app:style(margin-left: 0 !important)
 youtube.com##.ytp-button.ytp-fullerscreen-edu-button
+youtube.com###about-these-results
+youtube.com###chip-bar
+
+||accounts.google.com/gsi/*$xhr,script,3p

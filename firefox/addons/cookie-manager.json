@@ -1,0 +1,27 @@
+{
+  "addonSize": {
+    "width": 705,
+    "height": 871
+  },
+  "delete_all_on_restart": true,
+  "display_deletion_alert": false,
+  "import_protected_cookies": false,
+  "open_in_new_tab": true,
+  "protected_cookies": {
+    ".youtube.com": [
+      "PREF",
+      "CONSENT"
+    ],
+    ".google.com": [
+      "__Secure-ENID",
+      "CONSENT"
+    ],
+    ".typeracer.com": [
+      "prefs"
+    ],
+    "www.reddit.com": [
+      "g_state"
+    ]
+  },
+  "skin": "hacker_style"
+}

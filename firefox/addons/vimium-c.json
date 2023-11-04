@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "5/16/2023, 10:01:08 PM",
-	"time": 1684267268872,
+	"@time": "11/4/2023, 10:56:15 AM",
+	"time": 1699091775095,
 	"environment": {
-		"extension": "1.99.991",
+		"extension": "1.99.995",
 		"platform": "mac",
-		"firefox": 112
+		"firefox": 119
 	},
 	"clipSub": "",
 	"exclusionRules": [
@@ -16,7 +16,7 @@
 	],
 	"grabBackFocus": true,
 	"hideHud": true,
-	"keyLayout": 2,
+	"keyLayout": 1,
 	"keyMappings": [
 		"#!no-check",
 		"unmapAll",
@@ -26,12 +26,13 @@
 		"map k scrollPageUp",
 		"map h scrollLeft",
 		"map l scrollRight",
-		"map s toggleViewSource",
 		"map ; LinkHints.activate hideHUD",
 		"map : LinkHints.activateOpenInNewTab hideHUD",
-		"map ' LinkHints.activateCopyLinkUrl",
-		"map \\ LinkHints.activateCopyImage",
+		"map ' LinkHints.activateOpenImage",
+		"map \" LinkHints.activateCopyImage",
 		"map | LinkHints.activateDownloadImage",
+		"map [ LinkHints.activateFocus",
+		"map ] LinkHints.activateHover",
 		"map gg scrollToTop",
 		"map G scrollToBottom",
 		"map ( moveTabLeft",
@@ -44,6 +45,7 @@
 		"map n performFind",
 		"map N performBackwardsFind",
 		"map B Vomnibar.activateBookmarksInNewTab",
+		"map D moveTabToNextWindow",
 		""
 	],
 	"keyupTime": 50,
@@ -55,6 +57,7 @@
 	"scrollStepSize": 150,
 	"searchEngines": "js\\:|Js: javascript:\\ $S; JavaScript",
 	"showActionIcon": false,
+	"showInIncognito": true,
 	"smoothScroll": false,
 	"userDefinedCss": [
 		".LH {",
@@ -63,5 +66,6 @@
 		"}",
 		""
 	],
-	"vimSync": true
+	"vimSync": true,
+	"ignoreKeyboardLayout": 2
 }
