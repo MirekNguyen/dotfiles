@@ -175,3 +175,15 @@ function switch_tabs
   kitty @ focus-tab -m $new_tab_id
 
 end
+function extract_links
+    set file $argv[1]
+    if test -f $file
+        set url (grep -o '\[.*\](\(.*\))' $file | sed -e 's/\[\(.*\)\](\(.*\))/\1 \2/g' | fzf | awk '{print $NF}')
+        if test -n "$url"
+            open -a "Librewolf" $url
+        end
+    else
+        echo "File does not exist"
+    end
+    commandline --function repaint;
+end
