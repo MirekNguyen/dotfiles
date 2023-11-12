@@ -11,6 +11,7 @@ yabai -m config --space 1 layout bsp
 yabai -m config --space 2 layout bsp
 yabai -m config --space 3 layout bsp
 yabai -m config --space 4 layout bsp
+yabai -m config --space 5 layout float
 
 # Padding and gaps
 yabai -m config top_padding    00
@@ -28,8 +29,8 @@ yabai -m config focus_follows_mouse autofocus
 yabai -m rule --add app="^(Firefox|LibreWolf)$" space=^1
 yabai -m rule --add app="^kitty$" space=^2
 yabai -m rule --add app="^Finder$" space=^3
-yabai -m rule --add app="^(mpv)$" space=^4
-yabai -m rule --add app="^(Parallels Desktop|Fedora Linux|Windows 11)$" space=^4
+yabai -m rule --add app="^(mpv)$" space=^5
+yabai -m rule --add app="^(Parallels Desktop|Fedora Linux|Windows 11)$" space=^5
 
 # Apps
 yabai -m rule --add app="^System Settings$" manage=off
@@ -54,3 +55,4 @@ setup_space 1 firefox
 setup_space 2 kitty
 setup_space 3 file-manager
 setup_space 4 other
+setup_space 5 other
