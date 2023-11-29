@@ -11,7 +11,7 @@ alias img="open -a \"Preview\""
 alias apps="osascript -e 'tell application \"System Events\" to get the name of (every application process whose background only is false)'"
 
 # ssh
-alias r "ssh binh@mirekng.net"
+alias r "ssh binh@mirekng.com"
 
 # cd
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
