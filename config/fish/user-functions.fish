@@ -107,8 +107,8 @@ end
 function convert-pdf
   libreoffice --headless --convert-to pdf "$argv[1]"
 end
-function mp 
-  nohup mpv --player-operation-mode=pseudo-gui --ytdl-format="best" "$argv[1]" >/dev/null 2>&1 &;
+function mp
+  nohup mpv "$argv[1]" >/dev/null 2>&1 &;
   disown;
 end
 
@@ -186,4 +186,13 @@ function extract_links
         echo "File does not exist"
     end
     commandline --function repaint;
+end
+
+function diactritics
+  curl -s 'https://korektor.lingea.cz/api/addDiacritics' \
+  --compressed \
+  -X POST \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  --data-raw "text=$argv&srcLang=cz" | sed -e 's/<[^>]*>//g'
 end

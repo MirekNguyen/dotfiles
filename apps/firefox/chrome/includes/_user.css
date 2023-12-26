@@ -20,9 +20,14 @@
   pointer-events: none !important;
   */
 }
+:root:not([customizing]) #unified-extensions-button:not(:hover, [open], [attention]) {
+  opacity: 0 !important;
+}
+/*
 #unified-extensions-button {
   display: none !important;
 }
+*/
 #library-button {
   display: none !important;
 }

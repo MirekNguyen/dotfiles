@@ -9,6 +9,7 @@ alias mans="apropos . | grep \(1\) | sed 's/(1)//g' | fzf | cut -d' ' -f1,1 | xa
 alias mvi="mpv --config-dir=$HOME/.config/mvi &>/dev/null"
 alias img="open -a \"Preview\""
 alias apps="osascript -e 'tell application \"System Events\" to get the name of (every application process whose background only is false)'"
+alias mpv "mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='bestvideo+bestaudio/best'"
 
 # ssh
 alias r "ssh binh@mirekng.com"
