@@ -196,3 +196,9 @@ function diactritics
   -H 'X-Requested-With: XMLHttpRequest' \
   --data-raw "text=$argv&srcLang=cz" | sed -e 's/<[^>]*>//g'
 end
+function fish_remove_path
+  if set -l index (contains -i "$argv" $fish_user_paths)
+    set -e fish_user_paths[$index]
+    echo "Removed $argv from the path"
+  end
+end
