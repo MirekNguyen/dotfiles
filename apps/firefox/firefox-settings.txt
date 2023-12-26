@@ -12,3 +12,6 @@ full-screen-api.ignore-widgets > true - turn off mouse hover fullscreen notifica
 
 full-screen-api.ignore-widgets > true
 browser.fullscreen.autohide > true
+
+browser.display.background_color > #282828 - change background for about:newtab
+browser.display.background_color.dark > #282828 - change background for about:blank
