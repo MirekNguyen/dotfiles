@@ -40,19 +40,19 @@ local user_opts = {
    seekbarkeyframes = true, -- use keyframes when dragging the seekbar
    title = "${media-title}", -- string compatible with property-expansion
    -- to be shown as OSC title
-   tooltipborder = 1, -- border of tooltip in bottom/topbar
+   tooltipborder = 0, -- border of tooltip in bottom/topbar
    timetotal = true, -- display total time instead of remaining time?
    timems = false, -- display timecodes with milliseconds?
    visibility = "auto", -- only used at init to set visibility_mode(...)
    -- visibility = "always",        -- only used at init to set visibility_mode(...)
    boxmaxchars = 80, -- title crop threshold for box layout
    boxvideo = false, -- apply osc_param.video_margins to video
-   windowcontrols = "auto", -- whether to show window controls
+   windowcontrols = "no", -- whether to show window controls
    windowcontrols_alignment = "right", -- which side to show window controls on
    greenandgrumpy = false, -- disable santa hat
    livemarkers = true, -- update seekbar chapter markers on duration change
    chapters_osd = false, -- whether to show chapters OSD on next/prev
-   playlist_osd = true, -- whether to show playlist OSD on next/prev
+   playlist_osd = false, -- whether to show playlist OSD on next/prev
    chapter_fmt = "no", -- chapter print format for seekbar-hover. "no" to disable
 }
 
