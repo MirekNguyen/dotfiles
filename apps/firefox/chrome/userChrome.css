@@ -36,3 +36,4 @@
 @import 'includes/cascade-nav-bar.css';
 @import 'includes/cascade-tabs.css';
 @import 'includes/_user.css';
+:root{--tabpanel-background-color: #282828 !important}  /*  Removes flash before loading pages  */
