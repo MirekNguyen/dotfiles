@@ -1,11 +1,14 @@
 #!/bin/bash
-cd "$(dirname "${BASH_SOURCE[0]}")";
+cd "$(dirname "${BASH_SOURCE[0]}")" || exit;
 row=$(grep "$4" "./urls");
 if ! echo "$row" | grep '\^'; then 
   if [[ "$(uname -s)" == "Darwin" ]]; then
     if echo "$1" | grep -i "youtube"; then
-      nohup mpv --no-sub "$1" >/dev/null 2>&1 &
-      disown;
+      # nohup mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='22/18/17/bv+ba' --no-sub "$1" >/dev/null 2>&1 &
+      XDG_RUNTIME_DIR="/tmp/users/$(id -u)";
+      rm -rf "$XDG_RUNTIME_DIR/ytaudio" >/dev/null;
+      yt-dlp -N 8 --no-part -f "wa[acodec~=opus]/ba" "$1" -o "${XDG_RUNTIME_DIR}/ytaudio";
+      nohup yt-dlp -f "bestvideo[height<=?1080]" "$1" -o - | mpv --audio-file="${XDG_RUNTIME_DIR}/ytaudio" - > /dev/null 2>&1 & disown;
     else
       open "$1";
     fi
@@ -31,24 +34,15 @@ fi
 
 if echo "$command" | grep '{title}'; then
   title="${command/\{title\}/$4}";
-  # echo "$newcommand" > /Users/mireknguyen/Downloads/rss.log;
   episode=$(echo "$2" | grep -E -ow '[0-9]{2}');
-  file="$(fd . "/Users/mireknguyen/.local/mount/fedora/" | fzf --select-1 --query "$title $episode")"
-  if ! [ -f "$file" ] ; then
+  mount_dir="$(fish -c 'echo "$SERVER_MOUNT"')"
+
+  mount_smbfs //binh/share "$mount_dir";
+  file="$(fd . --full-path "${mount_dir}" | fzf -e --select-1 --exit-0 --query "$title $episode")";
+  if ! [ -f "$file" ]; then
     terminal-notifier -group notifier -title Error -message "Could not parse RSS feed" &&
     terminal-notifier -remove notifier
   else
-    open "$file"
+    fish -C "mp \"$file\"";
   fi
-  # kitty @ launch --type=tab --title "$title" && \
-  # kitty @ send-text --match "title:\"$title\"" \
-  # "clear && \
-  # mp \$(
-  #   fd . "/Users/mireknguyen/.local/mount/fedora/" | fzf --query \"$title $episode\"
-  # ) && kitten @ close-tab --match 'title:\"$title\"' \\r"
-  # fd --literal \"$title\" "/Users/mireknguyen/.local/mount/fedora/" | fzf
-  # nohup mpv "/Users/mireknguyen/.local/mount/fedora/anime/Frieren - Beyond Journey's End/$newcommand" >/dev/null 2>&1 &
-  # exit 0;
 fi
-
-#  "^kitty @ launch --type=tab --title Webtorrent && kitty @ send-text --match 'title:Webtorrent' webtorrent download {url} -o $HOME/Downloads/ \\r"
