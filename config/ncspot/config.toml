@@ -13,6 +13,7 @@ library_tabs=["tracks", "playlists"]
 "+" = "volup 5"
 "-" = "voldown 5"
 "s" = "save"
+"S" = "add"
 "." = "seek +10s"
 "," = "seek -10s"
 "g" = "move top"
