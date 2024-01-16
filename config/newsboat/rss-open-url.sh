@@ -36,8 +36,9 @@ if echo "$command" | grep '{title}'; then
   title="${command/\{title\}/$4}";
   episode=$(echo "$2" | grep -E -ow '[0-9]{2}');
   mount_dir="$(fish -c 'echo "$SERVER_MOUNT"')"
+  ssh_mount="$(fish -c 'echo "$SERVER_SSH_MOUNT"')"
 
-  mount_smbfs //binh/share "$mount_dir";
+  mount_smbfs //binh/share "$mount_dir" || sshfs "$ssh_mount" "$mount_dir";
   file="$(fd . --full-path "${mount_dir}" | fzf -e --select-1 --exit-0 --query "$title $episode")";
   if ! [ -f "$file" ]; then
     terminal-notifier -group notifier -title Error -message "Could not parse RSS feed" &&
