@@ -11,6 +11,9 @@ alias img="open -a \"Preview\""
 alias images="timg --grid=4 --title --center $(fd --max-depth 1 --regex '^*.\.(jpg|png|gif|jpeg|avif|webp|tiff|bmp)' .)"
 alias apps="osascript -e 'tell application \"System Events\" to get the name of (every application process whose background only is false)'"
 alias mpv "mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='bestvideo[height<=?1080]+bestaudio/best'"
+alias ghs "gh copilot suggest"
+alias ghss "gh copilot suggest -t shell"
+alias ghsgit "gh copilot suggest -t git"
 
 # ssh
 alias r "ssh -C -A binh@mirekng.com"
