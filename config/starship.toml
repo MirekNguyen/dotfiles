@@ -22,9 +22,14 @@ vimcmd_symbol = "[❮](green)"
 
 [git_status]
 format = '[$all_status$ahead_behind ]($style)'
+conflicted = '=$count '
+ahead = '⇡$count '
+behind = '⇣$count '
+diverged = '⇕$count '
+up_to_date = '✓'
+untracked = '[?$count ](white)'
+stashed = '$$count '
 modified = '!$count '
 staged = '[++\($count\) ](green)'
-untracked = '[+$count ](white)'
-ahead = '⇡${count}'
-behind = '⇣${count}'
-up_to_date = '✓'
+renamed = '»$count '
+deleted = '✘$count '
