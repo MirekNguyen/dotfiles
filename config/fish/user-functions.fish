@@ -33,11 +33,11 @@ end
 
 function audio_switch
   if SwitchAudioSource -c | grep -i "speakers"
-   blueutil --connect 24-d0-df-99-e7-5a && 
-   SwitchAudioSource -s "Mirek’s AirPods Pro" && 
-   terminal-notifier -group notifier -message "Airpods" && 
-   sleep 1 && 
-   terminal-notifier -remove notifier
+    blueutil --connect 24-d0-df-99-e7-5a && 
+    SwitchAudioSource -s "Mirek’s AirPods Pro" && 
+    terminal-notifier -group notifier -message "Airpods" && 
+    sleep 1 && 
+    terminal-notifier -remove notifier
   else
     SwitchAudioSource -s "MacBook Air Speakers" && 
     terminal-notifier -group notifier -message "Macbook Air Speakers" && 
@@ -70,10 +70,10 @@ end
 
 function cheat-fzf
   set -l color $(string join '' \
-    "fg:#f8f8f2,bg:#282a36,hl:#bd93f9,"\
-    "fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9,"\
-    "info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,"\
-    "marker:#ff79c6,spinner:#ffb86c,header:#6272a4")
+  "fg:#f8f8f2,bg:#282a36,hl:#bd93f9,"\
+  "fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9,"\
+  "info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,"\
+  "marker:#ff79c6,spinner:#ffb86c,header:#6272a4")
   set -l fzf "fzf -e --preview="$fzf_find_preview" --cycle --preview-window="$fzf_find_preview" --height 30% --border rounded --color="$color""
   cat $(cheat -l | tail +2 | eval "$fzf" | tr -s ' ' | cut -d ' ' -f2- | rev | cut -d ' ' -f2- | rev) | nvim -R
   commandline --function repaint;
@@ -94,14 +94,14 @@ function ltex
 end
 
 function convert-search
-    set input_string (string join " " $argv)
-    set output_string ""
-    
-    for i in (string split "" $input_string)
-      set output_string (string join "" "$output_string" "[[=$i=]]")
-    end
+  set input_string (string join " " $argv)
+  set output_string ""
 
-    echo $output_string
+  for i in (string split "" $input_string)
+    set output_string (string join "" "$output_string" "[[=$i=]]")
+  end
+
+  echo $output_string
 end
 
 function convert-pdf
@@ -119,40 +119,6 @@ end
 function yabaiinstall
   sudo echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai)) --load-sa" | sudo EDITOR="tee" visudo -f /private/etc/sudoers.d/yabai &&
   yabai --restart-service;
-end
-
-
-function n3 --wraps nnn --description 'support nnn quit and change directory'
-    # Block nesting of nnn in subshells
-    if test -n "$NNNLVL" -a "$NNNLVL" -ge 1
-        echo "nnn is already running"
-        return
-    end
-
-    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
-    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
-    # see. To cd on quit only on ^G, remove the "-x" from both lines below,
-    # without changing the paths.
-    if test -n "$XDG_CONFIG_HOME"
-        set NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
-    else
-        set NNN_TMPFILE "$HOME/.config/nnn/.lastd"
-    end
-
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
-
-    # The command function allows one to alias this function to `nnn` without
-    # making an infinitely recursive alias
-    command nnn -A -d -P p -c $argv
-
-    if test -e $NNN_TMPFILE
-        source $NNN_TMPFILE
-        rm $NNN_TMPFILE
-    end
 end
 
 function open_images
@@ -176,16 +142,16 @@ function switch_tabs
 
 end
 function extract_links
-    set file $argv[1]
-    if test -f $file
-        set url (grep -o '\[.*\](\(.*\))' $file | sed -e 's/\[\(.*\)\](\(.*\))/\1 \2/g' | fzf | awk '{print $NF}')
-        if test -n "$url"
-            open -a "Librewolf" $url
-        end
-    else
-        echo "File does not exist"
+  set file $argv[1]
+  if test -f $file
+    set url (grep -o '\[.*\](\(.*\))' $file | sed -e 's/\[\(.*\)\](\(.*\))/\1 \2/g' | fzf | awk '{print $NF}')
+    if test -n "$url"
+      open -a "Librewolf" $url
     end
-    commandline --function repaint;
+  else
+    echo "File does not exist"
+  end
+  commandline --function repaint;
 end
 
 function diactritics
@@ -196,9 +162,15 @@ function diactritics
   -H 'X-Requested-With: XMLHttpRequest' \
   --data-raw "text=$argv&srcLang=cz" | sed -e 's/<[^>]*>//g'
 end
+
 function fish_remove_path
   if set -l index (contains -i "$argv" $fish_user_paths)
     set -e fish_user_paths[$index]
     echo "Removed $argv from the path"
   end
+end
+
+function trcz
+  set -l str $(echo "$argv" | tr ' ' '+')
+  diactritics $str | trans cs:en
 end
