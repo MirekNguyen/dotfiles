@@ -1,3 +1,10 @@
+urls-source "freshrss"
+freshrss-url "https://rss.mirekng.com/api/greader.php"
+freshrss-login "binh"
+freshrss-password "62MNB5q5efbs8"
+freshrss-show-special-feeds "false"
+freshrss-min-items 100
+
 # general settings
 max-items 20
 history-limit 0
