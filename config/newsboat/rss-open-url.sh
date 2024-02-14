@@ -4,7 +4,6 @@ row=$(grep "$4" "./urls");
 if ! echo "$row" | grep '\^'; then 
   if [[ "$(uname -s)" == "Darwin" ]]; then
     if echo "$1" | grep -i "youtube"; then
-      # nohup mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='22/18/17/bv+ba' --no-sub "$1" >/dev/null 2>&1 &
       XDG_RUNTIME_DIR="/tmp/users/$(id -u)";
       rm -rf "$XDG_RUNTIME_DIR/ytaudio" >/dev/null;
       yt-dlp -N 8 --no-part -f "wa[acodec~=opus]/ba" "$1" -o "${XDG_RUNTIME_DIR}/ytaudio";

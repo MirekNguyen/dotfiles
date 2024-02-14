@@ -1,12 +1,13 @@
 alias v='nvim'
 alias w='webtorrent download --out "$HOME"/Downloads'
-alias n "newsboat -q && neomutt -z"
+alias n "newsboat -u . -q && neomutt -z"
 alias b "btm --basic"
 alias btm "btm --color gruvbox --mem_as_value --group"
 alias bat "bat --theme=gruvbox --style=numbers --color=always"
 alias batjson "bat --theme=gruvbox --style=numbers --color=always --language=json"
 alias icat="kitty +kitten icat"
 alias mans="apropos . | grep \(1\) | sed 's/(1)//g' | fzf | cut -d' ' -f1,1 | xargs -I {} man {}"
+alias vn "nvim-nightly"
 
 # apps
 alias img="open -a \"Preview\""

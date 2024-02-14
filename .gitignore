@@ -1,5 +1,6 @@
 watch_later
 urls
+urls-disabled
 cache.db
 .DS_Store
 Alfred.alfredpreferences
