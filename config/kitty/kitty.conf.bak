@@ -46,6 +46,6 @@ scrollback_pager nvim --noplugin -u ~/.config/nvim/init.lua -c "silent write! /t
 # Gruvbox Material Dark Medium
 
 # BEGIN_KITTY_THEME
-# Gruvbox Material Dark Medium
+# Gruvbox Material Light Soft
 include current-theme.conf
 # END_KITTY_THEME

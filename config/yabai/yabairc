@@ -5,20 +5,17 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # Config
 yabai -m config window_shadow off
 yabai -m config layout bsp
+yabai -m config external_bar all:30:0
 
 # Layout
 # yabai -m config --space 1 layout bsp
-# yabai -m config --space 2 layout bsp
-# yabai -m config --space 3 layout bsp
-# yabai -m config --space 4 layout bsp
-# yabai -m config --space 5 layout bsp
 
 # Padding and gaps
 yabai -m config top_padding    00
 yabai -m config bottom_padding 00
 yabai -m config left_padding   00
 yabai -m config right_padding  00
-yabai -m config window_gap     10
+yabai -m config window_gap     05
 
 # Mouse
 yabai -m config mouse_modifier alt
@@ -28,14 +25,9 @@ yabai -m config focus_follows_mouse autofocus
 # Space
 yabai -m rule --add app="^(Firefox|LibreWolf)$" space=^1
 yabai -m rule --add app="^kitty$" space=^2
-# yabai -m rule --add app="^Finder$" space=^3
-yabai -m rule --add app="^mpv$" space=^5
-yabai -m rule --add app="^(Parallels Desktop|Fedora Linux|Windows 11)$" space=^5
-
-# Apps
-# yabai -m rule --add app="^System Settings$" manage=off
-# yabai -m rule --add title="^Developer Tools" manage=off grid=6:4:1:1:2:4
-
+yabai -m rule --add app="Teams" space=^4
+yabai -m rule --add app="Outlook|Mail" space=^5
+yabai -m rule --add app="mpv" space=^5
 
 function setup_space {
   local idx="$1"
@@ -54,5 +46,5 @@ function setup_space {
 setup_space 1 firefox
 setup_space 2 kitty
 setup_space 3 file-manager
-setup_space 4 other
-setup_space 5 video
+setup_space 4 ms-teams
+setup_space 5 mail

@@ -5,6 +5,7 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$git_commit\
 $git_state\
 $git_status\
 $cmd_duration\
@@ -28,8 +29,9 @@ behind = '⇣$count '
 diverged = '⇕$count '
 up_to_date = '✓'
 untracked = '[?$count ](white)'
-stashed = '$$count '
+stashed = '[\$$count](blue) '
 modified = '!$count '
 staged = '[++\($count\) ](green)'
 renamed = '»$count '
 deleted = '✘$count '
+typechanged = 'Δ$count '
