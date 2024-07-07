@@ -1,6 +1,6 @@
 [user]
 	name = Mirek Nguyen
-	email = mireknguyenbinh@seznam.cz
+	email = mirek.nguyen@o2.cz
 [core]
 	editor = nvim
 	excludesfile = /Users/mireknguyen/.gitignore_global
@@ -11,14 +11,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-; [difftool "sourcetree"]
-; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-; 	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 
 [core]
+    editor = nvim
     pager = delta
 
 [interactive]
@@ -26,7 +21,11 @@
 
 [delta]
     features = decorations
-    side-by-side = true
+    side-by-side = false
+    navigate = true
+    light = false
+    line-numbers = true
+    syntax-theme = gruvbox-dark
 
 [delta "interactive"]
     keep-plus-minus-markers = false
@@ -42,3 +41,15 @@
 
 [init]
 	defaultBranch = main
+[http]
+	sslVerify = false
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[pager]
+	show = delta
+
+# [mergetool "nvimdiff"]
+#     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+[color]
+	ui = auto

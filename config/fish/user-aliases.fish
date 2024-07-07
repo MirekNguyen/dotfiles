@@ -1,28 +1,14 @@
+# shortcuts
 alias v='nvim'
-alias w='webtorrent download --out "$HOME"/Downloads'
-alias n "newsboat -u . -q && neomutt -z"
 alias b "btm --basic"
-alias btm "btm --color gruvbox --mem_as_value --group"
-alias bat "bat --theme=gruvbox --style=numbers --color=always"
-alias batjson "bat --theme=gruvbox --style=numbers --color=always --language=json"
-alias icat="kitty +kitten icat"
+alias f="yazi"
+alias btm "btm --theme gruvbox --process_memory_as_value --group_processes"
+alias bat "bat --theme=gruvbox-dark --style=numbers --color=always"
 alias mans="apropos . | grep \(1\) | sed 's/(1)//g' | fzf | cut -d' ' -f1,1 | xargs -I {} man {}"
-alias vn "nvim-nightly"
-
-# apps
-alias img="open -a \"Preview\""
-alias images="timg --grid=4 --title --center $(fd --max-depth 1 --regex '^*.\.(jpg|png|gif|jpeg|avif|webp|tiff|bmp)' .)"
-alias apps="osascript -e 'tell application \"System Events\" to get the name of (every application process whose background only is false)'"
-alias mpv "mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='bestvideo[height<=?1080]+bestaudio/best'"
-alias libreoffice="soffice"
-
-# copilot
-alias ghs "gh copilot suggest"
-alias ghss "gh copilot suggest -t shell"
-alias ghsgit "gh copilot suggest -t git"
-
-# ssh
-alias r "ssh -C -A binh@mirekng.com"
+alias fzf "fzf -e --height 30% --border rounded"
+alias ai "gh copilot suggest"
+alias airport "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport"
+alias docker-ps "docker ps -a --format 'table {{.ID}}|{{.Names}}|{{.Status}}|{{.Ports}}' | column -t -s '|'"
 
 # cd
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
@@ -37,4 +23,11 @@ alias ll='eza -g -l'
 alias lla='eza -g -la'
 alias l='eza -g -la'
 
-alias f="yazi"
+# apps
+alias apps="osascript -e 'tell application \"System Events\" to get the name of (every application process whose background only is false)'"
+alias mpv "mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='bestvideo[height<=?1080]+bestaudio/best'"
+alias libreoffice="soffice"
+
+# nvim
+alias chat "nvim -c 'set filetype=chatgpt' -c 'ChatGPT'"
+alias db "nvim -c 'set filetype=db' -c 'DBUIToggle'"

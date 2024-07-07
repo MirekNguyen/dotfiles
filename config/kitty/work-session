@@ -1,0 +1,2 @@
+cd ~/.local/projects/work/omnichannel
+launch --title omnichannel nvim
