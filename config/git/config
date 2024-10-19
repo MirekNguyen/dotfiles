@@ -43,13 +43,30 @@
 	defaultBranch = main
 [http]
 	sslVerify = false
-[merge]
-	tool = vimdiff
-	conflictstyle = diff3
 [pager]
 	show = delta
 
-# [mergetool "nvimdiff"]
-#     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
 [color]
 	ui = auto
+
+# [merge]
+# 	tool = vimdiff
+# 	conflictstyle = diff3
+# [mergetool "nvimdiff"]
+#     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+
+[diff]
+    tool = nvimdiff
+    guitool = nvimdiff
+[difftool]
+    prompt = false
+[merge]
+  tool = nvimdiff
+[mergetool]
+  prompt = true
+  keepBackup = false
+[mergetool "nvimdiff"]
+  # layout = "LOCAL,BASE,REMOTE / MERGED"
+  # cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+  cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+# https://smittie.de/posts/git-mergetool/
