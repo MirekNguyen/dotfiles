@@ -57,16 +57,6 @@ function zath
   end
 end
 
-function gc
-  set -l fzf "fzf -e --preview="$fzf_find_preview" --cycle --preview-window="$fzf_find_preview" --height 30% --border rounded"
-  set -l repo "$(gh repo list | sed 's/\t/§/g' | cut -d'§' -f1,1 | eval "$fzf")"
-  if test "$repo" = ""
-    return
-  else
-    gh repo clone "$repo";
-  end
-end
-
 function mpv
   nohup mpv "$argv[1]" >/dev/null 2>&1 &;
   disown;
@@ -120,8 +110,8 @@ function dark-mode
   echo '⌃+⌘+, to reload'
 end
 
-function git-switch --description="Switch branches using fzf"
-  git switch "$(git branch | fzf | tr -d "[:space:]")"
+function work-vpn-connect
+  echo "$WORK_VPN_PASSWORD" | sudo openconnect -c "$HOME"/.config/o2-cz.p12 -s 'vpn-slice 10.0.0.0/8 172.26.193.0/24' zamevpn.o2.cz --passwd-on-stdin --background
 end
 
 function work-vpn
@@ -134,9 +124,6 @@ function work-vpn
   end
 end
 
-function work-vpn-connect
-    echo "$WORK_VPN_PASSWORD" | sudo openconnect -c "$HOME"/.config/o2-cz.p12 -s 'vpn-slice 10.0.0.0/8 172.26.193.0/24' zamevpn.o2.cz --passwd-on-stdin --background
-end
 
 function work
   function work-on
@@ -146,7 +133,7 @@ function work
       open -a "Librewolf" "https://jira.cz.o2/secure/RapidBoard.jspa?rapidView=922&projectKey=SSD" &&
       open -a "Librewolf" "https://jira.cz.o2/secure/Tempo.jspa#/my-work/timesheet"
       open -g -a "Mail";
-      open -g -a "Microsoft Teams (work or school)";
+      open -g -a "Microsoft Teams";
       open -g -a "kitty";
       pkill -f kitty;
       cd "$HOME/.local/projects/work";
@@ -164,7 +151,7 @@ function work
       pkill -9 "Microsoft Outlook";
       pkill -9 "Mail";
       pkill -9 "Flow";
-      osascript -e 'tell application "Microsoft Teams (work or school)" to quit' &>/dev/null;
+      osascript -e 'tell application "Microsoft Teams" to quit' &>/dev/null;
       pkill -9 "PhpStorm";
       pkill -9 "Postman";
       pkill -f kitty;
@@ -219,6 +206,8 @@ function work
   end
 end
 
-function diffstring
-  diff <( printf '%s\n' "$1" ) <( printf '%s\n' "$2" )
+function rest
+  set basePath "/Users/mireknguyen/.local/projects/personal/rest-nvim"
+  set choice "$(gum choose "$basePath"/*.http)"
+  nvim "$choice"
 end
