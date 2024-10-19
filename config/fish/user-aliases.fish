@@ -7,7 +7,6 @@ alias bat "bat --theme=gruvbox-dark --style=numbers --color=always"
 alias mans="apropos . | grep \(1\) | sed 's/(1)//g' | fzf | cut -d' ' -f1,1 | xargs -I {} man {}"
 alias fzf "fzf -e --height 30% --border rounded"
 alias ai "gh copilot suggest"
-alias airport "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport"
 alias docker-ps "docker ps -a --format 'table {{.ID}}|{{.Names}}|{{.Status}}|{{.Ports}}' | column -t -s '|'"
 
 # cd
