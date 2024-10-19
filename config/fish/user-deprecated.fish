@@ -91,3 +91,18 @@ function wifi --description 'Wifi management'
       airport -I
   end
 end
+
+function git-switch --description="Switch branches using fzf"
+  git switch "$(git branch | fzf | tr -d "[:space:]")"
+end
+
+function gc
+  set -l fzf "fzf -e --preview="$fzf_find_preview" --cycle --preview-window="$fzf_find_preview" --height 30% --border rounded"
+  set -l repo "$(gh repo list --limit 1000 | sed 's/\t/§/g' | cut -d'§' -f1,1 | eval "$fzf")"
+  if test "$repo" = ""
+    return
+  else
+    gh repo clone "$repo";
+  end
+end
+
