@@ -32,5 +32,6 @@ alias chat "nvim -c 'set filetype=chatgpt' -c 'ChatGPT'"
 alias db "nvim -c 'set filetype=db' -c 'DBUIToggle'"
 
 # ssh
-alias sshlx='ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'
-alias sshs='ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
+alias sshlx 'ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'
+alias sshs 'ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
+alias mnt 'smb-servers.sh "$HOME"/.local/secrets/smb-servers.json'
