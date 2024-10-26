@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-json="$(curl -sS "$@")";
-if echo "$json" | jq &>/dev/null; then
-  echo "$json" | jq -C | less -R;
-else
-  echo "$json" > /tmp/curls.html;
-  open /tmp/curls.html;
-fi
