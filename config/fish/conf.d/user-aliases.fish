@@ -35,3 +35,4 @@ alias db "nvim -c 'set filetype=db' -c 'DBUIToggle'"
 alias sshlx 'ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'
 alias sshs 'ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
 alias mnt 'smb-servers.sh "$HOME"/.local/secrets/smb-servers.json'
+alias c 'click.sh "$HOME"/.local/secrets/websites'
