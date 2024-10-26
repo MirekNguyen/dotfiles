@@ -1,0 +1,59 @@
+/* Hidden files */
+.git
+.vscode
+.gitignore
+.cache
+.npm
+.pnpm
+.nix-defexpr
+.local/share/*
+.local/state/*
+.DS_Store
+.idea
+.Trash
+
+/* Extensions */
+*.jpg
+*.jpeg
+*.png
+*.srt
+*.mov
+*.app
+*.localized
+*.ico
+*.ini
+*.glsl
+
+/* Development */
+**/vendor/*
+node_modules
+.dotnet/*
+.aspnet
+.nuget/packages/*
+.next
+_next
+__pycache__
+.prettierd
+.templateengine
+.symfony5
+.cargo
+.cisco
+.colima
+.azure
+.github
+.orbstack
+OrbStack
+
+/* Apple */
+Movies
+Pictures
+Music
+Library/*
+
+/* Optional */
+.local/log/*
+.local/projects/*/*/*
+.local/scripts/*/*
+**/fish/functions/*
+.config/docker/*
+**/spicetify/*
