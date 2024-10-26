@@ -1,5 +1,0 @@
-$pdf_mode = 1;
-$pdf_previewer = "zathura %O %S";
-$pdflatex = 'pdflatex --shell-escape -i%O %S';
-# $pdflatex = 'pdflatex --shell-escape -interaction=batchmode -i%O %S';
-$cleanup_includes_cusdep_generated = 1;
