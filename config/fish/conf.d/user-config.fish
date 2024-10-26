@@ -1,7 +1,21 @@
+set -U fish_user_paths "$HOME"/.local/go/bin "$HOME"/.local/cargo/bin "$HOME"/.local/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin $fish_user_paths
+
+# Loading licence keys from .env
+function envsource
+  if [ -f $argv ]
+    for line in (cat $argv | grep -v '^#')
+      set item (string split -m 1 '=' $line)
+      set -gx $item[1] $item[2]
+    end
+  end
+end
+envsource "$HOME/.config/dotfiles/config/fish/.env"
+
 # Starship
 if type -q starship
   starship init fish | source
 end
+
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
