@@ -48,6 +48,7 @@
 
 [color]
 	ui = auto
+	interactive = true
 
 # [merge]
 # 	tool = vimdiff

@@ -32,5 +32,3 @@ if [ ! -f "$HOME/.config/nvim" ]; then
 else
   git clone git@github.com:MirekNguyen/nvim.git "$HOME/.config/nvim";
 fi
-
-# ln -s ~/.dotfiles/firefox/chrome /Users/mireknguyen/Library/Application\ Support/Firefox/Profiles/3rc29mcp.default-release/chrome

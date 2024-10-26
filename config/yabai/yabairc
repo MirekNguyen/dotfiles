@@ -27,7 +27,7 @@ yabai -m rule --add app="^(Firefox|LibreWolf)$" space=^1
 yabai -m rule --add app="^kitty$" space=^2
 yabai -m rule --add app="Teams" space=^4
 yabai -m rule --add app="Outlook|Mail" space=^5
-yabai -m rule --add app="mpv" space=^5
+yabai -m rule --add app="mpv|Spotify" space=^5
 
 function setup_space {
   local idx="$1"
