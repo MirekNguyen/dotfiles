@@ -2,11 +2,6 @@ function update
   brew upgrade;
   fisher update &>/dev/null;
   nvim --headless empty +'Lazy update' +'TSUpdateSync' +'MasonUpdate' +qa;
-
-  echo -n "Updating dotfiles..."
-  git -C "$HOME/.config/dotfiles" pull
-  echo -n "Updating nvim..."
-  git -C "$HOME/.config/nvim" pull
 end
 
 function clean
@@ -58,7 +53,7 @@ function zath
 end
 
 function mpv
-  nohup mpv "$argv[1]" >/dev/null 2>&1 &;
+  nohup mpv --player-operation-mode=pseudo-gui --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='bestvideo[height<=?1080]+bestaudio/best' "$argv[1]" >/dev/null 2>&1 &;
   disown;
 end
 
@@ -73,25 +68,6 @@ function fish_remove_path
     set -e fish_user_paths[$index]
     echo "Removed $argv from the path"
   end
-end
-
-function flush-dns
-  sudo dscacheutil -flushcache
-  sudo killall -HUP mDNSResponder
-  networksetup -setairportpower en0 off
-  networksetup -setairportpower en0 on
-end
-
-function route-flush
-  networksetup -setairportpower en0 off
-  sudo route flush
-  sudo ifconfig en1 down
-  sudo ifconfig en1 up
-  networksetup -setairportpower en0 on
-end
-
-function sanitize
-  echo "$argv" | string replace -a '/' '\/' | pbcopy
 end
 
 function dark-mode
@@ -112,6 +88,22 @@ end
 
 function work-vpn-connect
   echo "$WORK_VPN_PASSWORD" | sudo openconnect -c "$HOME"/.local/secrets/o2-cz.p12 -s 'vpn-slice 10.0.0.0/8 172.26.193.0/24' zamevpn.o2.cz --passwd-on-stdin --background
+end
+
+function work-vpn-disconnect
+  sudo pkill -9 openconnect
+  # flush dns
+  sudo dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
+  networksetup -setairportpower en0 off
+  networksetup -setairportpower en0 on
+
+  # route flush
+  networksetup -setairportpower en0 off
+  sudo route flush
+  sudo ifconfig en1 down
+  sudo ifconfig en1 up
+  networksetup -setairportpower en0 on
 end
 
 function work-vpn
@@ -138,22 +130,17 @@ function work
       pkill -f kitty;
       cd "$HOME/.local/projects/work";
       kitty @ set-tab-title project
-      kitten @ launch --type=tab --title finder
-      kitten @ launch --type=tab --title todo
-      kitty @ focus-tab -m title:project
-      colima start;
       sleep 2 && osascript -e 'tell application "kitty" to activate'
       osascript -e 'tell application "Finder" to set volume 0'
   end
   function work-off
-      sudo pkill -9 openconnect; flush-dns; route-flush
+      work-vpn-disconnect;
       osascript -e 'tell application "Librewolf" to close (every window)'
       pkill -9 "Microsoft Outlook";
       pkill -9 "Mail";
       pkill -9 "Flow";
       osascript -e 'tell application "Microsoft Teams" to quit' &>/dev/null;
       pkill -9 "PhpStorm";
-      pkill -9 "Postman";
       pkill -f kitty;
       cd;
       open -a "Librewolf"
@@ -161,48 +148,12 @@ function work
       osascript -e 'tell application "Librewolf" to activate'
   end
 
-  function omnichannel
-      vpn
-      osascript -e 'tell application "Librewolf" to close (every window)'
-      osascript -e 'tell application "Librewolf" to activate'
-      open -a "Librewolf" "https://git-it.cz.o2/omni-be/omnichannel" &&
-      open -a "Librewolf" "https://jira.cz.o2/secure/RapidBoard.jspa?rapidView=624&projectKey=OMNI" &&
-      open -a "Librewolf" "https://jira.cz.o2/secure/Tempo.jspa#/my-work/timesheet"
-      open -g -a "Mail";
-      open -g -a "Microsoft Teams (work or school)";
-      open -g -a "kitty";
-      open -g -a "Flow";
-      pkill -f kitty;
-      cd "$HOME/.local/projects/work/omnichannel/";
-      kitty @ set-tab-title project
-      kitten @ launch --type=tab --title finder
-      kitten @ launch --type=tab --title database
-      kitten @ launch --type=tab --title ncspot
-      kitten @ launch --type=tab --title todo
-      kitten @ launch --type=tab --title omni-fe
-      cd "$HOME/.local/projects/work/omni-calc-ui/app/";
-      yarn start;
-      kitty @ focus-tab -m title:project
-      colima start;
-      docker-compose -f "$HOME/.local/projects/work/omnichannel/docker-compose-custom.yml" up -d;
-      docker-compose -f "$HOME/.local/projects/work/o2-spokojenost/docker-compose.yml" up -d;
-      sleep 2 && osascript -e 'tell application "kitty" to activate'
-      osascript -e 'tell application "Finder" to set volume 0'
-  end
-
-  set -l option "$(gum choose "on" "off" "afterwork" "study" "omnichannel")"
+  set -l option "$(gum choose "on" "off")"
   switch "$option"
     case "on"
       work-on
     case "off"
       work-off
-    case "afterwork"
-      vpn
-    case  "study"
-      work-off
-      open -a "Librewolf" "https://discord.com/"
-    case "omnichannel"
-      work-on
   end
 end
 
