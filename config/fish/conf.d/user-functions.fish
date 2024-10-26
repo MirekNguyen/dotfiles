@@ -111,7 +111,7 @@ function dark-mode
 end
 
 function work-vpn-connect
-  echo "$WORK_VPN_PASSWORD" | sudo openconnect -c "$HOME"/.config/o2-cz.p12 -s 'vpn-slice 10.0.0.0/8 172.26.193.0/24' zamevpn.o2.cz --passwd-on-stdin --background
+  echo "$WORK_VPN_PASSWORD" | sudo openconnect -c "$HOME"/.local/secrets/o2-cz.p12 -s 'vpn-slice 10.0.0.0/8 172.26.193.0/24' zamevpn.o2.cz --passwd-on-stdin --background
 end
 
 function work-vpn

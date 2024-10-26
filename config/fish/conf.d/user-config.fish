@@ -10,6 +10,7 @@ function envsource
   end
 end
 envsource "$HOME/.config/dotfiles/config/fish/.env"
+envsource "$HOME/.local/secrets/environment"
 
 # Starship
 if type -q starship
