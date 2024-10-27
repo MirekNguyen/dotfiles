@@ -6,7 +6,7 @@
 curl -fsSL https://raw.githubusercontent.com/MirekNguyen/dotfiles/refs/heads/main/install/install.sh | sh
 ```
 
-## Clean Installation (Descructive)
+## Clean Installation (Destructive)
 
 - use only if you have a fresh installation of OS
 
