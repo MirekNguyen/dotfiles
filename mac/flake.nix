@@ -13,8 +13,46 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ pkgs.vim
+        [ pkgs.bat
+          pkgs.bottom
+          pkgs.php83Packages.composer
+          pkgs.docker
+          pkgs.docker-compose
+          pkgs.dotenv-linter
+          pkgs.dotnet-sdk
+          pkgs.duf
+          pkgs.dust
+          pkgs.eza
+          pkgs.fd
+          pkgs.sketchybar
+          pkgs.fx
+          pkgs.fzf
+          pkgs.gh
+          pkgs.git-extras # git-delta
+          pkgs.gum
+          pkgs.kubernetes-helm
+          pkgs.jq
+          pkgs.kubectl
+          pkgs.lua
+          pkgs.mariadb
+          pkgs.nodejs-slim
+          pkgs.openconnect
+          pkgs.pnpm
+          pkgs.postgresql
+          pkgs.ripgrep
+          pkgs.spicetify-cli
+          pkgs.starship
+          pkgs.stow
+          pkgs.vpn-slice
+          pkgs.wget
+          pkgs.zathura
         ];
+      system.defaults = {
+        dock = {
+          autohide = true;
+          orientation = "left";
+        };
+      };
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
