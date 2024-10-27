@@ -53,6 +53,10 @@
           orientation = "left";
         };
       };
+      fonts.packages = with pkgs; [
+          iosevka
+          (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      ];
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
