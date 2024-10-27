@@ -5,9 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
@@ -18,7 +19,6 @@
           pkgs.php83Packages.composer
           pkgs.docker
           pkgs.docker-compose
-          pkgs.dotenv-linter
           pkgs.dotnet-sdk
           pkgs.duf
           pkgs.dust
@@ -53,6 +53,47 @@
           orientation = "left";
         };
       };
+
+      homebrew = {
+        enable = true;
+        taps = [
+          "jorgerojas26/lazysql"
+          "felixkratz/formulae"
+          "koekeishiya/formulae"
+        ];
+        brews = [
+          "cliclick"
+          "felixkratz/formulae/sketchybar"
+          "fisher"
+          "jorgerojas26/lazysql"
+          "koekeishiya/formulae/skhd"
+          "koekeishiya/formulae/yabai"
+          "neovim"
+          "php"
+          "yazi"
+        ];
+        casks = [
+          "alfred"
+          "appcleaner"
+          "betterdisplay"
+          "chromium"
+          "kitty"
+          "librewolf"
+          "macfuse"
+          "microsoft-teams"
+          "moonlight"
+          "mos"
+          "mpv"
+          "onedrive"
+          "orbstack"
+          "sf-symbols"
+          "shortcat"
+          "shottr"
+          "spotify"
+          "swift-quit"
+        ];
+        onActivation.cleanup = "zap";
+      };
       fonts.packages = with pkgs; [
           iosevka
           (nerdfonts.override { fonts = [ "Iosevka" ]; })
@@ -84,7 +125,21 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."mira" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [
+        configuration
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            # Apple Silicon Only
+            enableRosetta = true;
+            # User owning the Homebrew prefix
+            user = "mireknguyen";
+            # Automatically migrate existing Homebrew installations
+            autoMigrate = true;
+          };
+        }
+      ];
     };
 
     # Expose the package set, including overlays, for convenience.
