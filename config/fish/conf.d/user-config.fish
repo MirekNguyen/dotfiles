@@ -1,4 +1,4 @@
-set -U fish_user_paths "$HOME"/.local/go/bin "$HOME"/.local/cargo/bin "$HOME"/.local/bin "$HOME"/.config/dotfiles/scripts /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin $fish_user_paths
+set -U fish_user_paths "$HOME"/.local/go/bin "$HOME"/.local/cargo/bin "$HOME"/.local/bin "$HOME"/.config/dotfiles/scripts /Users/mireknguyen/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin $fish_user_paths
 
 # Loading licence keys from .env
 function envsource
