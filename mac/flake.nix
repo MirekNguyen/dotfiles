@@ -26,7 +26,6 @@
           pkgs.dust
           pkgs.eza
           pkgs.fd
-          pkgs.sketchybar
           pkgs.fx
           pkgs.fzf
           pkgs.gh
@@ -67,6 +66,7 @@
         taps = [
           "nikitabobko/tap"
           "jorgerojas26/lazysql"
+          "felixkratz/formulae"
         ];
         brews = [
           "cliclick"
