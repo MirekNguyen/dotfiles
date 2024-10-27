@@ -51,6 +51,10 @@
         dock = {
           autohide = true;
           orientation = "left";
+          persistent-apps = [
+            "/Applications/_Casks/LibreWolf.app/"
+            "/Applications/_Casks/kitty.app/"
+          ];
         };
       };
 
@@ -65,7 +69,7 @@
           "cliclick"
           "felixkratz/formulae/sketchybar"
           "fisher"
-          "jorgerojas26/lazysql"
+          "lazysql"
           "koekeishiya/formulae/skhd"
           "koekeishiya/formulae/yabai"
           "neovim"
