@@ -1,0 +1,3 @@
+source "$HOME/.config/dotfiles/config/zsh/configuration.sh"
+source "$HOME/.config/dotfiles/config/zsh/plugins.sh"
+source "$HOME/.config/dotfiles/config/zsh/aliases.sh"
