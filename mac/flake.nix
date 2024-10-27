@@ -48,6 +48,8 @@
           pkgs.vpn-slice
           pkgs.wget
           pkgs.zathura
+          pkgs.zinit
+          pkgs.zoxide
         ];
       system.defaults = {
         dock = {
@@ -63,22 +65,19 @@
       homebrew = {
         enable = true;
         taps = [
+          "nikitabobko/tap"
           "jorgerojas26/lazysql"
-          "felixkratz/formulae"
-          "koekeishiya/formulae"
         ];
         brews = [
           "cliclick"
           "felixkratz/formulae/sketchybar"
-          "fisher"
           "lazysql"
-          "koekeishiya/formulae/skhd"
-          "koekeishiya/formulae/yabai"
           "neovim"
           "php"
           "yazi"
         ];
         casks = [
+          "nikitabobko/tap/aerospace"
           "alfred"
           "appcleaner"
           "betterdisplay"
