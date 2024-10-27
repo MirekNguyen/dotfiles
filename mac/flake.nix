@@ -16,7 +16,9 @@
       environment.systemPackages =
         [ pkgs.bat
           pkgs.bottom
+          pkgs.cargo
           pkgs.php83Packages.composer
+          pkgs.delta
           pkgs.docker
           pkgs.docker-compose
           pkgs.dotnet-sdk
@@ -35,7 +37,7 @@
           pkgs.kubectl
           pkgs.lua
           pkgs.mariadb
-          pkgs.nodejs-slim
+          pkgs.nodejs
           pkgs.openconnect
           pkgs.pnpm
           pkgs.postgresql
@@ -87,7 +89,7 @@
           "microsoft-teams"
           "moonlight"
           "mos"
-          "mpv"
+          "stolendata-mpv"
           "onedrive"
           "orbstack"
           "sf-symbols"
