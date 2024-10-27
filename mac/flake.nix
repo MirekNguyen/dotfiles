@@ -1,5 +1,5 @@
 {
-  description = "Example Darwin system flake";
+  description = "Mira Darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -25,7 +25,7 @@
 
       # Create /etc/zshrc that loads the nix-darwin environment.
       programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
+      programs.fish.enable = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -35,17 +35,17 @@
       system.stateVersion = 5;
 
       # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "x86_64-darwin";
+      nixpkgs.hostPlatform = "aarch64-darwin"; # x86_64-darwin
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."mira" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."simple".pkgs;
+    darwinPackages = self.darwinConfigurations."mira".pkgs;
   };
 }
