@@ -59,7 +59,7 @@
           ];
         };
         NSGlobalDomain = {
-          NSAutomaticWindowAnimationsEnabled = true;
+          NSAutomaticWindowAnimationsEnabled = false;
           NSWindowShouldDragOnGesture = true;
         };
       };
