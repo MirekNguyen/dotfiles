@@ -23,4 +23,5 @@ eval "$(zoxide init --cmd cd zsh)"
 source "$HOME/.config/dotfiles/scripts/fzf-find.sh"
 source "$HOME/.config/dotfiles/scripts/fzf-find-search.sh"
 source "$HOME/.config/dotfiles/scripts/load-env.sh"
+source "$HOME/.config/dotfiles/scripts/work.sh"
 load-env "$HOME"/.local/secrets/environment
