@@ -25,7 +25,6 @@
     navigate = true
     light = false
     line-numbers = true
-    syntax-theme = gruvbox-dark
 
 [delta "interactive"]
     keep-plus-minus-markers = false
