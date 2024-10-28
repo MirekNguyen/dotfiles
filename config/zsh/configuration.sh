@@ -32,3 +32,7 @@ bindkey -s '6;9u' "^Qfzf-find $HOME^M"
 bindkey -s '6;10u' "^Qfzf-find --noignorefile^M"
 bindkey -s '8;9u' "^Qfzf-find-search $HOME/.local/notes/programming/^M"
 bindkey -s '8;10u' "^Qfzf-find-search^M"
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^[e" edit-command-line
