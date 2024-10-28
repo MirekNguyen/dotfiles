@@ -63,6 +63,6 @@ sketchybar --add item vpn right \
            --set vpn icon=󰖂 update_freq=5 script="$PLUGIN_DIR/vpn.sh"
 
 sketchybar --add item keyboard right \
-           --set keyboard update_freq=5 script="$PLUGIN_DIR/keyboard.sh"
+           --set keyboard update_freq=3 script="$PLUGIN_DIR/keyboard.sh"
 
 sketchybar --update
