@@ -13,10 +13,6 @@ alias ll='eza -g -l'
 alias lla='eza -g -la'
 alias l='eza -g -la'
 
-# nvim
-alias chat="nvim -c 'set filetype=chatgpt' -c 'ChatGPT'"
-alias db="nvim -c 'set filetype=db' -c 'DBUIToggle'"
-
 # ssh, mount
 alias sshlx='ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'
 alias sshs='ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
