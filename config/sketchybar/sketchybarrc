@@ -1,7 +1,18 @@
 PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
 LABELS=("" "" "" "" "" "" "" "" "")
 
-sketchybar --bar position=top height=32 color.alpha=0 display=all sticky=on corner_radius=0 blur_radius=30 color=0x40000000
+bar=(
+  position=top
+  height=32
+  color.alpha=0
+  display=all
+  sticky=on
+  corner_radius=0
+  blur_radius=30
+  color=0x40000000
+)
+sketchybar --bar "${bar[@]}"
 
 default=(
   padding_left=5
@@ -17,61 +28,15 @@ default=(
 )
 sketchybar --default "${default[@]}"
 
-sketchybar --add event aerospace_workspace_change
-
-for sid in $(aerospace list-workspaces --all); do
-    label="${LABELS[$INDEX]}"
-    sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
-        --set space.$sid \
-        background.color=0x44fffff \
-        background.corner_radius=5 \
-        background.height=20 \
-        background.drawing=off \
-        icon.padding_left=0 \
-        icon.padding_right=0 \
-        label.padding_left=3 \
-        label.padding_right=3 \
-        label="$label" \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
-    INDEX=$((INDEX + 1))
-done
-
-sketchybar --add item front_app left \
-           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
-           --subscribe front_app front_app_switched
-
-sketchybar --add item clock right \
-           --set clock update_freq=10 icon.drawing=off script="$PLUGIN_DIR/clock.sh"
-
-sketchybar --add item battery right \
-           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change
-
-sketchybar --add item wifi right \
-           --set wifi update_freq=10 script="$PLUGIN_DIR/wifi.sh"
-
-sketchybar --add item volume right \
-           --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change
-
-sketchybar --add item airpods right \
-           --set airpods update_freq=5 script="$PLUGIN_DIR/airpods.sh" \
-
-sketchybar --add item vpn right \
-           --set vpn icon=󰖂 update_freq=5 script="$PLUGIN_DIR/vpn.sh"
-
-sketchybar --add item keyboard right \
-           --set keyboard update_freq=3 script="$PLUGIN_DIR/keyboard.sh"
-
-sketchybar --add item media e \
-           --set media label.max_chars=20 \
-                       icon.padding_left=0 \
-                       scroll_texts=on \
-                       icon=􀑪             \
-                       background.drawing=off \
-                       script="$PLUGIN_DIR/media.sh" \
-           --subscribe media media_change
+source "$ITEM_DIR"/aerospace.sh
+source "$ITEM_DIR"/front_app.sh
+source "$ITEM_DIR"/clock.sh
+source "$ITEM_DIR"/battery.sh
+source "$ITEM_DIR"/wifi.sh
+source "$ITEM_DIR"/volume.sh
+source "$ITEM_DIR"/airpods.sh
+source "$ITEM_DIR"/vpn.sh
+source "$ITEM_DIR"/keyboard.sh
+source "$ITEM_DIR"/media.sh
 
 sketchybar --update
