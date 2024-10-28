@@ -44,9 +44,7 @@
           pkgs.spicetify-cli
           pkgs.starship
           pkgs.stow
-          pkgs.vpn-slice
           pkgs.wget
-          pkgs.zathura
           pkgs.zinit
           pkgs.zoxide
         ];
@@ -54,10 +52,15 @@
         dock = {
           autohide = true;
           orientation = "left";
+          expose-group-by-app = true;
           persistent-apps = [
             "/Applications/_Casks/LibreWolf.app/"
             "/Applications/_Casks/kitty.app/"
           ];
+        };
+        NSGlobalDomain = {
+          NSAutomaticWindowAnimationsEnabled = true;
+          NSWindowShouldDragOnGesture = true;
         };
       };
 
@@ -74,6 +77,7 @@
           "lazysql"
           "neovim"
           "php"
+          "vpn-slice"
           "yazi"
         ];
         casks = [
