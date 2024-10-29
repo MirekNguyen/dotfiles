@@ -21,7 +21,7 @@
           pkgs.delta
           pkgs.docker
           pkgs.docker-compose
-          pkgs.dotnet-sdk
+          pkgs.dotnet-sdk_8
           pkgs.duf
           pkgs.dust
           pkgs.eza
