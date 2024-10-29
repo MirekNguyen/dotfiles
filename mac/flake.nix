@@ -29,7 +29,6 @@
           pkgs.fx
           pkgs.fzf
           pkgs.gh
-          pkgs.git-extras # git-delta
           pkgs.gum
           pkgs.kubernetes-helm
           pkgs.jq
@@ -43,7 +42,6 @@
           pkgs.pnpm
           pkgs.postgresql
           pkgs.ripgrep
-          pkgs.spicetify-cli
           pkgs.starship
           pkgs.stow
           pkgs.wget
