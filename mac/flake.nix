@@ -34,8 +34,10 @@
           pkgs.kubernetes-helm
           pkgs.jq
           pkgs.kubectl
+          pkgs.lazysql
           pkgs.lua
           pkgs.mariadb
+          pkgs.neovim
           pkgs.nodejs
           pkgs.openconnect
           pkgs.pnpm
@@ -45,6 +47,7 @@
           pkgs.starship
           pkgs.stow
           pkgs.wget
+          pkgs.yazi
           pkgs.zinit
           pkgs.zoxide
         ];
@@ -68,17 +71,13 @@
         enable = true;
         taps = [
           "nikitabobko/tap"
-          "jorgerojas26/lazysql"
           "felixkratz/formulae"
         ];
         brews = [
           "cliclick"
           "felixkratz/formulae/sketchybar"
-          "lazysql"
-          "neovim"
           "php"
           "vpn-slice"
-          "yazi"
         ];
         casks = [
           "nikitabobko/tap/aerospace"
