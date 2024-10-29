@@ -42,6 +42,7 @@
           pkgs.pnpm
           pkgs.postgresql
           pkgs.ripgrep
+          pkgs.spicetify-cli
           pkgs.starship
           pkgs.stow
           pkgs.wget
@@ -54,10 +55,7 @@
           autohide = true;
           orientation = "left";
           expose-group-by-app = true;
-          persistent-apps = [
-            "/Applications/_Casks/LibreWolf.app/"
-            "/Applications/_Casks/kitty.app/"
-          ];
+          persistent-apps = [];
         };
         NSGlobalDomain = {
           NSAutomaticWindowAnimationsEnabled = false;
