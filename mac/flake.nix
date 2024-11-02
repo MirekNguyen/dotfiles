@@ -21,7 +21,6 @@
           pkgs.delta
           pkgs.docker
           pkgs.docker-compose
-          pkgs.dotnet-sdk_8
           pkgs.duf
           pkgs.dust
           pkgs.eza
@@ -71,6 +70,7 @@
         ];
         brews = [
           "cliclick"
+          "dotnet"
           "felixkratz/formulae/sketchybar"
           "php"
           "vpn-slice"
