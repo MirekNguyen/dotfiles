@@ -18,3 +18,5 @@ alias sshlx='ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'
 alias sshs='ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
 alias mnt='smb-servers.sh "$HOME"/.local/secrets/smb-servers.json'
 alias nix-rebuild='darwin-rebuild switch --flake "$HOME"/.config/dotfiles/mac#mira'
+
+alias db='NVIM_APPNAME=nvim-db nvim -c "set filetype=db" -c "Dbee"'

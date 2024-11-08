@@ -57,3 +57,5 @@ Library/*
 **/fish/functions/*
 .config/docker/*
 **/spicetify/*
+
+nvim-db
