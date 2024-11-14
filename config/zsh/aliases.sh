@@ -19,4 +19,5 @@ alias sshs='ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
 alias mnt='smb-servers.sh "$HOME"/.local/secrets/smb-servers.json'
 alias nix-rebuild='darwin-rebuild switch --flake "$HOME"/.config/dotfiles/mac#mira'
 
-alias db='NVIM_APPNAME=nvim-db nvim -c "set filetype=db" -c "Dbee"'
+alias dbee='NVIM_APPNAME=nvim-db nvim -c "set filetype=db" -c "Dbee"'
+alias db='NVIM_APP_NAME=nvim-db nvim -u "$HOME/.config/nvim-db/init.lua" -c "set filetype=sql" -c "DBUIToggle"'
