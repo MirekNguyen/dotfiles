@@ -49,12 +49,6 @@
 	ui = auto
 	interactive = true
 
-# [merge]
-# 	tool = vimdiff
-# 	conflictstyle = diff3
-# [mergetool "nvimdiff"]
-#     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
-
 [diff]
     tool = nvimdiff
     guitool = nvimdiff
@@ -66,7 +60,4 @@
   prompt = true
   keepBackup = false
 [mergetool "nvimdiff"]
-  # layout = "LOCAL,BASE,REMOTE / MERGED"
-  # cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
   cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
-# https://smittie.de/posts/git-mergetool/
