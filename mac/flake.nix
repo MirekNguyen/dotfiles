@@ -11,8 +11,6 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   let
     configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [ pkgs.bat
           pkgs.bottom
@@ -32,12 +30,14 @@
           pkgs.kubernetes-helm
           pkgs.jq
           pkgs.kubectl
+          pkgs.lazygit
           pkgs.lazysql
           pkgs.lua
           pkgs.mariadb
           pkgs.neovim
           pkgs.nodejs
           pkgs.openconnect
+          pkgs.openjdk
           pkgs.pnpm
           pkgs.postgresql
           pkgs.ripgrep
@@ -79,7 +79,6 @@
           "nikitabobko/tap/aerospace"
           "alfred"
           "appcleaner"
-          "betterdisplay"
           "chromium"
           "kitty"
           "librewolf"
