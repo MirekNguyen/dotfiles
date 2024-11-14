@@ -65,8 +65,7 @@ fzf-find() {
                 disown
                 ;;
             odt|ods|odp|sxw|doc|docx|xls|xlsx|ppt|pptx)
-                nohup soffice "$fzf" >/dev/null 2>&1 &
-                disown
+                open "$fzf"
                 ;;
             *)
                 "$EDITOR" "$fzf"
