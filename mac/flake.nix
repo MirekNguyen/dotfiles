@@ -69,6 +69,7 @@
           "felixkratz/formulae"
         ];
         brews = [
+          "ansible"
           "cliclick"
           "dotnet"
           "felixkratz/formulae/sketchybar"
@@ -80,6 +81,7 @@
           "alfred"
           "appcleaner"
           "chromium"
+          "keyboardcleantool"
           "kitty"
           "librewolf"
           "macfuse"
@@ -94,6 +96,7 @@
           "shottr"
           "spotify"
           "swift-quit"
+          "zen-browser"
         ];
         onActivation.cleanup = "zap";
       };
