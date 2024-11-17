@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "11/17/2024, 7:16:43 PM",
-	"time": 1731867403309,
+	"@time": "11/17/2024, 8:43:25 PM",
+	"time": 1731872605110,
 	"environment": {
 		"extension": "1.99.997",
 		"platform": "mac",
@@ -12,14 +12,6 @@
 		{
 			"passKeys": "0 1 2 3 4 5 6 7 8 9 ",
 			"pattern": ":https://www.youtube.com/"
-		},
-		{
-			"passKeys": "",
-			"pattern": ":https://notes.mirekng.com"
-		},
-		{
-			"passKeys": "",
-			"pattern": ":https://pomofocus.io/"
 		}
 	],
 	"grabBackFocus": true,
@@ -37,7 +29,6 @@
 		"map ; LinkHints.activate hideHUD",
 		"map : LinkHints.activateOpenInNewTab hideHUD",
 		"map ' LinkHints.activateCopyLinkUrl",
-		"# map \" LinkHints.activateOpenImage",
 		"map | LinkHints.activateDownloadImage",
 		"map [ LinkHints.activateFocus",
 		"map ] LinkHints.activateHover",
@@ -45,10 +36,6 @@
 		"map G scrollToBottom",
 		"map ( moveTabLeft",
 		"map ) moveTabRight",
-		"# map o Vomnibar.activateTabs",
-		"# map p Vomnibar.activateHistory",
-		"# map P Vomnibar.activateHistoryInNewTab",
-		"# map b Vomnibar.activateBookmarks",
 		"map ? enterFindMode",
 		"map n performFind",
 		"map N performBackwardsFind",
