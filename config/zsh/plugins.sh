@@ -10,10 +10,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 # zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
 # autoload -U compinit && compinit
+zstyle ':completion:*' menu select
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
