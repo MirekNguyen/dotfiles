@@ -1,0 +1,5 @@
+Disable all except
+- Hide video sidebar
+  - Hide live chat
+- Hide comments
+- Hide video info

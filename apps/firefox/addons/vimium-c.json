@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "2/14/2024, 2:11:33 PM",
-	"time": 1707916293785,
+	"@time": "11/17/2024, 7:16:43 PM",
+	"time": 1731867403309,
 	"environment": {
 		"extension": "1.99.997",
 		"platform": "mac",
-		"firefox": 122
+		"firefox": 1
 	},
 	"clipSub": "",
 	"exclusionRules": [
@@ -16,6 +16,10 @@
 		{
 			"passKeys": "",
 			"pattern": ":https://notes.mirekng.com"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://pomofocus.io/"
 		}
 	],
 	"grabBackFocus": true,
@@ -32,8 +36,8 @@
 		"map l scrollRight",
 		"map ; LinkHints.activate hideHUD",
 		"map : LinkHints.activateOpenInNewTab hideHUD",
-		"map ' LinkHints.activateOpenImage",
-		"map \" LinkHints.activateCopyImage",
+		"map ' LinkHints.activateCopyLinkUrl",
+		"# map \" LinkHints.activateOpenImage",
 		"map | LinkHints.activateDownloadImage",
 		"map [ LinkHints.activateFocus",
 		"map ] LinkHints.activateHover",
@@ -41,15 +45,17 @@
 		"map G scrollToBottom",
 		"map ( moveTabLeft",
 		"map ) moveTabRight",
-		"map o Vomnibar.activateTabs",
-		"map p Vomnibar.activateHistory",
-		"map P Vomnibar.activateHistoryInNewTab",
-		"map b Vomnibar.activateBookmarks",
+		"# map o Vomnibar.activateTabs",
+		"# map p Vomnibar.activateHistory",
+		"# map P Vomnibar.activateHistoryInNewTab",
+		"# map b Vomnibar.activateBookmarks",
 		"map ? enterFindMode",
 		"map n performFind",
 		"map N performBackwardsFind",
 		"map B Vomnibar.activateBookmarksInNewTab",
 		"map D moveTabToNextWindow",
+		"map , LinkHints.activateSelect",
+		"map v enterVisualMode",
 		""
 	],
 	"keyupTime": 50,
@@ -73,4 +79,3 @@
 	"vimSync": true,
 	"ignoreKeyboardLayout": 2
 }
-

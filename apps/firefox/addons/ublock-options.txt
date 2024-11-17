@@ -1,40 +1,38 @@
-youtube.com###sponsor-button
-youtube.com###subscribe-button
-youtube.com###flexible-item-buttons
-youtube.com###button-shape
-youtube.com###header > ytd-comments-header-renderer.style-scope.ytd-item-section-renderer
-youtube.com###below > ytd-merch-shelf-renderer.style-scope.ytd-watch-flexy:nth-child(8)
-youtube.com###reply-button-end
-youtube.com###super-title
-youtube.com###guide-button
-youtube.com###content > ytd-mini-guide-renderer.style-scope.ytd-app:nth-child(3)
-youtube.com###search-icon-legacy
-youtube.com###voice-search-button
-youtube.com###search-clear-button
-youtube.com###header > ytd-feed-filter-chip-bar-renderer.style-scope.ytd-rich-grid-renderer
-youtube.com###secondary
-youtube.com###content > ytd-rich-shelf-renderer.style-scope.ytd-rich-section-renderer
-youtube.com###below > ytd-watch-metadata.watch-active-metadata.style-scope.ytd-watch-flexy:nth-child(5) > ytd-metadata-row-container-renderer.style-scope.ytd-watch-metadata:last-child
-youtube.com###top-level-buttons-computed > ytd-button-renderer.style-scope.ytd-menu-renderer:last-child > yt-button-shape:first-child > button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading
-youtube.com###movie_player > div.ytp-chrome-top:nth-child(3)
-youtube.com###hover-overlays
-youtube.com###button > yt-icon.style-scope.ytd-menu-renderer > svg.style-scope.yt-icon > g.style-scope.yt-icon > path.style-scope.yt-icon
-youtube.com##.ytp-subtitles-button
-youtube.com##.ytp-miniplayer-button
-youtube.com##.ytp-volume-area
-youtube.com##.ytp-size-button
-youtube.com##.ytp-airplay-button
-youtube.com##.ytp-next-button
-youtube.com##.ytp-prev-button
-youtube.com##.ytp-autonav-toggle-button-container
-youtube.com###guide
-youtube.com###buttons > ytd-topbar-menu-button-renderer.style-scope.ytd-masthead.style-default:first-child
-youtube.com###buttons > ytd-button-renderer.style-scope.ytd-masthead:last-child
-youtube.com###top-level-buttons-computed > ytd-button-renderer.ytd-menu-renderer.style-scope
-youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope
-youtube.com##ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app:style(margin-left: 0 !important)
-youtube.com##.ytp-button.ytp-fullerscreen-edu-button
-youtube.com###about-these-results
-youtube.com###chip-bar
-
-||accounts.google.com/gsi/*$xhr,script,3p
+{
+  "timeStamp": 1731867160650,
+  "version": "1.61.0",
+  "userSettings": {
+    "importedLists": []
+  },
+  "selectedFilterLists": [
+    "user-filters",
+    "ublock-filters",
+    "ublock-badware",
+    "ublock-privacy",
+    "ublock-quick-fixes",
+    "ublock-unbreak",
+    "easylist",
+    "easyprivacy",
+    "adguard-spyware-url",
+    "urlhaus-1",
+    "curben-phishing",
+    "plowe-0",
+    "easylist-chat",
+    "easylist-newsletters",
+    "easylist-notifications",
+    "easylist-annoyances",
+    "ublock-annoyances",
+    "CZE-0"
+  ],
+  "hiddenSettings": {},
+  "whitelist": [
+    "chrome-extension-scheme",
+    "m.youtube.com",
+    "moz-extension-scheme",
+    "www.google.com"
+  ],
+  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
+  "urlFilteringString": "",
+  "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
+  "userFilters": "youtube.com###sponsor-button\nyoutube.com###subscribe-button\nyoutube.com###flexible-item-buttons\nyoutube.com###button-shape\nyoutube.com###header > ytd-comments-header-renderer.style-scope.ytd-item-section-renderer\nyoutube.com###below > ytd-merch-shelf-renderer.style-scope.ytd-watch-flexy:nth-child(8)\nyoutube.com###reply-button-end\nyoutube.com###super-title\nyoutube.com###guide-button\nyoutube.com###content > ytd-mini-guide-renderer.style-scope.ytd-app:nth-child(3)\nyoutube.com###search-icon-legacy\nyoutube.com###voice-search-button\nyoutube.com###search-clear-button\nyoutube.com###header > ytd-feed-filter-chip-bar-renderer.style-scope.ytd-rich-grid-renderer\nyoutube.com###secondary\nyoutube.com###content > ytd-rich-shelf-renderer.style-scope.ytd-rich-section-renderer\nyoutube.com###below > ytd-watch-metadata.watch-active-metadata.style-scope.ytd-watch-flexy:nth-child(5) > ytd-metadata-row-container-renderer.style-scope.ytd-watch-metadata:last-child\nyoutube.com###top-level-buttons-computed > ytd-button-renderer.style-scope.ytd-menu-renderer:last-child > yt-button-shape:first-child > button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading\nyoutube.com###movie_player > div.ytp-chrome-top:nth-child(3)\nyoutube.com###hover-overlays\nyoutube.com###button > yt-icon.style-scope.ytd-menu-renderer > svg.style-scope.yt-icon > g.style-scope.yt-icon > path.style-scope.yt-icon\nyoutube.com##.ytp-subtitles-button\nyoutube.com##.ytp-miniplayer-button\nyoutube.com##.ytp-volume-area\nyoutube.com##.ytp-size-button\nyoutube.com##.ytp-airplay-button\nyoutube.com##.ytp-next-button\nyoutube.com##.ytp-prev-button\nyoutube.com##.ytp-autonav-toggle-button-container\nyoutube.com###guide\nyoutube.com###buttons > ytd-topbar-menu-button-renderer.style-scope.ytd-masthead.style-default:first-child\nyoutube.com###buttons > ytd-button-renderer.style-scope.ytd-masthead:last-child\nyoutube.com###top-level-buttons-computed > ytd-button-renderer.ytd-menu-renderer.style-scope\nyoutube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope\nyoutube.com##.ytp-button.ytp-fullerscreen-edu-button\nyoutube.com###about-these-results\nyoutube.com###chip-bar\n! detailed description - transcript, shorts, social media\nwww.youtube.com###structured-description\n! center comments\nyoutube.com###columns.ytd-watch-flexy:style(justify-content: center !important)\n! center content when searching\nyoutube.com##ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app:style(margin-left: 0 !important)\n\n||accounts.google.com/gsi/*$xhr,script,3p\n\nwww.youtube.com##yt-button-view-model.ytd-menu-renderer.style-scope\n\n!youtube.com##.ytd-searchbox\n\n!||youtube.com^$document\n!@@||youtube.com/watch*$document\n!@@||youtube.com/results*$document\n!@@||youtube.com/feed*$document\n!@@||youtube.com/channel*$document\n!@@||youtube.com/c*$document\n!@@||youtube.com/user*$document\n\n! phone\nyoutube.com###related\n\n!||reddit.com\n@@||youtube.com/watch*\n@@||reddit.com/r/*/comments/\n@@||reddit.com/svc/shreddit/*\nreddit.com###right-sidebar-container\nreddit.com###left-sidebar-container\nreddit.com##header\nreddit.com##shreddit-app:style(padding-top: 0 !important)\nreddit.com##shreddit-post-share-button\nreddit.com##award-button\nreddit.com##shreddit-comment-share-button\n!reddit.com##faceplate-dropdown-menu\n\ngithub.com###dashboard\n\n! Aug 18, 2024 https://www.reddit.com\nwww.reddit.com###main-content > shreddit-async-loader\n\n! Nov 16, 2024 https://www.youtube.com\nwww.youtube.com###top-level-buttons-computed > yt-button-view-model.ytd-menu-renderer > .yt-spec-button-view-model"
+}

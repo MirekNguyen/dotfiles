@@ -1,20 +1,8 @@
 Bitwarden
-Buster
-ChatGPT for Google
-I don't care about cookies
+Limit tabs
 Return Youtube Dislike
-Sponsorblock for Youtube
+Sponsorblock
 uBlock Origin
 Unhook
 Vimium C
 Youtube Auto HD + FPS
-
-Dark Reader
-OneTab
-Bing Chat for All Browsers
-Bypass Paywalls
-
-Debug CSS
-Fake Filler
-Grepper
-Wave Evaluation Tool
