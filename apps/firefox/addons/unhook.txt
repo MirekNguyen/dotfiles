@@ -3,3 +3,4 @@ Disable all except
   - Hide live chat
 - Hide comments
 - Hide video info
+- Hide top header
