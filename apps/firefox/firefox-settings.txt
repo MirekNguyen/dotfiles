@@ -1,16 +1,13 @@
+# Librewolf
 toolkit.legacyUserProfileCustomizations.stylesheets > true - allow firefox-css
 extensions.unifiedExtensions.enabled > false - stop unification of addons into one button
-full-screen-api.warning.timeout > 0 (from 3000) - turn off fullscreen animation
 full-screen-api.warning.delay > -1 (from 500) - turn off fullscreen further
 full-screen-api.transition-duration.enter > 0 0 (from 200 200)
 full-screen-api.transition-duration.leave > 0 0 (from 200 200)
-accessibility.typeaheadfind.manual > false - turn off quick search '/'
-layout.css.overflow-overlay.enabled > true - for bing chat
-
-# librewolf
-full-screen-api.ignore-widgets > true - turn off mouse hover fullscreen notification
-
-full-screen-api.ignore-widgets > true
 browser.fullscreen.autohide > true
+accessibility.typeaheadfind.manual > false
 
-browser.display.background_color.dark > #282828 - change background for about:blank
+# Zen browser
+full-screen-api.warning.timeout > 0 (from 3000) - turn off fullscreen animation
+full-screen-api.ignore-widgets > true - disable native fullscreen
+accessibility.typeaheadfind.autostart > false - turn off quick search '/'
