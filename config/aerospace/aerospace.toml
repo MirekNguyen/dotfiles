@@ -91,11 +91,23 @@ if.app-id = 'org.mozilla.librewolf'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Gmail'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
@@ -112,4 +124,8 @@ run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'mpv'
 run = 'move-node-to-workspace 5'
