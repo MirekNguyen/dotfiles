@@ -83,7 +83,6 @@
           "chromium"
           "keyboardcleantool"
           "kitty"
-          "librewolf"
           "macfuse"
           "microsoft-teams"
           "moonlight"
