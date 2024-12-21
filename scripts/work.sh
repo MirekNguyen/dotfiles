@@ -9,6 +9,8 @@ work-vpn-disconnect () {
   # flush dns
   sudo dscacheutil -flushcache
   sudo killall -HUP mDNSResponder
+  networksetup -setairportpower en0 off
+  networksetup -setairportpower en0 on
 
   # route flush
   networksetup -setairportpower en0 off
