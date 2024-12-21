@@ -27,6 +27,7 @@
           pkgs.fzf
           pkgs.gh
           pkgs.gum
+          pkgs.kubectx
           pkgs.kubernetes-helm
           pkgs.jq
           pkgs.kubectl
@@ -67,14 +68,21 @@
         taps = [
           "nikitabobko/tap"
           "felixkratz/formulae"
+          "hashicorp/tap"
         ];
         brews = [
-          "ansible"
-          "cliclick"
-          "dotnet"
-          "felixkratz/formulae/sketchybar"
-          "php"
-          "vpn-slice"
+            "ansible"
+            "ansible-lint"
+            "cliclick"
+            "colima"
+            "dotnet"
+            "felixkratz/formulae/sketchybar"
+            "fish"
+            "fisher"
+            "hashicorp/tap/terraform"
+            "openjdk"
+            "php"
+            "vpn-slice"
         ];
         casks = [
           "nikitabobko/tap/aerospace"
@@ -89,12 +97,12 @@
           "mos"
           "stolendata-mpv"
           "onedrive"
-          "orbstack"
           "sf-symbols"
           "shortcat"
           "shottr"
           "spotify"
           "swift-quit"
+          "wezterm"
           "zen-browser"
         ];
         onActivation.cleanup = "zap";
