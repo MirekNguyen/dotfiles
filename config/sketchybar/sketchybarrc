@@ -37,6 +37,5 @@ source "$ITEM_DIR"/volume.sh
 source "$ITEM_DIR"/airpods.sh
 source "$ITEM_DIR"/vpn.sh
 source "$ITEM_DIR"/keyboard.sh
-source "$ITEM_DIR"/media.sh
 
 sketchybar --update
