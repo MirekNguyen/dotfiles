@@ -12,11 +12,11 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light joshskidmore/zsh-fzf-history-search
 # autoload -U compinit && compinit
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
 
 # plugins
 source "$HOME/.config/dotfiles/scripts/fzf-find.sh"
