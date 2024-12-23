@@ -39,6 +39,8 @@ set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME"/docker
 set -gx KUBECONFIG "$XDG_CONFIG_HOME/kube" 
 set -gx KUBECACHEDIR "$XDG_CACHE_HOME/kube"
 
+set -gx VAULT_ADDR "https://vault.mirekng.com"
+
 bind \e\[106\;9u "_fzf_find $HOME"
 bind \e\[108\;9u "_fzf_find_search '$HOME/.local/mount/onedrive/notes/programming/'"
 bind \e\[106\;10u "_fzf_find --noignorefile"
@@ -59,3 +61,4 @@ function envsource
   end
 end
 envsource "$HOME/.local/secrets/environment"
+# vault kv get -mount="kv" -format=json "environment" | jq -r '.data.data | to_entries[] | "\(.key)=\"\(.value)\""' > "$HOME/.local/secrets/environment"
