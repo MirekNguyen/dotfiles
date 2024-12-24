@@ -12,7 +12,8 @@
   let
     configuration = { pkgs, ... }: {
       environment.systemPackages =
-        [ pkgs.bat
+        [ pkgs.argocd
+          pkgs.bat
           pkgs.bottom
           pkgs.cargo
           pkgs.php83Packages.composer
