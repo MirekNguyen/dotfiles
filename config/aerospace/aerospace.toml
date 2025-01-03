@@ -127,5 +127,9 @@ if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
+if.app-id = 'com.moonlight-stream.Moonlight'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'mpv'
 run = 'move-node-to-workspace 5'
