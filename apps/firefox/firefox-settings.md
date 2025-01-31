@@ -15,6 +15,8 @@ full-screen-api.warning.timeout > 0 (from 3000) - turn off fullscreen animation
 full-screen-api.ignore-widgets > true - disable native fullscreen
 accessibility.typeaheadfind.autostart > false - turn off quick search '/'
 accessibility.typeaheadfind.manual > false - turn off manual quick search '/'
+zen.workspaces.show-workspace-indicator > false - hide workspace icon
+browser.tabs.closeWindowWithLastTab > true - close window after last tab
 
 ### General
 
