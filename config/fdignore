@@ -63,3 +63,4 @@ nvim-db
 !.config/dotfiles
 .local/vm/*
 .local/mount/onedrive/*
+.local/study/*/*

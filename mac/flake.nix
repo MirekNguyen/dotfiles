@@ -58,7 +58,7 @@
         dock = {
           autohide = true;
           orientation = "left";
-          expose-group-by-app = true;
+          expose-group-apps = true;
           persistent-apps = [];
         };
         NSGlobalDomain = {
@@ -71,13 +71,14 @@
         enable = true;
         taps = [
           "nikitabobko/tap"
-          "FelixKratz/formulae"
+          "felixkratz/formulae"
         ];
         brews = [
             "cliclick"
             "fish"
             "fisher"
             "php"
+            "felixkratz/formulae/sketchybar"
             "vpn-slice"
         ];
         casks = [
@@ -93,7 +94,6 @@
           "moonlight"
           "mos"
           "phpstorm"
-          "sketchybar"
           "sf-symbols"
           "shortcat"
           "shottr"
@@ -107,7 +107,7 @@
       };
       fonts.packages = with pkgs; [
           iosevka
-          (nerdfonts.override { fonts = [ "Iosevka" ]; })
+          nerd-fonts.iosevka
       ];
 
       # Auto upgrade nix package and the daemon service.
