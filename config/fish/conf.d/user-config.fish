@@ -7,6 +7,7 @@ alias fzf "fzf -e --height 30% --border rounded"
 alias docker-ps "docker ps -a --format 'table {{.ID}}|{{.Names}}|{{.Status}}|{{.Ports}}' | column -t -s '|'"
 alias c 'click.sh "$HOME"/.local/secrets/websites'
 alias k 'kubectl'
+alias d 'docker'
 alias kn 'kubens'
 alias kx 'kubectx'
 alias ls='eza -g --oneline'
@@ -34,7 +35,6 @@ set -gx CARGO_HOME "$HOME/.local/scripts/cargo/"
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 
 set -gx LIMA_HOME "$HOME/.config/lima"
-set -gx DOCKER_HOST "unix://$HOME/.config/colima/docker.sock"
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME"/docker
 set -gx KUBECONFIG "$XDG_CONFIG_HOME/kube" 
 set -gx KUBECACHEDIR "$XDG_CACHE_HOME/kube"
@@ -61,4 +61,3 @@ function envsource
   end
 end
 envsource "$HOME/.local/secrets/environment"
-# vault kv get -mount="kv" -format=json "environment" | jq -r '.data.data | to_entries[] | "\(.key)=\"\(.value)\""' > "$HOME/.local/secrets/environment"
