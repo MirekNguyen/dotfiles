@@ -56,10 +56,6 @@ fzf-find() {
         cd "$(dirname "$fzf")"
         extension="${fzf##*.}"
         case "$extension" in
-            mkv|mp4)
-                nohup mpv --player-operation-mode=pseudo-gui "$fzf" >/dev/null 2>&1 &
-                disown
-                ;;
             pdf)
                 nohup zathura -- "$fzf" >/dev/null 2>&1 &
                 disown
