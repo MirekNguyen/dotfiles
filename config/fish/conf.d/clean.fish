@@ -16,4 +16,12 @@ function clean
   rm -rf "$HOME/.DS_Store"
   rm -rf "$HOME/.android"
   rm -rf "$HOME/.emulator_console_auth_token"
+  rm -rf "$HOME/.bash_history"
+  rm -rf "$HOME/.wget-hsts"
+  rm -rf "$HOME/.psql_history"
+  rm -rf "$HOME/.hawtjni"
+  rm -rf "$HOME/.swiftpm"
+  rm -rf "$HOME/.gem"
+  rm -rf "$HOME/.cocoapods"
+  rm -rf "$HOME/.lesshst"
 end
