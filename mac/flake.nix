@@ -12,11 +12,13 @@
   let
     configuration = { pkgs, ... }: {
       environment.systemPackages =
-        [ pkgs.argocd
+        [
+          pkgs.ansible
+          pkgs.ansible-lint
+          pkgs.argocd
           pkgs.bat
           pkgs.bottom
           pkgs.cargo
-          pkgs.php83Packages.composer
           pkgs.delta
           pkgs.docker
           pkgs.docker-compose
@@ -46,6 +48,7 @@
           pkgs.spicetify-cli
           pkgs.starship
           pkgs.stow
+          pkgs.terraform
           pkgs.wget
           pkgs.yazi
           pkgs.zinit
@@ -68,20 +71,12 @@
         enable = true;
         taps = [
           "nikitabobko/tap"
-          "felixkratz/formulae"
-          "hashicorp/tap"
+          "FelixKratz/formulae"
         ];
         brews = [
-            "ansible"
-            "ansible-lint"
             "cliclick"
-            "colima"
-            "dotnet"
-            "felixkratz/formulae/sketchybar"
             "fish"
             "fisher"
-            "hashicorp/tap/terraform"
-            "openjdk"
             "php"
             "vpn-slice"
         ];
@@ -90,21 +85,22 @@
           "alfred"
           "appcleaner"
           "chromium"
+          "iina"
           "keyboardcleantool"
           "kitty"
           "macfuse"
           "microsoft-teams"
           "moonlight"
           "mos"
-          "onedrive"
           "phpstorm"
+          "sketchybar"
           "sf-symbols"
-          "stolendata-mpv"
           "shortcat"
           "shottr"
           "spotify"
           "swift-quit"
-          "wezterm"
+          "omnidisksweeper"
+          "orbstack"
           "zen-browser"
         ];
         onActivation.cleanup = "zap";
@@ -135,6 +131,8 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin"; # x86_64-darwin
+
+      nixpkgs.config.allowUnfree = true;
     };
   in
   {
