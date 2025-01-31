@@ -91,8 +91,13 @@ if.app-id = 'org.mozilla.librewolf'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.com.zen.browser'
+if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+if.window-title-regex-substring = 'Picture-in-Picture'
+run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
@@ -128,6 +133,10 @@ run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.moonlight-stream.Moonlight'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'com.colliderli.iina'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
