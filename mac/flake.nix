@@ -72,12 +72,14 @@
         taps = [
           "nikitabobko/tap"
           "felixkratz/formulae"
+          "shivammathur/php"
         ];
         brews = [
             "cliclick"
             "fish"
             "fisher"
             "php"
+            "shivammathur/php/php@7.4"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
         ];
