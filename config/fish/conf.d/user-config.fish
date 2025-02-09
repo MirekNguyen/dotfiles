@@ -7,6 +7,8 @@ alias fzf "fzf -e --height 30% --border rounded"
 alias docker-ps "docker ps -a --format 'table {{.ID}}|{{.Names}}|{{.Status}}|{{.Ports}}' | column -t -s '|'"
 alias c 'click.sh "$HOME"/.local/secrets/websites'
 alias k 'kubectl'
+alias g 'git'
+alias lg 'lazygit'
 alias d 'docker'
 alias kn 'kubens'
 alias kx 'kubectx'
