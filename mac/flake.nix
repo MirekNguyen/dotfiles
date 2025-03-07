@@ -79,6 +79,7 @@
             "cliclick"
             "fish"
             "fisher"
+            "mpv"
             "php"
             "shivammathur/php/php@7.4"
             "felixkratz/formulae/sketchybar"
@@ -114,8 +115,6 @@
           nerd-fonts.iosevka
       ];
 
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
