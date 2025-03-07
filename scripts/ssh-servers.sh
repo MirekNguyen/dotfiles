@@ -31,7 +31,7 @@ fi
 
 # Extract data from JSON file
 titles=$(jq -r '.[].title' "$servers")
-selected_title=$(echo "$titles" | gum choose)
+selected_title=$(echo "$titles" | gum filter)
 user=$(jq -r --arg title "$selected_title" '.[] | select(.title == $title) | .user' "$servers")
 hostname=$(jq -r --arg title "$selected_title" '.[] | select(.title == $title) | .hostname' "$servers")
 password=$(jq -r --arg title "$selected_title" '.[] | select(.title == $title) | .password' "$servers")
