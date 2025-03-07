@@ -80,7 +80,7 @@
             "fish"
             "fisher"
             "mpv"
-            "php"
+            "php@8.3"
             "shivammathur/php/php@7.4"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
