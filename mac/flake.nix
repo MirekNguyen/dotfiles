@@ -75,6 +75,7 @@
           "shivammathur/php"
         ];
         brews = [
+            "aichat"
             "cliclick"
             "fish"
             "fisher"
@@ -103,6 +104,7 @@
           "swift-quit"
           "omnidisksweeper"
           "orbstack"
+          "visual-studio-code"
           "zen-browser"
         ];
         onActivation.cleanup = "zap";
