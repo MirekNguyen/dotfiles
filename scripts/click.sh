@@ -17,7 +17,7 @@ fi
 
 while IFS= read -r url || [[ -n $url ]]; do
   urls+=("$url")
-done < "$1"
+done <"$1"
 
 while true; do
   cliclick "m:$((RANDOM % 501)),$((RANDOM % 501))"
@@ -25,7 +25,7 @@ while true; do
   len=${#urls[@]}
   rand_index=$((RANDOM % len))
   selected_url="${urls[$rand_index]}"
-  curl -sS --insecure "$selected_url" > /dev/null
+  curl -sS --insecure "$selected_url" >/dev/null
   cliclick "m:$((RANDOM % 501)),$((RANDOM % 501))"
   sleep $((RANDOM % 151 + 30))
 done
