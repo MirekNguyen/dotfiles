@@ -31,6 +31,7 @@
           pkgs.fzf
           pkgs.gh
           pkgs.gum
+          pkgs.imagemagick
           pkgs.kubectx
           pkgs.kubernetes-helm
           pkgs.jq
