@@ -77,6 +77,7 @@
         ];
         brews = [
             "aichat"
+            "aicommits"
             "cliclick"
             "fish"
             "fisher"
