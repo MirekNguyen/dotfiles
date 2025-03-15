@@ -106,6 +106,7 @@
           "spotify"
           "swift-quit"
           "omnidisksweeper"
+          "onedrive"
           "orbstack"
           "visual-studio-code"
           "zen-browser"
