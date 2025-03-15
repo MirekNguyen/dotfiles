@@ -44,6 +44,7 @@
           pkgs.openjdk
           pkgs.pnpm
           pkgs.postgresql
+          pkgs.rclone
           pkgs.ripgrep
           pkgs.spicetify-cli
           pkgs.starship
