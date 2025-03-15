@@ -45,9 +45,8 @@ set -gx VAULT_ADDR "https://vault.mirekng.com"
 
 bind \e\[106\;9u "_fzf_find $HOME"
 bind \e\[108\;9u "_fzf_find_search '$HOME/.local/mount/onedrive/notes/programming/'"
-bind \e\[106\;10u "_fzf_find --noignorefile"
-bind \e\[108\;10u "_fzf_find_search"
-bind ctrl-j "_fzf_find_search"
+bind \e\[106:74\;10u "_fzf_find --noignorefile"
+bind \e\[108:76\;10u "_fzf_find_search"
 
 # Starship
 if type -q starship
