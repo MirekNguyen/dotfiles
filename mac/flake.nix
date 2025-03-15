@@ -22,6 +22,7 @@
           pkgs.delta
           pkgs.docker
           pkgs.docker-compose
+          pkgs.dotenv-linter
           pkgs.duf
           pkgs.dust
           pkgs.eza
