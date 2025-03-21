@@ -51,5 +51,7 @@ if [ -z "$user" ] || [ -z "$hostname" ]; then
   exit 1;
 fi
 
-printf '%s' "$password" | pbcopy;
+if [ -n "$password" ] && [ "$password" != "null" ]; then
+  printf '%s' "$password" | pbcopy;
+fi
 eval ssh "$extraArgs" "$user@$hostname"
