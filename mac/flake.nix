@@ -75,6 +75,7 @@
         taps = [
           "nikitabobko/tap"
           "felixkratz/formulae"
+          "shivammathur/extensions"
           "shivammathur/php"
         ];
         brews = [
@@ -86,6 +87,8 @@
             "mpv"
             "php@8.3"
             "shivammathur/php/php@7.4"
+            "shivammathur/php/php@5.6"
+            "shivammathur/extensions/mcrypt@5.6"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
         ];
