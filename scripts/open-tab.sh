@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MAX_TABS=5
+MAX_TABS=8
 CURRENT_TABS="$(kitty @ ls | jq '.[].tabs[].windows | length' | wc -l)"
 if [ "$CURRENT_TABS" -lt "$MAX_TABS" ]; then
     kitty @ launch --type=tab
