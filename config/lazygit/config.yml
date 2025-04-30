@@ -1,7 +1,15 @@
+gui:
+  showCommandLog: false
+  screenMode: half
+  showFileTree: false
+  showRandomTip: false
+  showBottomLine: false
+  filterMode: fuzzy
+  enlargedSideViewLocation: 'top'
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: git delta --paging=never
 
 customCommands:
   - key: "C"
