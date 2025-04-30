@@ -17,6 +17,7 @@ accessibility.typeaheadfind.autostart > false - turn off quick search '/'
 accessibility.typeaheadfind.manual > false - turn off manual quick search '/'
 zen.workspaces.show-workspace-indicator > false - hide workspace icon
 browser.tabs.closeWindowWithLastTab > true - close window after last tab
+browser.translations.automaticallyPopup > false - disable translation popup
 
 ### General
 
