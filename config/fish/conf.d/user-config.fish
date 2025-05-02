@@ -21,6 +21,7 @@ alias sshlx 'ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'
 alias sshs 'ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
 alias mnt 'smb-servers.sh "$HOME"/.local/secrets/smb-servers.json'
 alias nix-rebuild 'darwin-rebuild switch --flake ~/.config/dotfiles/mac#mira'
+alias nix-update 'nix flake update --flake ~/.config/dotfiles/mac'
 
 # XDG
 set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -47,6 +48,9 @@ bind \e\[106\;9u "_fzf_find $HOME"
 bind \e\[108\;9u "_fzf_find_search '$HOME/.local/mount/onedrive/notes/programming/'"
 bind \e\[106:74\;10u "_fzf_find --noignorefile"
 bind \e\[108:76\;10u "_fzf_find_search"
+bind \e\[105\;9u "dev.sh"
+bind \e\[117\;9u "bw-login.sh"
+bind \e\[107\;9u "yazi"
 
 # Starship
 if type -q starship
@@ -63,3 +67,16 @@ function envsource
   end
 end
 envsource "$HOME/.local/secrets/environment"
+
+function yy
+    set -l tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file=$tmp
+    set cwd (cat -- $tmp)
+    if test -s $tmp
+        if test -n "$cwd" -a "$cwd" != "$PWD"
+            cd -- $cwd
+            commandline -f repaint
+        end
+    end
+    rm -f -- $tmp
+end
