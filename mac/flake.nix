@@ -89,6 +89,7 @@
             "shivammathur/php/php@7.4"
             "shivammathur/php/php@5.6"
             "shivammathur/extensions/mcrypt@5.6"
+            "switchaudio-osx"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
         ];

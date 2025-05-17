@@ -15,83 +15,83 @@ full-screen-api.warning.timeout > 0 (from 3000) - turn off fullscreen animation
 full-screen-api.ignore-widgets > true - disable native fullscreen
 accessibility.typeaheadfind.autostart > false - turn off quick search '/'
 accessibility.typeaheadfind.manual > false - turn off manual quick search '/'
-zen.workspaces.show-workspace-indicator > false - hide workspace icon
 browser.tabs.closeWindowWithLastTab > true - close window after last tab
 browser.translations.automaticallyPopup > false - disable translation popup
 
 ### General
 
 - General
-  - Enabled         - Zen Browser is currently your default browser
-  - Disabled        - Confirm before closing multiple tabs
-  - Disabled        - Confirm before quitting with HQ
+  - Enabled - Zen Browser is currently your default browser
+  - Disabled - Confirm before closing multiple tabs
+  - Disabled - Confirm before quitting with HQ
 - Language and Appearance
-  - Automatic       - Website appearance
+  - Automatic - Website appearance
 - Files and Applications
-  - Save files      - What should Zen Browser do with other files?
+  - Save files - What should Zen Browser do with other files?
 
 ### Look and Feel
 
 - Look and Feel
-  - Enabled         - Use workspace colors as primary color
+  - Enabled - Use workspace colors as primary color
 - Theme Settings
-  - Enabled         - Enable Zen Browser's compact mode
-  - Hide Top bar    - Show in compact view
-  - Enabled         - Briefly make the toolbar popup when switching
-  - Enabled         - Use themed background for compact toolbar
-  - Enabled         - Use themed background for compact sidebar
+  - Enabled - Enable Zen Browser's compact mode
+  - Hide Top bar - Show in compact view
+  - Enabled - Briefly make the toolbar popup when switching
+  - Enabled - Use themed background for compact toolbar
+  - Enabled - Use themed background for compact sidebar
 - Sidebar and tabs layout
-  - Disabled        - Show New Tab Button on Tab List
-  - Enabled         - Don't Expand Tabs by Default
+  - Disabled - Show New Tab Button on Tab List
+  - Enabled - Don't Expand Tabs by Default
 - Tab Management
-  - Disabled        - Enable Workspaces
+  - Disabled - Enable Workspaces
 
 ### Home
 
 - New Windows and Tabs
-  - Blank page      - Homepage and new windows
-  - Blank page      - New tabs
+  - Blank page - Homepage and new windows
+  - Blank page - New tabs
 - Firefox Home Content
-  - Disabled        - Web Search
-  - Disabled        - Shortcuts
-  - Disabled        - Weather
-  - Disabled        - Recent activity
+  - Disabled - Web Search
+  - Disabled - Shortcuts
+  - Disabled - Weather
+  - Disabled - Recent activity
 
 ### Search
 
 - Default Search Engine
-  - Google          - Search Engine
-  - Enabled         - Use this search engine in Private Windows
+  - Google - Search Engine
+  - Enabled - Use this search engine in Private Windows
 - Search Suggestions
-  - Disabled        - Show search suggestions
-  - Disabled        - Show recent searches
+  - Disabled - Show search suggestions
+  - Disabled - Show recent searches
 - Address Bar
-  - Disabled        - Everything
+  - Disabled - Everything
 - Search Shortcuts
-  - Disabled        - Everything
+  - Disabled - Everything
 
 ### Privacy & Security
 
 - Enhanced Tracking Protection
-  - Strict          - Tracking Protection
+  - Strict - Tracking Protection
 - Cookies and Site Data
-  - Disabled        - Delete cookies and site data when Zen Browser is closed
+  - Disabled - Delete cookies and site data when Zen Browser is closed
 - Passwords
-  - Disabled        - Ask to save passwords
+  - Disabled - Ask to save passwords
 - History
   - Custom settings - Zen browser
-  - Disabled        - Always use private browsing mode
-  - Disabled        - Remember browsing and download history
-  - Disabled        - Remember search and form history
-  - Disabled        - Clear history when Zen Browser closes
+  - Disabled - Always use private browsing mode
+  - Disabled - Remember browsing and download history
+  - Disabled - Remember search and form history
+  - Disabled - Clear history when Zen Browser closes
 
 ### Extensions
 
 - Extensions
+
   - Bitwarden
-    - shift+cmd+y   - Open vault popup
-    - shift+cmd+u   - Open vault in sidebar
-    - shift+cmd+l   - Autofill the last used login for the current website
+    - shift+cmd+y - Open vault popup
+    - shift+cmd+u - Open vault in sidebar
+    - shift+cmd+l - Autofill the last used login for the current website
   - Limit tabs
   - Return Youtube Dislike
   - Sponsorblock
@@ -101,6 +101,7 @@ browser.translations.automaticallyPopup > false - disable translation popup
   - Youtube Auto HD + FPS
 
 - Zen Mods
+
   - Floating URLbar
     - Enabled - Adjust a border to the URL bar
     - Normal - Enable a Background Blur when the Url Bar is focused
@@ -119,9 +120,19 @@ browser.translations.automaticallyPopup > false - disable translation popup
 ### Other
 
 - Sidebar - Right click
-  - Enabled         - Tabs on the right
+  - Enabled - Tabs on the right
 - Customize toolbar
-  - Remove          - Account button
-  - Remove          - Add button
-  - Remove          - Reload
-  - Remove          - Expand Sidebar
+  - Remove - Account button
+  - Remove - Add button
+  - Remove - Reload
+  - Remove - Expand Sidebar
+
+### UserChrome
+
+- chrome/userChrome.css
+
+```css
+#zen-current-workspace-indicator-container {
+  display: none !important;
+}
+```
