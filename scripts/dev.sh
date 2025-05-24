@@ -12,14 +12,9 @@ handle_docker_project() {
   fi
 
   echo "Managing $project (Docker Compose)"
-  action=$(gum filter "Open URL" "Start services" "Rebuild and start services" "Restart services" "Stop services" "Status" "View logs" "Back")
+  action=$(gum choose "Start services" "Rebuild and start services" "Restart services" "Stop services" "Open URL" "Status" "View logs" "Back")
 
   case "$action" in
-  "Open URL")
-    echo "Opening $url"
-    open "$url"
-    exit 0
-    ;;
   "Start services")
     echo "Starting Docker Compose services for $project"
     cd "$project_dir" && "$compose_cmd" up -d
@@ -40,6 +35,11 @@ handle_docker_project() {
     cd "$project_dir" && "$compose_cmd" down
     exit 0
     ;;
+  "Open URL")
+    echo "Opening $url"
+    open "$url"
+    exit 0
+    ;;
   "Status")
     echo "Checking status of Docker Compose services for $project"
     cd "$project_dir" && "$compose_cmd" ps -a
@@ -57,36 +57,41 @@ handle_docker_project() {
 }
 
 handle_regular_project() {
-  local project=$1
-  local url=$2
-  local start_cmd=$3
+  while true; do
+    local project=$1
+    local url=$2
+    local start_cmd=$3
 
-  echo "Managing $project"
-  action=$(gum filter "Open URL" "Start application" "Stop application" "Back")
+    echo "Managing $project"
+    action=$(gum choose "Start application" "Stop application" "Open URL" "Back" "Quit")
 
-  case "$action" in
-  "Open URL")
-    echo "Opening $url"
-    open "$url"
-    ;;
-  "Start application")
-    echo "Starting $project"
-    eval "$start_cmd"
-    exit 0
-    ;;
-  "Stop application")
-    echo "Stopping $project"
-    echo "Not implemented yet"
-    exit 0
-    ;;
-  "Back")
-    main
-    ;;
-  esac
+    case "$action" in
+      "Start application")
+        echo "Starting $project"
+        eval "$start_cmd"
+        exit 0
+        ;;
+      "Stop application")
+        echo "Stopping $project"
+        echo "Not implemented yet"
+        exit 0
+        ;;
+      "Open URL")
+        echo "Opening $url"
+        open "$url"
+        ;;
+      "Quit")
+        exit 0
+        ;;
+      "Back")
+        main
+        ;;
+    esac
+  done
 }
 
 main() {
-  choice=$(gum filter "Nadace" "Spokojenost" "Decision rule" "AkceLeto" "Otik" "NutriTrack" "Quit")
+  choice=$(gum filter "Nadace" "Spokojenost" "Decision rule" "AkceLeto" "Otik" "NutriTrack" "Financer" "Spoko v2" "Quit")
 
   if [ "$choice" = "" ]; then
     echo "No choice made, exiting..."
@@ -112,6 +117,12 @@ main() {
   "NutriTrack")
     handle_regular_project "NutriTrack" "http://localhost:3000" "cd $HOME/.local/projects/personal/nutri-track && pnpm dev"
     ;;
+  "Financer")
+    handle_regular_project "Financer" "http://localhost:3000" "cd $HOME/.local/projects/personal/financer/ && docker-compose up -d && pnpm dev"
+    ;;
+  "Spoko v2")
+    handle_regular_project "Spoko v2" "http://localhost:5173" "cd $HOME/.local/projects/work/SSD_spokojenost/ && docker-compose up -d && pnpm dev"
+    ;;
   "Quit")
     echo "Exiting..."
     exit 0
@@ -122,5 +133,6 @@ main() {
     ;;
   esac
 }
-
-main
+while true; do
+  main
+done
