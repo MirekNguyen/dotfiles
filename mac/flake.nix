@@ -88,6 +88,7 @@
             "php@8.3"
             "shivammathur/php/php@7.4"
             "shivammathur/php/php@5.6"
+            "shivammathur/php/php@8.3"
             "shivammathur/extensions/mcrypt@5.6"
             "switchaudio-osx"
             "felixkratz/formulae/sketchybar"
@@ -107,15 +108,15 @@
           "mos"
           "phpstorm"
           "sf-symbols"
-          "shortcat"
+          # "shortcat"
           "shottr"
           "spotify"
           "swift-quit"
-          "omnidisksweeper"
+          # "omnidisksweeper"
           "onedrive"
           "orbstack"
-          "visual-studio-code"
-          "zen-browser"
+          # "visual-studio-code"
+          "zen"
         ];
         onActivation.cleanup = "zap";
       };
