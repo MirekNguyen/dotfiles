@@ -10,7 +10,6 @@ git:
   paging:
     colorArg: always
     pager: git delta --paging=never
-
 customCommands:
   - key: "C"
     command: 'git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}"'
@@ -63,10 +62,8 @@ customCommands:
       - type: "confirm"
         title: "Is the commit message correct?"
         body: "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}"
-
   - key: <c-a>
     description: Pick AI commit
     command: aicommits --type conventional -g 5
     context: files
-    subprocess: true
-    showOutput: true
+    output: terminal
