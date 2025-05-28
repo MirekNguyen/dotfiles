@@ -69,6 +69,7 @@
           NSWindowShouldDragOnGesture = true;
         };
       };
+      system.primaryUser = "mireknguyen";
 
       homebrew = {
         enable = true;
@@ -84,6 +85,7 @@
             "cliclick"
             "fish"
             "fisher"
+            "fx"
             "mpv"
             "php@8.3"
             "shivammathur/php/php@7.4"
