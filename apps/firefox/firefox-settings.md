@@ -132,7 +132,7 @@ browser.translations.automaticallyPopup > false - disable translation popup
 - chrome/userChrome.css
 
 ```css
-#zen-current-workspace-indicator-container {
-  display: none !important;
+vbox.zen-workspace-tabs-section.zen-current-workspace-indicator {
+    display: none !important;
 }
 ```
