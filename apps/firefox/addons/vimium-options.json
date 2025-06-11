@@ -1,0 +1,23 @@
+{
+  "keyMappings": "unmapAll\nmap u scrollDown\nmap i scrollUp\nmap j scrollPageDown\nmap k scrollPageUp\nmap h scrollLeft\nmap l scrollRight\nmap ; LinkHints.activateMode hideHUD\nmap : LinkHints.activateModeToOpenInNewTab\nmap gg scrollToTop\nmap G scrollToBottom\nmap ( moveTabLeft\nmap ) moveTabRight",
+  "smoothScroll": false,
+  "settingsVersion": "2.2.1",
+  "exclusionRules": [
+    {
+      "passKeys": "0 1 2 3 4 5 6 7 8 9",
+      "pattern": "https://www.youtube.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.nytimes.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://homepage.mirekng.com/*"
+    },
+    {
+      "passKeys": "qwertyuiopasdfghjklzxcvbnm",
+      "pattern": "https://organizr.mirekng.com/#Homepage"
+    }
+  ]
+}
