@@ -1,5 +1,5 @@
 set fish_greeting
-set -U fish_user_paths "$HOME/.config/dotfiles/scripts/" /Users/mireknguyen/.dotnet/tools /Users/mireknguyen/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin $fish_user_paths
+set -U fish_user_paths "$HOME/.local/scripts/cargo/bin" "$HOME/.local/share/npm/bin/" "$HOME/.config/dotfiles/scripts/" /Users/mireknguyen/.dotnet/tools /Users/mireknguyen/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin "" $fish_user_paths
 
 # aliases
 alias v='nvim'
@@ -20,7 +20,7 @@ alias db 'nvim -c "set filetype=sql" -c "DBUIToggle"'
 alias sshlx 'ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'
 alias sshs 'ssh-servers.sh "$HOME"/.local/secrets/home-servers.json'
 alias mnt 'smb-servers.sh "$HOME"/.local/secrets/smb-servers.json'
-alias nix-rebuild 'darwin-rebuild switch --flake ~/.config/dotfiles/mac#mira'
+alias nix-rebuild 'sudo darwin-rebuild switch --flake ~/.config/dotfiles/mac#mira'
 alias nix-update 'nix flake update --flake ~/.config/dotfiles/mac'
 
 # XDG
