@@ -1,5 +1,5 @@
 gui:
-  showCommandLog: false
+  showCommandLog: true
   screenMode: half
   showFileTree: false
   showRandomTip: false
@@ -64,6 +64,14 @@ customCommands:
         body: "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}"
   - key: <c-a>
     description: Pick AI commit
-    command: aicommits --type conventional -g 5
+    command: aicommit2 --auto-select -y
     context: files
-    output: terminal
+  - key: <c-n>
+    description: Pick AI commit (no verify)
+    command: aicommit2 --no-verify
+    context: files
+  # - key: <c-a>
+  #   description: Pick AI commit
+  #   command: aicommits --type conventional -g 5
+  #   context: files
+  #   output: terminal
