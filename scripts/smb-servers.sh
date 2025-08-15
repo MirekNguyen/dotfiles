@@ -86,7 +86,7 @@ case "$protocol" in
       exit 1
     fi
     echo "Mounting SSHFS share..."
-    sshfs -o allow_other "$user@$hostname:$subdirectory" "$mountpoint"
+    sshfs -o allow_other "$user@$hostname:$subdirectory" "$mountpoint" -oauto_cache,reconnect,defer_permissions,noappledouble,nolocalcaches,no_readahead
     ;;
   *)
     echo "Error: Unsupported protocol '$protocol'. Use 'smb' or 'sshfs'."
