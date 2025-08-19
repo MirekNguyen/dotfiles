@@ -9,77 +9,77 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
-  let
-    configuration = { pkgs, ... }: {
-      environment.systemPackages =
-        [
-          pkgs.ansible
-          pkgs.ansible-lint
-          pkgs.argocd
-          pkgs.bat
-          pkgs.bottom
-          pkgs.cargo
-          pkgs.delta
-          pkgs.docker
-          pkgs.docker-compose
-          pkgs.dotenv-linter
-          pkgs.duf
-          pkgs.dust
-          pkgs.eza
-          pkgs.fd
-          pkgs.fx
-          pkgs.fzf
-          pkgs.gh
-          pkgs.gum
-          pkgs.imagemagick
-          pkgs.kubectx
-          pkgs.kubernetes-helm
-          pkgs.jq
-          pkgs.kubectl
-          pkgs.lazygit
-          pkgs.lazysql
-          pkgs.lua
-          pkgs.mariadb
-          pkgs.neovim
-          pkgs.nodejs
-          pkgs.openconnect
-          pkgs.openjdk
-          pkgs.pnpm
-          pkgs.postgresql
-          pkgs.rclone
-          pkgs.ripgrep
-          pkgs.spicetify-cli
-          pkgs.starship
-          pkgs.stow
-          pkgs.terraform
-          pkgs.wget
-          pkgs.yazi
-          pkgs.zinit
-          pkgs.zoxide
-        ];
-      system.defaults = {
-        dock = {
-          autohide = true;
-          orientation = "left";
-          expose-group-apps = true;
-          persistent-apps = [];
+    let
+      configuration = { pkgs, ... }: {
+        environment.systemPackages =
+          [
+            pkgs.ansible
+            pkgs.ansible-lint
+            pkgs.argocd
+            pkgs.bat
+            pkgs.bottom
+            pkgs.cargo
+            pkgs.delta
+            pkgs.docker
+            pkgs.docker-compose
+            pkgs.dotenv-linter
+            pkgs.duf
+            pkgs.dust
+            pkgs.eza
+            # pkgs.fd
+            pkgs.fx
+            # pkgs.fzf
+            pkgs.gh
+            pkgs.gum
+            pkgs.imagemagick
+            pkgs.kubectx
+            pkgs.kubernetes-helm
+            pkgs.jq
+            pkgs.kubectl
+            pkgs.lazygit
+            # pkgs.lazysql
+            pkgs.lua
+            pkgs.mariadb
+            # pkgs.neovim
+            pkgs.nodejs
+            pkgs.openconnect
+            pkgs.openjdk
+            pkgs.pnpm
+            pkgs.postgresql
+            pkgs.rclone
+            pkgs.ripgrep
+            pkgs.spicetify-cli
+            pkgs.starship
+            pkgs.stow
+            pkgs.terraform
+            pkgs.wget
+            pkgs.yazi
+            pkgs.zinit
+            pkgs.zoxide
+          ];
+        system.defaults = {
+          dock = {
+            autohide = true;
+            orientation = "left";
+            expose-group-apps = true;
+            persistent-apps = [];
+          };
+          NSGlobalDomain = {
+            NSAutomaticWindowAnimationsEnabled = false;
+            NSWindowShouldDragOnGesture = true;
+          };
         };
-        NSGlobalDomain = {
-          NSAutomaticWindowAnimationsEnabled = false;
-          NSWindowShouldDragOnGesture = true;
-        };
-      };
-      system.primaryUser = "mireknguyen";
+        system.primaryUser = "mireknguyen";
 
-      homebrew = {
-        enable = true;
-        taps = [
-          "nikitabobko/tap"
-          "felixkratz/formulae"
-          "shivammathur/extensions"
-          "shivammathur/php"
-        ];
-        brews = [
+        homebrew = {
+          enable = true;
+          taps = [
+            "nikitabobko/tap"
+            "felixkratz/formulae"
+            "shivammathur/extensions"
+            "shivammathur/php"
+          ];
+          brews = [
             "aichat"
             "aicommits"
             "cliclick"
@@ -95,83 +95,102 @@
             "switchaudio-osx"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
-        ];
-        casks = [
-          "nikitabobko/tap/aerospace"
-          "alfred"
-          "appcleaner"
-          "chromium"
-          "iina"
-          "keyboardcleantool"
-          "kitty"
-          "macfuse"
-          "microsoft-teams"
-          "moonlight"
-          "mos"
-          "phpstorm"
-          "sf-symbols"
-          # "shortcat"
-          "shottr"
-          "spotify"
-          "swift-quit"
-          # "omnidisksweeper"
-          "onedrive"
-          "orbstack"
-          # "visual-studio-code"
-          "zen"
-        ];
-        onActivation.cleanup = "zap";
-      };
-      fonts.packages = with pkgs; [
+
+            "lazysql"
+            "neovim"
+
+
+            "fzf"
+            "fd"
+            "composer"
+          ];
+          casks = [
+            "nikitabobko/tap/aerospace"
+            "alfred"
+            "appcleaner"
+            # "chromium"
+            "iina"
+            "keyboardcleantool"
+            "kitty"
+            "macfuse"
+            "microsoft-teams"
+            "moonlight"
+            "mos"
+            "phpstorm"
+            "sf-symbols"
+            # "shortcat"
+            "shottr"
+            "spotify"
+            "swift-quit"
+            # "omnidisksweeper"
+            "onedrive"
+            "orbstack"
+            # "visual-studio-code"
+            "zen"
+
+            "krita"
+            "jellyfin-media-player"
+            "logi-options+"
+            "omnidisksweeper"
+            "telegram"
+            "wacom-tablet"
+
+            "expo-orbit"
+            "monitorcontrol"
+            "cursor"
+          ];
+          onActivation.cleanup = "zap";
+        };
+        fonts.packages = with pkgs; [
           iosevka
           nerd-fonts.iosevka
-      ];
+        ];
 
-      # nix.package = pkgs.nix;
+        # nix.package = pkgs.nix;
 
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-      nix.settings.use-xdg-base-directories = true;
+        # Necessary for using flakes on this system.
+        nix.settings.experimental-features = "nix-command flakes";
+        nix.settings.use-xdg-base-directories = true;
 
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
+        # Create /etc/zshrc that loads the nix-darwin environment.
+        programs.zsh.enable = true;  # default shell on catalina
+        # programs.fish.enable = true;
 
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
+        # Set Git commit hash for darwin-version.
+        system.configurationRevision = self.rev or self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
+        # Used for backwards compatibility, please read the changelog before changing.
+        # $ darwin-rebuild changelog
+        system.stateVersion = 5;
 
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin"; # x86_64-darwin
+        # The platform the configuration will be used on.
+        nixpkgs.hostPlatform = "aarch64-darwin"; # x86_64-darwin
 
-      nixpkgs.config.allowUnfree = true;
+        nixpkgs.config.allowUnfree = true;
+      };
+    in
+      {
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#simple
+      darwinConfigurations."mira" = nix-darwin.lib.darwinSystem {
+        modules = [
+          configuration
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              # Apple Silicon Only
+              enableRosetta = true;
+              # User owning the Homebrew prefix
+              user = "mireknguyen";
+              # Automatically migrate existing Homebrew installations
+              autoMigrate = true;
+            };
+          }
+        ];
+      };
+
+      # Expose the package set, including overlays, for convenience.
+      darwinPackages = self.darwinConfigurations."mira".pkgs;
     };
-  in
-  {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."mira" = nix-darwin.lib.darwinSystem {
-      modules = [
-        configuration
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            # Apple Silicon Only
-            enableRosetta = true;
-            # User owning the Homebrew prefix
-            user = "mireknguyen";
-            # Automatically migrate existing Homebrew installations
-            autoMigrate = true;
-          };
-        }
-      ];
-    };
-
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."mira".pkgs;
-  };
 }

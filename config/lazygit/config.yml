@@ -66,6 +66,7 @@ customCommands:
     description: Pick AI commit
     command: aicommit2 --auto-select -y
     context: files
+    output: log
   - key: <c-n>
     description: Pick AI commit (no verify)
     command: aicommit2 --no-verify
