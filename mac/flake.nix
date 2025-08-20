@@ -13,12 +13,8 @@
       configuration = { pkgs, ... }: {
         environment.systemPackages =
           [
-            pkgs.ansible
-            pkgs.ansible-lint
-            pkgs.argocd
             pkgs.bat
             pkgs.bottom
-            pkgs.cargo
             pkgs.delta
             pkgs.docker
             pkgs.docker-compose
@@ -26,36 +22,27 @@
             pkgs.duf
             pkgs.dust
             pkgs.eza
-            # pkgs.fd
+            pkgs.fd
             pkgs.fx
-            # pkgs.fzf
+            pkgs.fzf
             pkgs.gh
             pkgs.gum
             pkgs.imagemagick
-            pkgs.kubectx
-            pkgs.kubernetes-helm
             pkgs.jq
             pkgs.kubectl
             pkgs.lazygit
-            # pkgs.lazysql
+            pkgs.lazysql
             pkgs.lua
-            pkgs.mariadb
             # pkgs.neovim
             pkgs.nodejs
             pkgs.openconnect
-            pkgs.openjdk
             pkgs.pnpm
-            pkgs.postgresql
-            pkgs.rclone
             pkgs.ripgrep
             pkgs.spicetify-cli
             pkgs.starship
             pkgs.stow
-            pkgs.terraform
             pkgs.wget
             pkgs.yazi
-            pkgs.zinit
-            pkgs.zoxide
           ];
         system.defaults = {
           dock = {
@@ -80,52 +67,37 @@
             "shivammathur/php"
           ];
           brews = [
-            "aichat"
             "aicommits"
+            "composer"
             "cliclick"
             "fish"
             "fisher"
             "fx"
+            "lazysql"
             "mpv"
-            "php@8.3"
+            "neovim"
             "shivammathur/php/php@7.4"
             "shivammathur/php/php@5.6"
-            "shivammathur/php/php@8.3"
             "shivammathur/extensions/mcrypt@5.6"
             "switchaudio-osx"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
-
-            "lazysql"
-            "neovim"
-
-
-            "fzf"
-            "fd"
-            "composer"
           ];
           casks = [
             "nikitabobko/tap/aerospace"
             "alfred"
             "appcleaner"
-            # "chromium"
-            "iina"
             "keyboardcleantool"
             "kitty"
-            "macfuse"
             "microsoft-teams"
-            "moonlight"
             "mos"
             "phpstorm"
             "sf-symbols"
-            # "shortcat"
             "shottr"
             "spotify"
             "swift-quit"
             # "omnidisksweeper"
-            "onedrive"
             "orbstack"
-            # "visual-studio-code"
             "zen"
 
             "krita"
@@ -134,10 +106,7 @@
             "omnidisksweeper"
             "telegram"
             "wacom-tablet"
-
-            "expo-orbit"
-            "monitorcontrol"
-            "cursor"
+            "microsoft-outlook"
           ];
           onActivation.cleanup = "zap";
         };
