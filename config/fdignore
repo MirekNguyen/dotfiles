@@ -64,3 +64,5 @@ nvim-db
 .local/vm/*
 .local/mount/onedrive/*
 .local/study/*/*
+
+Alfred.alfredpreferences
