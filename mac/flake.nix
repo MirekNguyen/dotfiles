@@ -107,6 +107,7 @@
             "telegram"
             "wacom-tablet"
             "microsoft-outlook"
+            "monitorcontrol"
           ];
           onActivation.cleanup = "zap";
         };
