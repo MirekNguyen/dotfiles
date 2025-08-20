@@ -30,7 +30,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = true
 
 [workspace-to-monitor-force-assignment]
-5 = '^HP 527pu$'
+5 = '^HP E27u G5$'
+6 = '^HP E27u G5$'
 
 [key-mapping]
 preset = 'qwerty'
