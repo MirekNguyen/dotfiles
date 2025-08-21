@@ -1,0 +1,10 @@
+font-family = "Iosevka Nerd Font Mono"
+theme = dark:GruvboxDark, light:GruvboxLight
+font-size = 16
+
+macos-titlebar-style = hidden
+quit-after-last-window-closed = true
+confirm-close-surface = false
+cursor-style-blink = false
+shell-integration-features = no-cursor
+cursor-style = bar
