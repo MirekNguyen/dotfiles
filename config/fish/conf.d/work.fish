@@ -31,3 +31,13 @@ function work-vpn
     end
 end
 
+
+function home-vpn
+  set option (gum choose "connect" "disconnect")
+  switch $option
+    case "connect"
+      wg-quick up "$HOME"/.local/secrets/home-vpn.conf
+    case "disconnect"
+      wg-quick down "$HOME"/.local/secrets/home-vpn.conf
+  end
+end
