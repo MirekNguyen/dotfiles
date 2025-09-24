@@ -31,9 +31,7 @@
             pkgs.jq
             pkgs.kubectl
             pkgs.lazygit
-            pkgs.lazysql
             pkgs.lua
-            # pkgs.neovim
             pkgs.nodejs
             pkgs.openconnect
             pkgs.pnpm
@@ -73,7 +71,6 @@
             "fish"
             "fisher"
             "fx"
-            "lazysql"
             "mpv"
             "neovim"
             "shivammathur/php/php@7.4"
@@ -82,6 +79,8 @@
             "switchaudio-osx"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
+            "wireguard-tools"
+            "go"
           ];
           casks = [
             "nikitabobko/tap/aerospace"
@@ -96,10 +95,8 @@
             "shottr"
             "spotify"
             "swift-quit"
-            # "omnidisksweeper"
             "orbstack"
             "zen"
-
             "krita"
             "jellyfin-media-player"
             "logi-options+"
@@ -107,7 +104,13 @@
             "telegram"
             "wacom-tablet"
             "microsoft-outlook"
-            "monitorcontrol"
+            "betterdisplay"
+            "cursor"
+            "microsoft-word"
+            "microsoft-excel"
+            "transmit"
+            "moonlight"
+            "figma"
           ];
           onActivation.cleanup = "zap";
         };
