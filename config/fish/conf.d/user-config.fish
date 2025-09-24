@@ -1,5 +1,5 @@
 set fish_greeting
-set -U fish_user_paths "$HOME/.local/scripts/cargo/bin" "$HOME/.local/share/npm/bin/" "$HOME/.config/dotfiles/scripts/" /Users/mireknguyen/.dotnet/tools /Users/mireknguyen/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin "" $fish_user_paths
+set -U fish_user_paths "$HOME/.local/scripts/cargo/bin" "$HOME/.local/scripts/go/bin" "$HOME/.local/share/npm/bin/" "$HOME/.config/dotfiles/scripts/" /Users/mireknguyen/.dotnet/tools /Users/mireknguyen/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin "" $fish_user_paths
 
 # aliases
 alias v='nvim'
@@ -15,6 +15,7 @@ alias kx 'kubectx'
 alias ls='eza -g --oneline'
 alias l='eza -g -la'
 alias db 'nvim -c "set filetype=sql" -c "DBUIToggle"'
+alias wake-pc "ssh binh@vpn.mirekng.com \"wakeonlan bc:fc:e7:53:ba:b6\""
 
 # ssh, mount
 alias sshlx 'ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'

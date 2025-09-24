@@ -114,6 +114,10 @@ if.window-title-regex-substring = 'Picture-in-Picture'
 run = ['layout floating']
 
 [[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = ['layout tiling']
+
+[[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
 run = ['move-node-to-workspace 1']
 
