@@ -32,8 +32,8 @@
             pkgs.kubectl
             pkgs.lazygit
             pkgs.lua
-            pkgs.nodejs
-            pkgs.openconnect
+            # pkgs.nodejs
+            # pkgs.openconnect
             pkgs.pnpm
             pkgs.ripgrep
             pkgs.spicetify-cli
@@ -81,6 +81,9 @@
             "vpn-slice"
             "wireguard-tools"
             "go"
+            "xcode-build-server"
+            "node"
+            "openconnect"
           ];
           casks = [
             "nikitabobko/tap/aerospace"

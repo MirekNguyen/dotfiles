@@ -1,5 +1,5 @@
 set fish_greeting
-set -U fish_user_paths "$HOME/.local/scripts/cargo/bin" "$HOME/.local/scripts/go/bin" "$HOME/.local/share/npm/bin/" "$HOME/.config/dotfiles/scripts/" /Users/mireknguyen/.dotnet/tools /Users/mireknguyen/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin "" $fish_user_paths
+set -U fish_user_paths "/opt/homebrew/opt/ruby/bin" "$HOME/.local/share/npm" "$HOME/.local/scripts/cargo/bin" "$HOME/.local/scripts/go/bin" "$HOME/.local/share/npm/bin/" "$HOME/.config/dotfiles/scripts/" /Users/mireknguyen/.dotnet/tools /Users/mireknguyen/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin /opt/local/bin /opt/homebrew/bin /opt/homebrew/opt/fzf/bin "" $fish_user_paths
 
 # aliases
 alias v='nvim'
