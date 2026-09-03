@@ -67,3 +67,27 @@ function home-vpn
             wg-quick down "$HOME"/.local/secrets/home-vpn.conf
     end
 end
+
+
+function o2-vpn
+    sudo cp "$VPN_RESOLVER_SOURCE"/* "$VPN_RESOLVER_DEST"/
+    echo -e "\n# --- WORK VPN START ---" | sudo tee -a /etc/hosts >/dev/null
+    sudo cat $VPN_HOSTS_SOURCE | sudo tee -a /etc/hosts >/dev/null
+    echo -e "# --- WORK VPN END ---\n" | sudo tee -a /etc/hosts >/dev/null
+    set option (gum choose "connect" "disconnect")
+    switch $option
+        case connect
+            wg-quick up "$HOME"/Downloads/Macbook-Air.conf
+        case disconnect
+            echo "🧹 Cleaning up /etc/hosts..."
+            sudo sed -i '' '/# --- WORK VPN START ---/,/# --- WORK VPN END ---/d' /etc/hosts
+
+            wg-quick down "$HOME"/Downloads/Macbook-Air.conf
+            for file in (ls $VPN_RESOLVER_SOURCE)
+                if test -e "$VPN_RESOLVER_DEST/$file"
+                    sudo rm "$VPN_RESOLVER_DEST/$file"
+                end
+            end
+
+    end
+end

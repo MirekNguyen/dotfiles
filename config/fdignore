@@ -65,6 +65,7 @@ Library/*
 nvim-db
 .config/*
 !.config/dotfiles
+!.config/opencode
 .local/vm/*
 .local/mount/onedrive/*
 .local/cloud/study/*
@@ -80,3 +81,4 @@ Alfred.alfredpreferences
 .paperclip
 dyad-apps/*/*
 .claude
+.agent-browser
