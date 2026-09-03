@@ -32,15 +32,17 @@
             pkgs.kubectl
             pkgs.lazygit
             pkgs.lua
-            # pkgs.nodejs
+            pkgs.go
+            pkgs.nodejs
             # pkgs.openconnect
             pkgs.pnpm
             pkgs.ripgrep
-            pkgs.spicetify-cli
+            # pkgs.spicetify-cli
             pkgs.starship
             pkgs.stow
             pkgs.wget
             pkgs.yazi
+            pkgs.terraform
           ];
         system.defaults = {
           dock = {
@@ -64,34 +66,29 @@
             "shivammathur/extensions"
             "shivammathur/php"
             "hashicorp/tap"
-            "schembriaiden/fladder"
           ];
           brews = [
             "aicommits"
             "composer"
-            "cliclick"
             "fish"
             "fisher"
             "fx"
             "mpv"
             "neovim"
             "shivammathur/php/php@7.4"
-            "shivammathur/php/php@5.6"
-            "shivammathur/extensions/mcrypt@5.6"
-            "switchaudio-osx"
+            # "shivammathur/php/php@5.6"
+            # "shivammathur/extensions/mcrypt@5.6"
+            # "switchaudio-osx"
             "felixkratz/formulae/sketchybar"
             "vpn-slice"
             "wireguard-tools"
-            "go"
             "xcode-build-server"
-            "node"
             "openconnect"
             "zellij"
 
             "ruby"
             "xcbeautify"
             "coreutils"
-            "hashicorp/tap/terraform"
             "oven-sh/bun/bun"
             "aicommit2"
             "tree-sitter-cli"
@@ -99,6 +96,7 @@
             "jira-cli"
             "helm"
             "bun"
+            "gromgit/fuse/sshfs-mac"
           ];
           casks = [
             "nikitabobko/tap/aerospace"
@@ -111,40 +109,41 @@
             "sf-symbols"
             "spotify"
             "orbstack"
-            "zen"
-            "krita"
+            # "krita"
             # "jellyfin-media-player"
-            "logi-options+"
+            # "logi-options+"
             "omnidisksweeper"
             "telegram"
-            "wacom-tablet"
+            # "wacom-tablet"
             "microsoft-outlook"
-            "betterdisplay"
-            "visual-studio-code"
+            # "betterdisplay"
+            # "visual-studio-code"
             "microsoft-word"
             "microsoft-excel"
             "microsoft-powerpoint"
-            "transmit"
+            # "transmit"
             "moonlight"
             "figma"
             # "whatsapp"
             "steam"
-            "google-chrome"
+            # "google-chrome"
             # "unity"
             # "unity-hub"
             # "blender"
             # "yaak"
             "discord"
             # "dyad"
-            "fladder"
-            "nordvpn"
-            "notion"
-            "windows-app"
+            # "nordvpn"
+            # "notion"
+            # "windows-app"
             # "mos"
             # "keyboardcleantool"
             # "shottr"
             # "swift-quit"
             "vorssaint"
+            # "zen"
+            "helium-browser"
+            "rustdesk"
           ];
           onActivation.cleanup = "zap";
         };
@@ -203,7 +202,6 @@
                   "shivammathur/extensions"
                   "shivammathur/php"
                   "hashicorp/tap"
-                  "schembriaiden/fladder"
                   "oven-sh/bun"
                 ];
                 formulae = [
@@ -211,12 +209,10 @@
                   "shivammathur/php/php@5.6"
                   "shivammathur/extensions/mcrypt@5.6"
                   "felixkratz/formulae/sketchybar"
-                  "hashicorp/tap/terraform"
                   "oven-sh/bun/bun"
                 ];
                 casks = [
                   "nikitabobko/tap/aerospace"
-                  "schembriaiden/fladder/fladder"
                 ];
                 commands = [ ];
               };
