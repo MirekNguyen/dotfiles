@@ -98,21 +98,18 @@
             "opencode"
             "jira-cli"
             "helm"
+            "bun"
           ];
           casks = [
             "nikitabobko/tap/aerospace"
             "alfred"
             # "altserver"
             "appcleaner"
-            "keyboardcleantool"
             "kitty"
             "microsoft-teams"
-            "mos"
             "phpstorm"
             "sf-symbols"
-            "shottr"
             "spotify"
-            "swift-quit"
             "orbstack"
             "zen"
             "krita"
@@ -143,6 +140,11 @@
             "nordvpn"
             "notion"
             "windows-app"
+            # "mos"
+            # "keyboardcleantool"
+            # "shottr"
+            # "swift-quit"
+            "vorssaint"
           ];
           onActivation.cleanup = "zap";
         };
