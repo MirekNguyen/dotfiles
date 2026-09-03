@@ -68,7 +68,7 @@
             "hashicorp/tap"
           ];
           brews = [
-            "aicommits"
+            # "aicommits"
             "composer"
             "fish"
             "fisher"
