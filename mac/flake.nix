@@ -63,6 +63,8 @@
             "felixkratz/formulae"
             "shivammathur/extensions"
             "shivammathur/php"
+            "hashicorp/tap"
+            "schembriaiden/fladder"
           ];
           brews = [
             "aicommits"
@@ -84,10 +86,23 @@
             "xcode-build-server"
             "node"
             "openconnect"
+            "zellij"
+
+            "ruby"
+            "xcbeautify"
+            "coreutils"
+            "hashicorp/tap/terraform"
+            "oven-sh/bun/bun"
+            "aicommit2"
+            "tree-sitter-cli"
+            "opencode"
+            "jira-cli"
+            "helm"
           ];
           casks = [
             "nikitabobko/tap/aerospace"
             "alfred"
+            # "altserver"
             "appcleaner"
             "keyboardcleantool"
             "kitty"
@@ -101,19 +116,33 @@
             "orbstack"
             "zen"
             "krita"
-            "jellyfin-media-player"
+            # "jellyfin-media-player"
             "logi-options+"
             "omnidisksweeper"
             "telegram"
             "wacom-tablet"
             "microsoft-outlook"
             "betterdisplay"
-            "cursor"
+            "visual-studio-code"
             "microsoft-word"
             "microsoft-excel"
+            "microsoft-powerpoint"
             "transmit"
             "moonlight"
             "figma"
+            # "whatsapp"
+            "steam"
+            "google-chrome"
+            # "unity"
+            # "unity-hub"
+            # "blender"
+            # "yaak"
+            "discord"
+            # "dyad"
+            "fladder"
+            "nordvpn"
+            "notion"
+            "windows-app"
           ];
           onActivation.cleanup = "zap";
         };
@@ -161,6 +190,34 @@
               user = "mireknguyen";
               # Automatically migrate existing Homebrew installations
               autoMigrate = true;
+              # Homebrew 6.0+ requires third-party taps to be trusted before
+              # `brew bundle` will load their formulae/casks. Declare trust here
+              # so activation (which runs as root) doesn't fail on untrusted taps.
+              # Note: removing entries here does NOT revoke trust; use `brew untrust`.
+              trust = {
+                taps = [
+                  "nikitabobko/tap"
+                  "felixkratz/formulae"
+                  "shivammathur/extensions"
+                  "shivammathur/php"
+                  "hashicorp/tap"
+                  "schembriaiden/fladder"
+                  "oven-sh/bun"
+                ];
+                formulae = [
+                  "shivammathur/php/php@7.4"
+                  "shivammathur/php/php@5.6"
+                  "shivammathur/extensions/mcrypt@5.6"
+                  "felixkratz/formulae/sketchybar"
+                  "hashicorp/tap/terraform"
+                  "oven-sh/bun/bun"
+                ];
+                casks = [
+                  "nikitabobko/tap/aerospace"
+                  "schembriaiden/fladder/fladder"
+                ];
+                commands = [ ];
+              };
             };
           }
         ];

@@ -65,3 +65,7 @@
   keepBackup = false
 [mergetool "nvimdiff"]
   cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[safe]
+	directory = /Users/mireknguyen/dyad-apps
+	directory = /Users/mireknguyen/dyad-apps/*
+	directory = /Users/mireknguyen/.local/projects/personal/dyad/*

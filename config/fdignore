@@ -53,6 +53,10 @@ Library/*
 /* Optional */
 .local/log/*
 .local/projects/*/*/*
+!.local/projects/work/apache/*
+.local/projects/work/apache/*/*
+!.local/projects/work/apache/projects/*
+.local/projects/work/apache/projects/*/*
 .local/scripts/*/*
 **/fish/functions/*
 .config/docker/*
@@ -63,7 +67,16 @@ nvim-db
 !.config/dotfiles
 .local/vm/*
 .local/mount/onedrive/*
-.local/study/*/*
+.local/cloud/study/*
+.local/cloud/study-backup/*
 
 Alfred.alfredpreferences
 .local/photos
+.swiftpm
+.ollama
+.bun
+
+.pi
+.paperclip
+dyad-apps/*/*
+.claude

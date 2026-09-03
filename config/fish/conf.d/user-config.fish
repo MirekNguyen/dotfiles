@@ -16,6 +16,8 @@ alias ls='eza -g --oneline'
 alias l='eza -g -la'
 alias db 'nvim -c "set filetype=sql" -c "DBUIToggle"'
 alias wake-pc "ssh binh@vpn.mirekng.com \"wakeonlan bc:fc:e7:53:ba:b6\""
+alias psql 'psql-17'
+alias pc 'wake-pc; /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay set -UUID=8C15F480-4D22-4376-8053-24EC3E9B5C03 -ddc -vcp=inputSelect -value=17'
 
 # ssh, mount
 alias sshlx 'ssh-servers.sh "$HOME"/.local/secrets/work-servers.json'

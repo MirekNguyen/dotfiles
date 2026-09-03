@@ -17,6 +17,8 @@ accessibility.typeaheadfind.autostart > false - turn off quick search '/'
 accessibility.typeaheadfind.manual > false - turn off manual quick search '/'
 browser.tabs.closeWindowWithLastTab > true - close window after last tab
 browser.translations.automaticallyPopup > false - disable translation popup
+zen.window-sync.enabled > false - disable tab syncing between windows
+full-screen-api.warning.delay > 0 (from 500) - turn off fullscreen notification
 
 ### General
 
