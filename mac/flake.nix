@@ -123,7 +123,7 @@
             "microsoft-powerpoint"
             # "transmit"
             "moonlight"
-            "figma"
+            # "figma"
             # "whatsapp"
             "steam"
             # "google-chrome"

@@ -77,7 +77,7 @@ function o2-vpn
     set option (gum choose "connect" "disconnect")
     switch $option
         case connect
-            wg-quick up "$HOME"/Downloads/Macbook-Air.conf
+            wg-quick up "$HOME"/.local/secrets/Macbook-Air.conf
         case disconnect
             echo "🧹 Cleaning up /etc/hosts..."
             sudo sed -i '' '/# --- WORK VPN START ---/,/# --- WORK VPN END ---/d' /etc/hosts
