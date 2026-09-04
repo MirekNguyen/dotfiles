@@ -48,14 +48,92 @@
           dock = {
             autohide = true;
             orientation = "left";
+            tilesize = 42;
+            magnification = false;
+            launchanim = false;
             expose-group-apps = true;
-            persistent-apps = [];
+            mru-spaces = false;
+            show-recents = false;
+            persistent-apps = [ ];
+            persistent-others = [ ];
+            wvous-br-corner = 1; # disabled
           };
+
           NSGlobalDomain = {
+            KeyRepeat = 2;
+            InitialKeyRepeat = 15;
+            ApplePressAndHoldEnabled = false;
+            AppleKeyboardUIMode = 2;
+            _HIHideMenuBar = true;
+            AppleInterfaceStyleSwitchesAutomatically = true;
+            AppleEnableSwipeNavigateWithScrolls = false;
+            AppleWindowTabbingMode = "always";
+            NSTableViewDefaultSizeMode = 2;
             NSAutomaticWindowAnimationsEnabled = false;
             NSWindowShouldDragOnGesture = true;
+            NSAutomaticCapitalizationEnabled = false;
+            NSAutomaticDashSubstitutionEnabled = false;
+            NSAutomaticInlinePredictionEnabled = false;
+            NSAutomaticPeriodSubstitutionEnabled = false;
+            NSAutomaticQuoteSubstitutionEnabled = false;
+            NSAutomaticSpellingCorrectionEnabled = false;
+            "com.apple.mouse.tapBehavior" = 1; # tap to click
+            "com.apple.swipescrolldirection" = true; # natural scrolling
+            "com.apple.springing.enabled" = true;
+            "com.apple.springing.delay" = 0.5;
+            "com.apple.sound.beep.feedback" = 0;
           };
+
+          trackpad = {
+            Clicking = true;
+            Dragging = false;
+            TrackpadThreeFingerDrag = false;
+            TrackpadRightClick = true;
+            FirstClickThreshold = 1;   # medium
+            SecondClickThreshold = 1;  # medium
+          };
+
+          finder = {
+            FXPreferredViewStyle = "clmv"; # column view
+            ShowStatusBar = false;
+            ShowHardDrivesOnDesktop = false;
+            ShowExternalHardDrivesOnDesktop = true;
+            ShowMountedServersOnDesktop = true;
+            ShowRemovableMediaOnDesktop = true;
+          };
+
+          controlcenter = {
+            BatteryShowPercentage = true;
+            Display = false;
+            FocusModes = false;
+            NowPlaying = false;
+          };
+
+          menuExtraClock = {
+            ShowAMPM = true;
+            ShowDayOfWeek = true;
+            ShowDate = 0; # when space allows
+          };
+
+          WindowManager = {
+            GloballyEnabled = false; # stage manager
+            AutoHide = false;
+            EnableTiledWindowMargins = false;
+            HideDesktop = true;
+            StandardHideWidgets = false;
+            StageManagerHideWidgets = false;
+            AppWindowGroupingBehavior = true;
+          };
+
+          screencapture.type = "file";
+
+          spaces.spans-displays = false;
+
+          loginwindow.GuestEnabled = false;
         };
+
+        # Keyboard remaps are set in System Settings > Keyboard > Modifier Keys;
+        # nix-darwin's system.keyboard.* uses hidutil, which does not persist.
         system.primaryUser = "mireknguyen";
 
         homebrew = {

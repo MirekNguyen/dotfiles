@@ -1,0 +1,2 @@
+*/30 * * * * find "$HOME" -name ".DS_Store" -not -path "$HOME/.local/share/*" -delete
+0 * * * * fish -c 'clean';
