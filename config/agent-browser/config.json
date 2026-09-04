@@ -1,0 +1,4 @@
+{
+  "$schema": "https://agent-browser.dev/schema.json",
+  "executablePath": "/Applications/Helium.app/Contents/MacOS/Helium"
+}

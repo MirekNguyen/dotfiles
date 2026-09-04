@@ -58,4 +58,27 @@ fi
 ok "config/ linked"
 
 # --- extra symlinks ----------------------------------------------------------
+# Things that cannot live in the public repo but still belong at a fixed path.
+# ~/.local/secrets is machine-local: restore it from your password manager or
+# another machine before the first run.
 link "$HOME/Library/Mobile Documents/com~apple~CloudDocs" "$HOME/.local/cloud"
+link "$HOME/.local/secrets/work-vpn"                      "$HOME/.config/work-vpn"
+
+# --- secrets ------------------------------------------------------------------
+# config/opencode/opencode.jsonc resolves API keys with {env:...}, and fish
+# sources this file on startup. Without it opencode silently gets empty keys.
+env_file="$HOME/.local/secrets/environment"
+if [ -f "$env_file" ]; then
+  missing=()
+  while read -r var; do
+    grep -qE "^[[:space:]]*$var=" "$env_file" || missing+=("$var")
+  done < <(grep -oE '\{env:[A-Z0-9_]+\}' "$REPO/config/opencode/opencode.jsonc" |
+           sed 's/{env:\(.*\)}/\1/' | sort -u)
+  if [ ${#missing[@]} -eq 0 ]; then
+    ok "secrets/environment has every key opencode.jsonc references"
+  else
+    warn "missing from $env_file: ${missing[*]}"
+  fi
+else
+  warn "$env_file not found - opencode and work scripts will have empty secrets"
+fi

@@ -40,7 +40,8 @@ five steps in order. Each is independently re-runnable.
 | `preflight` | Xcode CLT, Rosetta 2, verifies `$USER` matches the flake |
 | `nix` | installs Nix (official multi-user installer) if missing |
 | `darwin` | moves Apple's `/etc/zshrc` etc. aside, builds and activates the flake |
-| `dotfiles` | git submodules, `stow --restow config`, extra symlinks |
+| `dotfiles` | git submodules, `stow --restow config`, symlinks, secrets check |
+| `cron` | installs `config/cron/crontab` if it differs from the live one |
 | `post` | reports what still needs a human |
 
 The `darwin` step runs before `dotfiles` on purpose: it installs `stow`, `git`
@@ -78,6 +79,7 @@ Only on a freshly imaged Mac. Deletes real files in `~/.config` that would block
 │       ├── 10-nix.sh
 │       ├── 20-darwin.sh
 │       ├── 30-dotfiles.sh
+│       ├── 35-cron.sh
 │       └── 40-post.sh
 ├── mac/
 │   ├── flake.nix           # packages, brews, casks, masApps, macOS defaults
@@ -85,6 +87,8 @@ Only on a freshly imaged Mac. Deletes real files in `~/.config` that would block
 │   └── system-settings.md  # settings that cannot be declared in the flake
 ├── config/                 # stow package -> symlinked into ~/.config
 │   ├── fish/ kitty/ ghostty/ aerospace/ sketchybar/ nvim/ (submodule)
+│   ├── opencode/           # opencode.jsonc; keys via {env:...}
+│   ├── agent-browser/  cron/crontab
 │   └── git/ lazygit/ mpv/ yazi/ zsh/ starship.toml ...
 ├── apps/                   # app settings that aren't dotfiles
 │   ├── browser/            # extension configs + firefox-settings.md
@@ -108,6 +112,8 @@ orchestrator picks it up automatically.
 | Mac App Store app | `mac/flake.nix` → `homebrew.masApps` |
 | macOS setting | `mac/flake.nix` → `system.defaults` |
 | Dotfile | `config/<tool>/…`, then re-run `setup.sh` |
+| Cron job | `config/cron/crontab`, then `./install/setup.sh cron` |
+| Secret | `~/.local/secrets/environment` (never the repo) |
 
 ### Mac App Store apps
 
@@ -132,6 +138,27 @@ disappears — intentional, but it also means a typo removes apps.
 `mac/flake.nix` has a single `username` binding near the top. Change it and the
 `preflight` step stops warning. The configuration is named `mira` regardless of
 the machine's hostname, so a new Mac needs no renaming.
+
+## Secrets
+
+Nothing secret is tracked. `~/.local/secrets/` is machine-local and must be
+restored by hand (password manager, another machine) before the first run.
+
+```
+~/.local/secrets/
+├── environment          # KEY=value, sourced by fish on startup
+├── work-vpn/            # symlinked to ~/.config/work-vpn by setup.sh
+├── *.conf  *.p12        # wireguard / openconnect material
+└── *-servers.json       # ssh/smb host lists
+```
+
+`environment` is the single source of truth for API keys. `config/opencode/opencode.jsonc`
+references them with `{env:NAME}` rather than embedding values, and the `dotfiles`
+step verifies every `{env:...}` in that file has a matching entry.
+
+`~/.config/work-vpn` (internal hostnames, DNS and IP ranges) is deliberately kept
+out of this repo because it is public. It lives in `~/.local/secrets/work-vpn`
+and is symlinked into place.
 
 ## Not managed here
 

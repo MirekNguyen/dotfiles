@@ -1,0 +1,11 @@
+# Managed by ~/.config/dotfiles - edit here, then run:
+#   ./install/setup.sh cron
+# Do NOT edit with `crontab -e`; the next setup run would overwrite it.
+#
+# m h dom mon dow  command
+
+# Purge .DS_Store droppings, but leave application data alone.
+*/30 * * * * find "$HOME" -name ".DS_Store" -not -path "$HOME/.local/share/*" -delete
+
+# `clean` is a fish function from config/fish/conf.d/clean.fish
+0 * * * * fish -c 'clean'

@@ -1,0 +1,19 @@
+# Runtime / installed by opencode itself
+node_modules
+package.json
+package-lock.json
+bun.lock
+
+# Local secrets. Source of truth is ~/.local/secrets/environment; anything that
+# has to be a file lives here and is never tracked.
+secrets/
+
+# Skills: jira/, tempo/ and tempo-submit/ embed internal work hostnames,
+# ticket prefixes and usernames. This repo is public - keep them out.
+skills/
+
+# opencode writes these at runtime
+auth.json
+storage/
+log/
+cache/
