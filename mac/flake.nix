@@ -68,6 +68,7 @@
             "hashicorp/tap"
           ];
           brews = [
+            "agent-browser"
             # "aicommits"
             "composer"
             "fish"
@@ -85,7 +86,6 @@
             "xcode-build-server"
             "openconnect"
             "zellij"
-
             "ruby"
             "xcbeautify"
             "coreutils"
@@ -94,6 +94,7 @@
             "tree-sitter-cli"
             "opencode"
             "jira-cli"
+            "mas"
             "helm"
             "bun"
             "gromgit/fuse/sshfs-mac"
@@ -145,6 +146,13 @@
             "helium-browser"
             "rustdesk"
           ];
+          masApps = {
+            "Menu Bar Controller for Sonos" = 6749351423;
+          };
+          # Extra untracked apps
+          # - CrossOver
+          # - Final Cut Pro
+          # - Jellium Desktop
           onActivation.cleanup = "zap";
         };
         fonts.packages = with pkgs; [
