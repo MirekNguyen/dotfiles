@@ -10,6 +10,10 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
     let
+      # Single source of truth for the account that owns the Homebrew prefix and
+      # the user-level macOS defaults. install/steps/00-preflight.sh reads this.
+      username = "mireknguyen";
+
       configuration = { pkgs, ... }: {
         environment.systemPackages =
           [
@@ -134,7 +138,7 @@
 
         # Keyboard remaps are set in System Settings > Keyboard > Modifier Keys;
         # nix-darwin's system.keyboard.* uses hidutil, which does not persist.
-        system.primaryUser = "mireknguyen";
+        system.primaryUser = username;
 
         homebrew = {
           enable = true;
@@ -274,7 +278,7 @@
               # Apple Silicon Only
               enableRosetta = true;
               # User owning the Homebrew prefix
-              user = "mireknguyen";
+              user = username;
               # Automatically migrate existing Homebrew installations
               autoMigrate = true;
               # Homebrew 6.0+ requires third-party taps to be trusted before
