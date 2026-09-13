@@ -62,14 +62,33 @@ end
 
 # Loading licence keys from .env
 function envsource
-  if [ -f $argv ]
-    for line in (cat $argv | grep -v '^#')
-      set item (string split -m 1 '=' $line)
-      set -gx $item[1] $item[2]
+  if not test -f "$argv[1]"
+    return 0
+  end
+  for line in (cat "$argv[1]")
+    # Skip blank lines and comments.
+    if string match -qr '^\s*($|#)' -- $line
+      continue
     end
+    set -l item (string split -m 1 '=' -- $line)
+    # Skip anything that is not KEY=value.
+    if test (count $item) -ne 2
+      continue
+    end
+    set -l key (string trim -- $item[1])
+    # `set` errors out on anything that is not a valid variable name.
+    if not string match -qr '^[A-Za-z_][A-Za-z0-9_]*$' -- $key
+      continue
+    end
+    set -gx $key (string trim -- $item[2])
   end
 end
 envsource "$HOME/.local/secrets/environment"
+
+# sops looks here for the age identity that decrypts ~/.config/dotfiles-secrets
+set -gx SOPS_AGE_KEY_FILE "$HOME/.config/sops/age/keys.txt"
+alias secrets 'cd ~/.config/dotfiles-secrets'
+
 
 function yy
     set -l tmp (mktemp -t "yazi-cwd.XXXXXX")

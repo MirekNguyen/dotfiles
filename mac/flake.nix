@@ -41,12 +41,16 @@
             # pkgs.openconnect
             pkgs.pnpm
             pkgs.ripgrep
+            pkgs.age
+            pkgs.sops
             # pkgs.spicetify-cli
             pkgs.starship
             pkgs.stow
             pkgs.wget
             pkgs.yazi
             pkgs.terraform
+            pkgs.bun
+            pkgs.opencode
           ];
         system.defaults = {
           dock = {
@@ -171,14 +175,12 @@
             "ruby"
             "xcbeautify"
             "coreutils"
-            "oven-sh/bun/bun"
             "aicommit2"
             "tree-sitter-cli"
-            "opencode"
+            # "opencode"
             "jira-cli"
             "mas"
             "helm"
-            "bun"
             "gromgit/fuse/sshfs-mac"
           ];
           casks = [

@@ -8,6 +8,7 @@
 #   ./install/setup.sh --skip nix      # run everything except one
 #   ./install/setup.sh --list          # show the steps
 #   ./install/setup.sh --yes           # never prompt
+#   ./install/setup.sh --status        # read-only: what has drifted?
 #
 . "$(dirname "${BASH_SOURCE[0]}")/lib/common.sh"
 
@@ -35,6 +36,7 @@ usage() {
 only=(); skips=()
 while [ $# -gt 0 ]; do
   case "$1" in
+    --status)  exec bash "$REPO/install/status.sh" "$@" ;;
     --list|-l) usage; exit 0 ;;
     --help|-h) usage; exit 0 ;;
     --yes|-y)  export ASSUME_YES=1 ;;
@@ -61,13 +63,20 @@ for s in ${only+"${only[@]}"} ${skips+"${skips[@]}"}; do
   case " $known " in *" $s "*) ;; *) die "no such step: $s (have:$known)" ;; esac
 done
 
-# Keep sudo warm so long builds don't stall on an expired prompt mid-run.
-if [ "${ASSUME_YES:-0}" != "1" ] || [ -t 0 ]; then
-  sudo -v || die "sudo is required"
+# Only the `darwin` step needs root. Asking for sudo unconditionally makes
+# read-only or secrets-only runs block on a password prompt for no reason.
+needs_sudo=0
+for f in $(all_steps); do
+  [ "$(step_name "$f")" = "darwin" ] && wanted darwin && needs_sudo=1
+done
+
+if [ "$needs_sudo" -eq 1 ]; then
+  sudo -v || die "sudo is required for the darwin step"
+  # Keep it warm so a long build does not stall on an expired prompt mid-run.
+  while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done 2>/dev/null &
+  sudo_keepalive=$!
+  trap 'kill "$sudo_keepalive" 2>/dev/null || true' EXIT
 fi
-while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done 2>/dev/null &
-sudo_keepalive=$!
-trap 'kill "$sudo_keepalive" 2>/dev/null || true' EXIT
 
 start=$SECONDS
 for f in $(all_steps); do

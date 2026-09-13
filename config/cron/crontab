@@ -1,7 +1,9 @@
 # Managed by ~/.config/dotfiles - edit here, then run:
 #   ./install/setup.sh cron
 # Do NOT edit with `crontab -e`; the next setup run would overwrite it.
-#
+
+PATH=/run/current-system/sw/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
 # m h dom mon dow  command
 
 # Purge .DS_Store droppings, but leave application data alone.
@@ -9,3 +11,7 @@
 
 # `clean` is a fish function from config/fish/conf.d/clean.fish
 0 * * * * fish -c 'clean'
+
+# Drift report, read by config/fish/conf.d/drift.fish on shell startup.
+# Doing it here keeps the shell prompt free: it only reads a cached file.
+*/15 * * * * "$HOME/.config/dotfiles/install/status.sh" --quick > "$HOME/.local/state/dotfiles-drift" 2>/dev/null

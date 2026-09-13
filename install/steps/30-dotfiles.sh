@@ -64,6 +64,12 @@ ok "config/ linked"
 link "$HOME/Library/Mobile Documents/com~apple~CloudDocs" "$HOME/.local/cloud"
 link "$HOME/.local/secrets/work-vpn"                      "$HOME/.config/work-vpn"
 
+# ssh_config is assembled from two Include'd fragments: the personal half is
+# public, the work half (internal hostnames, work username) is not.
+mkdir -p "$HOME/.ssh/config.d" && chmod 700 "$HOME/.ssh" "$HOME/.ssh/config.d"
+link "$REPO/config/ssh/personal.conf" "$HOME/.ssh/config.d/personal.conf"
+link "$HOME/.local/secrets/ssh/work.conf" "$HOME/.ssh/config.d/work.conf"
+
 # --- secrets ------------------------------------------------------------------
 # config/opencode/opencode.jsonc resolves API keys with {env:...}, and fish
 # sources this file on startup. Without it opencode silently gets empty keys.

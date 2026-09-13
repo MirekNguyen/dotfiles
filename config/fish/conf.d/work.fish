@@ -82,7 +82,7 @@ function o2-vpn
             echo "🧹 Cleaning up /etc/hosts..."
             sudo sed -i '' '/# --- WORK VPN START ---/,/# --- WORK VPN END ---/d' /etc/hosts
 
-            wg-quick down "$HOME"/Downloads/Macbook-Air.conf
+            wg-quick down "$HOME"/.local/secrets/Macbook-Air.conf
             for file in (ls $VPN_RESOLVER_SOURCE)
                 if test -e "$VPN_RESOLVER_DEST/$file"
                     sudo rm "$VPN_RESOLVER_DEST/$file"
