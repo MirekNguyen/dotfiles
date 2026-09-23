@@ -1,0 +1,11 @@
+/* Liquid glass - dark.
+ * Swapped in by linux/scripts/theme-switch.sh via the colors.css symlink.
+ * Variable names must stay identical to the light variant. */
+@define-color glass-bg      rgba(22, 22, 24, 0.55);
+@define-color glass-panel   rgba(255, 255, 255, 0.07);
+@define-color glass-edge    rgba(255, 255, 255, 0.18);
+@define-color glass-hover   rgba(255, 255, 255, 0.12);
+@define-color glass-active  rgba(255, 255, 255, 0.18);
+@define-color fg-primary    #ffffff;
+@define-color fg-secondary  rgba(235, 235, 245, 0.55);
+@define-color accent        #0a84ff;

@@ -1,0 +1,246 @@
+/* swaync - liquid glass.
+ *
+ * Same material as the bar and the launcher. As with those, the blur is done by
+ * Hyprland, not here: see the ^swaync-control-center$ and ^swaync-notification-
+ * window$ layer rules in linux/hypr/hyprland.lua. All this file does is stay
+ * translucent so the compositor has something to blur behind.
+ *
+ * config.json sets ignore-gtk-theme, so nothing here is fighting Adwaita.
+ */
+
+@import "colors.css";
+
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 13px;
+  /* GTK draws focus rings that shift content by a pixel on hover otherwise. */
+  outline: none;
+}
+
+/* The click-catcher behind the panel. Must stay fully transparent -- tinting it
+ * would dim the whole desktop, which is not what the blur is for. */
+.blank-window {
+  background: transparent;
+}
+
+/* ---- Control center ---------------------------------------------------- */
+
+.control-center {
+  background: @glass-bg;
+  border: 1px solid @glass-edge;
+  border-radius: 18px;
+  padding: 10px;
+  color: @fg-primary;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  color: @fg-secondary;
+  opacity: 1;
+}
+
+/* ---- Widgets ------------------------------------------------------------ */
+
+.widget-title {
+  color: @fg-primary;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 6px 6px 10px 6px;
+}
+
+.widget-title > button {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 9px;
+  color: @fg-primary;
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.widget-title > button:hover {
+  background: @glass-hover;
+}
+
+.widget-dnd {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 12px;
+  color: @fg-primary;
+  padding: 10px 14px;
+  margin: 0 4px 8px 4px;
+}
+
+/* GTK switches inherit almost nothing useful, so both states are set here. */
+.widget-dnd > switch {
+  background: @glass-hover;
+  border: 1px solid @glass-edge;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.widget-dnd > switch:checked {
+  background: @accent;
+  border-color: @accent;
+}
+
+.widget-dnd > switch slider {
+  background: #ffffff;
+  border-radius: 12px;
+  margin: 2px;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.widget-mpris {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 14px;
+  padding: 10px;
+  margin: 0 4px 8px 4px;
+  color: @fg-primary;
+}
+
+.widget-mpris-player {
+  background: transparent;
+  padding: 2px;
+}
+
+.widget-mpris-title {
+  color: @fg-primary;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.widget-mpris-subtitle {
+  color: @fg-secondary;
+  font-size: 12px;
+}
+
+.widget-mpris > box > button {
+  background: transparent;
+  border: none;
+  color: @fg-primary;
+}
+
+.widget-mpris > box > button:hover {
+  background: @glass-hover;
+  border-radius: 9px;
+}
+
+.widget-volume {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin: 0 4px 8px 4px;
+  color: @fg-primary;
+}
+
+.widget-volume trough {
+  background: @glass-hover;
+  border: none;
+  border-radius: 10px;
+  min-height: 7px;
+}
+
+.widget-volume highlight {
+  background: @accent;
+  border-radius: 10px;
+  min-height: 7px;
+}
+
+.widget-volume slider {
+  background: #ffffff;
+  border-radius: 50%;
+  min-width: 15px;
+  min-height: 15px;
+  margin: -5px;
+}
+
+.per-app-volume {
+  background: transparent;
+  color: @fg-secondary;
+}
+
+/* ---- Notifications ------------------------------------------------------ */
+
+/* Floating toasts have no parent panel behind them, so each one carries its own
+ * glass background rather than inheriting one. */
+.floating-notifications .notification-row .notification-background {
+  background: @glass-bg;
+  border: 1px solid @glass-edge;
+  border-radius: 14px;
+  margin: 6px 12px;
+}
+
+/* Inside the control center the panel already provides the tint, so rows use
+ * the lighter inset fill to avoid stacking two translucent layers. */
+.control-center .notification-row .notification-background {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 12px;
+  margin: 0 4px 6px 4px;
+}
+
+.notification-row .notification-background .notification-content {
+  color: @fg-primary;
+  padding: 8px;
+}
+
+.notification-row .notification-background:hover {
+  background: @glass-hover;
+}
+
+.summary {
+  color: @fg-primary;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.body,
+.time {
+  color: @fg-secondary;
+  font-size: 12px;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: @fg-secondary;
+  margin: 4px;
+  padding: 2px;
+}
+
+.close-button:hover {
+  background: @glass-hover;
+  color: @fg-primary;
+}
+
+.notification-action {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 9px;
+  color: @fg-primary;
+  margin: 4px;
+}
+
+.notification-action:hover {
+  background: @glass-hover;
+}
+
+.notification-group-headers {
+  color: @fg-secondary;
+  font-size: 12px;
+}
+
+.inline-reply-entry {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 9px;
+  color: @fg-primary;
+}

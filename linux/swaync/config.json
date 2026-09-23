@@ -1,0 +1,65 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+
+  "//": "Tracked in the repo, symlinked to ~/.config/swaync. NOTE: swaync parses this with json-glib, which is strict JSON - no // comments, unlike waybar's jsonc. Styling is in style.css; the palette comes from colors.css, whose symlink theme-switch.sh swaps for light/dark.",
+
+  "//positioning": "control-center-margin-top clears the floating bar (8px margin + 34px tall) and the 12px side inset, so the panel hangs below it like Notification Center under the macOS menu bar.",
+
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+
+  "control-center-margin-top": 50,
+  "control-center-margin-bottom": 12,
+  "control-center-margin-right": 12,
+  "control-center-margin-left": 0,
+
+  "control-center-width": 420,
+  "control-center-height": 700,
+  "notification-window-width": 400,
+
+  "//cover-screen": "Default true puts a click-catcher over the whole screen, making everything behind it unreachable until dismissed. Off keeps the desktop live, as on macOS.",
+  "layer-shell-cover-screen": false,
+
+  "//theme": "ignore-gtk-theme keeps swaync on its own stylesheet instead of inheriting Adwaita, which is what lets the glass palette apply cleanly in both modes.",
+  "ignore-gtk-theme": true,
+  "cssPriority": "user",
+
+  "timeout": 8,
+  "timeout-low": 4,
+  "timeout-critical": 0,
+
+  "fit-to-screen": false,
+  "relative-timestamps": true,
+  "notification-grouping": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": true,
+  "hide-on-action": true,
+  "text-empty": "No Notifications",
+
+  "widgets": ["title", "dnd", "mpris", "volume", "notifications"],
+
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "mpris": {
+      "image-size": 84,
+      "image-radius": 12
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": false
+    }
+  }
+}
