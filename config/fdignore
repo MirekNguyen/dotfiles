@@ -82,3 +82,5 @@ Alfred.alfredpreferences
 dyad-apps/*/*
 .claude
 .agent-browser
+.nv
+.steam
