@@ -2,3 +2,10 @@
 .env
 *.bak
 Alfred.alfredpreferences
+
+# Active theme palettes - target is swapped at runtime by theme-switch.sh
+linux/waybar/colors.css
+linux/swaync/colors.css
+
+# Active hyprlock palette - swapped by theme-switch.sh
+linux/hypr/hyprlock-colors.conf
