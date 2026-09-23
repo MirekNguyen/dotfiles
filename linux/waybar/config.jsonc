@@ -1,0 +1,148 @@
+// Waybar - liquid glass bar for Hyprland.
+//
+// Tracked in the repo and symlinked to ~/.config/waybar.
+// The frosted effect comes from the compositor, not from here: see the
+// ^waybar$ layer rule in linux/hypr/hyprland.lua. Without it this is just a
+// translucent bar. Styling lives in style.css.
+//
+// Module choice is driven by what this machine actually has: no battery module
+// (desktop -- /sys/class/power_supply is empty), wifi via NetworkManager, audio
+// via PipeWire/WirePlumber, and an active bluetooth controller.
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+
+  // Floating bar. The gap is what sells the glass -- a full-width slab reads as
+  // a solid panel, whereas an inset rounded bar lets the wallpaper blur around it.
+  "margin-top": 8,
+  "margin-left": 12,
+  "margin-right": 12,
+  "spacing": 4,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": [],
+  "modules-right": ["custom/media", "wireplumber", "bluetooth", "network", "tray", "clock", "custom/notification"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    // NOT "activate": that sends the legacy `dispatch workspace N` string over
+    // IPC, which a Lua-configured Hyprland rejects, so clicks fail silently.
+    // See linux/scripts/ws-click.sh for the full diagnosis.
+    "on-click": "/home/binh/.config/dotfiles/linux/scripts/ws-click.sh {name}",
+    "sort-by-number": true,
+    // Scroll over the workspace area to move between spaces. Uses a script
+    // rather than Hyprland's relative args: e+1 skips empty workspaces, and r+1
+    // is unbounded so it would create workspace 7 past the end of the bar.
+    "on-scroll-up": "/home/binh/.config/dotfiles/linux/scripts/ws-scroll.sh next",
+    "on-scroll-down": "/home/binh/.config/dotfiles/linux/scripts/ws-scroll.sh prev",
+    // Hyprland only keeps a workspace alive while it holds windows, so with apps
+    // on 1, 2 and 5 the rest do not exist and the module adds/removes buttons as
+    // you move around -- the bar reflows and the numbers jump. Declaring 1-6
+    // persistent keeps the button set fixed, so positions never change.
+    // 7-10 remain bound in Hyprland, just not permanently displayed here.
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5, 6]
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 60,
+    "separate-outputs": true
+  },
+
+  "custom/media": {
+    "format": "{}",
+    "max-length": 45,
+    "interval": 2,
+    // playerctl exits non-zero when nothing is playing; the || keeps waybar
+    // from rendering an error string in that case.
+    "exec": "playerctl metadata --format '󰎆  {{artist}} - {{title}}' 2>/dev/null || true",
+    // Track titles containing & (or < >) are otherwise fed to Pango as markup
+    // and fail to render: "Entity did not end with a semicolon". escape makes
+    // waybar entity-encode the output first.
+    "escape": true,
+    // Click raises Spotify, as clicking Now Playing does on macOS;
+    // play/pause moves to middle-click.
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:Spotify\" })'",
+    "on-click-middle": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "tooltip": false
+  },
+
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  muted",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip-format": "{node_name}"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱  {num_connections}",
+    "tooltip-format": "{controller_alias}\n{status}",
+    "tooltip-format-connected": "{device_enumerate}",
+    // Overskride is GTK4/libadwaita and follows the portal colour-scheme,
+    // so it matches the bar in both light and dark mode.
+    "on-click": "overskride"
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": "󰈀  {ipaddr}",
+    "format-linked": "󰈀  no IP",
+    "format-disconnected": "󰤭  offline",
+    "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}",
+    // rofi picker rather than a GTK dialog: it inherits the liquid glass
+    // theme, and nm-connection-editor is an editor rather than a picker.
+    "on-click": "/home/binh/.config/dotfiles/linux/scripts/rofi-wifi.sh"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+
+  "clock": {
+    // Matches the sketchybar format: date '+%A %d.%b %H:%M'
+    "format": "{:%a %d.%b  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "today": "<b>{}</b>"
+      }
+    },
+    "on-click": "gnome-calendar"
+  },
+
+  // swaync's own waybar integration: -swb emits a JSON stream with the
+  // notification count and dnd state, so the icon updates live rather than on a
+  // poll interval.
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚",
+      "none": "󰂜",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󰂚",
+      "inhibited-none": "󰂜",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}

@@ -1,0 +1,143 @@
+/* Waybar - liquid glass.
+ *
+ * The blur is done by Hyprland, not here. GTK cannot blur what is behind a
+ * layer surface; all this file can do is be translucent and let the compositor
+ * fill in. See the ^waybar$ layer rule in linux/hypr/hyprland.lua.
+ *
+ * Palette deliberately matches ~/.config/rofi/config.rasi so the bar and the
+ * launcher read as the same material.
+ */
+
+/* Palette lives in a swappable file so light/dark switch without touching this
+ * stylesheet. colors.css is a symlink managed by linux/scripts/theme-switch.sh,
+ * pointing at colors-dark.css or colors-light.css. It is gitignored, since its
+ * target changes at runtime. */
+@import "colors.css";
+
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 13px;
+  font-weight: bold;
+  /* GTK draws a 1px focus ring on hover otherwise, which shifts the labels. */
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+/* The bar itself must be fully transparent -- the visible surface is #waybar
+ * below. Tinting this instead would defeat the compositor blur. */
+window#waybar {
+  background: transparent;
+}
+
+window#waybar > box {
+  background: @glass-bg;
+  border: 1px solid @glass-edge;
+  border-radius: 16px;
+  padding: 0 6px;
+  color: @fg-primary;
+}
+
+/* Shared pill geometry. Every module reserves the same padding so nothing
+ * reflows when a label changes width. */
+#workspaces,
+#window,
+#custom-media,
+#wireplumber,
+#bluetooth,
+#network,
+#tray,
+#custom-notification,
+#clock {
+  padding: 0 10px;
+  margin: 4px 2px;
+  border-radius: 10px;
+  background: transparent;
+}
+
+#workspaces {
+  padding: 0 2px;
+}
+
+#workspaces button {
+  padding: 0 9px;
+  margin: 0 1px;
+  min-width: 18px;
+  color: @fg-secondary;
+  background: transparent;
+  border-radius: 9px;
+}
+
+#workspaces button:hover {
+  background: @glass-hover;
+  color: @fg-primary;
+}
+
+/* Persistent workspaces that currently hold no windows. Declared before
+ * .active so an empty-but-focused workspace still gets the active treatment. */
+#workspaces button.empty {
+  color: @fg-dim;
+}
+
+#workspaces button.active {
+  background: @glass-active;
+  color: @fg-primary;
+}
+
+#workspaces button.urgent {
+  background: @urgent-bg;
+  color: @fg-primary;
+}
+
+#window {
+  color: @fg-secondary;
+  font-weight: normal;
+}
+
+/* Hyprland reports an empty title on a bare workspace; collapse the padding so
+ * there is no floating gap where the title would be. */
+window#waybar.empty #window {
+  padding: 0;
+  margin: 0;
+}
+
+#custom-media {
+  color: @fg-secondary;
+}
+
+#wireplumber:hover,
+#bluetooth:hover,
+#network:hover,
+#custom-media:hover,
+#custom-notification:hover,
+#clock:hover {
+  background: @glass-hover;
+}
+
+#wireplumber.muted {
+  color: @fg-secondary;
+}
+
+#bluetooth.disabled,
+#network.disconnected {
+  color: @fg-secondary;
+}
+
+#custom-notification,
+#clock {
+  color: @fg-primary;
+}
+
+#tray menu {
+  background: @glass-bg;
+  border: 1px solid @glass-edge;
+  border-radius: 12px;
+  color: @fg-primary;
+}
+
+tooltip {
+  background: @glass-bg;
+  border: 1px solid @glass-edge;
+  border-radius: 12px;
+  color: @fg-primary;
+}
