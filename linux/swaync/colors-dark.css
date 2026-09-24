@@ -1,5 +1,5 @@
 /* Liquid glass - dark.
- * Swapped in by linux/scripts/theme-switch.sh via the colors.css symlink.
+ * Swapped in by linux/darkman/theme-switch.sh via the colors.css symlink.
  * Variable names must stay identical to the light variant. */
 @define-color glass-bg      rgba(22, 22, 24, 0.55);
 @define-color glass-panel   rgba(255, 255, 255, 0.07);
