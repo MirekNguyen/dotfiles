@@ -2,7 +2,7 @@
  *
  * Same material as the bar and the launcher. As with those, the blur is done by
  * Hyprland, not here: see the ^swaync-control-center$ and ^swaync-notification-
- * window$ layer rules in linux/hypr/hyprland.lua. All this file does is stay
+ * window$ layer rules in linux/hypr/hyprland/rules.lua. All this file does is stay
  * translucent so the compositor has something to blur behind.
  *
  * config.json sets ignore-gtk-theme, so nothing here is fighting Adwaita.
