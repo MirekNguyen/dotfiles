@@ -1,0 +1,65 @@
+# macOS-style Cmd shortcuts on Hyprland.
+modmap:
+  - name: caps lock as escape
+    remap:
+      CapsLock: Esc
+
+keymap:
+  # Passthrough for screenshot
+  - name: let screenshot combos reach Hyprland
+    remap:
+      Super-Shift-3: Super-Shift-3
+      Super-Shift-4: Super-Shift-4
+      Super-Shift-5: Super-Shift-5
+      Super-C-Shift-3: Super-C-Shift-3
+      Super-C-Shift-4: Super-C-Shift-4
+      # Clipboard history and the light/dark toggle passthrough
+      Super-Alt-Shift-c: Super-Alt-Shift-c
+      Super-Alt-Shift-t: Super-Alt-Shift-t
+
+  - name: macOS Cmd shortcuts
+    application:
+      not: [kitty] # exclusing for native remap
+    remap:
+      Super-c: C-c           # copy
+      Super-v: C-v           # paste
+      Super-x: C-x           # cut
+      Super-a: C-a           # select all
+      Super-z: C-z           # undo
+      Super-s: C-s           # save
+      Super-f: C-f           # find
+      Super-w: C-w           # close tab
+      Super-t: C-t           # new tab
+      Super-n: C-n           # new window
+      Super-r: C-r           # reload
+      Super-p: C-p           # print / command palette
+      Super-l: C-l           # focus address bar
+
+      # Special cases
+      Super-Shift-z: C-Shift-z
+      Super-Shift-v: C-Shift-v
+      Super-Shift-t: C-Shift-t
+      Super-Shift-n: C-Shift-n
+
+      # Tabs
+      Super-1: C-1
+      Super-2: C-2
+      Super-3: C-3
+      Super-4: C-4
+      Super-5: C-5
+      Super-6: C-6
+      Super-7: C-7
+      Super-8: C-8
+      Super-9: C-9
+      Super-Shift-leftbrace: C-pageup
+      Super-Shift-rightbrace: C-pagedown
+
+      # Delete to start line
+      Super-backspace: [Shift-home, backspace]
+
+      # Option+arrow jumps by word, as on macOS.
+      Alt-left: C-left
+      Alt-right: C-right
+      Alt-Shift-left: C-Shift-left
+      Alt-Shift-right: C-Shift-right
+      Alt-backspace: C-backspace
