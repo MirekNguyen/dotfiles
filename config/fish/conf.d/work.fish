@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
-set -g VPN_RESOLVER_SOURCE "$HOME/.config/work-vpn/resolver"
+set -g VPN_RESOLVER_SOURCE "$HOME/.local/secrets/work-vpn/resolver"
 set -g VPN_RESOLVER_DEST /etc/resolver
-set -g VPN_HOSTS_SOURCE "$HOME/.config/work-vpn/hosts-o2"
+set -g VPN_HOSTS_SOURCE "$HOME/.local/secrets/work-vpn/hosts-o2"
 
 function work-vpn-connect
     sudo cp "$VPN_RESOLVER_SOURCE"/* "$VPN_RESOLVER_DEST"/
