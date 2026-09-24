@@ -1,17 +1,4 @@
-/* Waybar - liquid glass.
- *
- * The blur is done by Hyprland, not here. GTK cannot blur what is behind a
- * layer surface; all this file can do is be translucent and let the compositor
- * fill in. See the ^waybar$ layer rule in linux/hypr/hyprland/rules.lua.
- *
- * Palette deliberately matches ~/.config/rofi/config.rasi so the bar and the
- * launcher read as the same material.
- */
-
-/* Palette lives in a swappable file so light/dark switch without touching this
- * stylesheet. colors.css is a symlink managed by linux/scripts/theme-switch.sh,
- * pointing at colors-dark.css or colors-light.css. It is gitignored, since its
- * target changes at runtime. */
+/* Waybar - liquid glass. */
 @import "colors.css";
 
 * {
