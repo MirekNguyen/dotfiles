@@ -2,7 +2,7 @@
 //
 // Tracked in the repo and symlinked to ~/.config/waybar.
 // The frosted effect comes from the compositor, not from here: see the
-// ^waybar$ layer rule in linux/hypr/hyprland.lua. Without it this is just a
+// ^waybar$ layer rule in linux/hypr/hyprland/rules.lua. Without it this is just a
 // translucent bar. Styling lives in style.css.
 //
 // Module choice is driven by what this machine actually has: no battery module
@@ -22,20 +22,18 @@
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["custom/media", "wireplumber", "bluetooth", "network", "tray", "clock", "custom/notification"],
+  "modules-right": ["custom/media", "wireplumber", "bluetooth", "network", "tray", "hyprland/language", "clock", "custom/notification"],
 
   "hyprland/workspaces": {
     "format": "{name}",
-    // NOT "activate": that sends the legacy `dispatch workspace N` string over
-    // IPC, which a Lua-configured Hyprland rejects, so clicks fail silently.
-    // See linux/scripts/ws-click.sh for the full diagnosis.
-    "on-click": "/home/binh/.config/dotfiles/linux/scripts/ws-click.sh {name}",
+    // Clicking a button does not switch workspaces: waybar 0.15.0 hardcodes
+    // the legacy `dispatch workspace N`, which a Lua-configured Hyprland
+    // rejects, and the button swallows the click before any on-click runs.
     "sort-by-number": true,
-    // Scroll over the workspace area to move between spaces. Uses a script
-    // rather than Hyprland's relative args: e+1 skips empty workspaces, and r+1
-    // is unbounded so it would create workspace 7 past the end of the bar.
-    "on-scroll-up": "/home/binh/.config/dotfiles/linux/scripts/ws-scroll.sh next",
-    "on-scroll-down": "/home/binh/.config/dotfiles/linux/scripts/ws-scroll.sh prev",
+    // r+1/r-1 step numerically (e+1 would skip empty workspaces). Unbounded,
+    // so scrolling past 6 creates workspace 7.
+    "on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'r+1' })\"",
+    "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'r-1' })\"",
     // Hyprland only keeps a workspace alive while it holds windows, so with apps
     // on 1, 2 and 5 the rest do not exist and the module adds/removes buttons as
     // you move around -- the bar reflows and the numbers jump. Declaring 1-6
@@ -108,6 +106,18 @@
   "tray": {
     "icon-size": 16,
     "spacing": 10
+  },
+
+  "hyprland/language": {
+    // EN/CZ, like the input menu on macOS. Ctrl+Space switches (kb_options in
+    // linux/hypr/hyprland/input.lua); clicking does the same.
+    // Must be "{}" when format-<lang> entries exist: waybar fills those in
+    // positionally, and a named placeholder fails with "argument not found".
+    "format": "{}",
+    "format-en": "EN",
+    "format-cs": "CZ",
+    "keyboard-name": "xremap",
+    "on-click": "hyprctl switchxkblayout all next"
   },
 
   "clock": {

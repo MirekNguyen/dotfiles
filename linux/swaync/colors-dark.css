@@ -9,3 +9,26 @@
 @define-color fg-primary    #ffffff;
 @define-color fg-secondary  rgba(235, 235, 245, 0.55);
 @define-color accent        #0a84ff;
+
+/* swaync 0.12's built-in stylesheet is always loaded underneath style.css and
+ * themes almost everything through these variables, with dark values baked in.
+ * Left unset, light mode got white-on-white labels and dark notification cards,
+ * so every one it uses is mapped onto this palette. */
+:root {
+  --cc-bg: rgba(22, 22, 24, 0.55);
+  --noti-border-color: rgba(255, 255, 255, 0.18);
+  --noti-bg: 255, 255, 255;
+  --noti-bg-alpha: 0.07;
+  --noti-bg-alt: rgba(255, 255, 255, 0.07);
+  --noti-bg-darker: rgba(255, 255, 255, 0.07);
+  --noti-bg-hover: rgba(255, 255, 255, 0.12);
+  --noti-bg-focus: transparent;
+  --noti-close-bg: rgba(255, 255, 255, 0.12);
+  --noti-close-bg-hover: rgba(255, 255, 255, 0.18);
+  --text-color: #ffffff;
+  --text-color-disabled: rgba(235, 235, 245, 0.55);
+  --bg-selected: #0a84ff;
+  --notification-shadow: none;
+  --mpris-album-art-overlay: rgba(0, 0, 0, 0.55);
+  --mpris-button-hover: rgba(255, 255, 255, 0.12);
+}

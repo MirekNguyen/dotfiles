@@ -2,7 +2,7 @@
  *
  * The blur is done by Hyprland, not here. GTK cannot blur what is behind a
  * layer surface; all this file can do is be translucent and let the compositor
- * fill in. See the ^waybar$ layer rule in linux/hypr/hyprland.lua.
+ * fill in. See the ^waybar$ layer rule in linux/hypr/hyprland/rules.lua.
  *
  * Palette deliberately matches ~/.config/rofi/config.rasi so the bar and the
  * launcher read as the same material.
@@ -47,6 +47,7 @@ window#waybar > box {
 #bluetooth,
 #network,
 #tray,
+#language,
 #custom-notification,
 #clock {
   padding: 0 10px;
@@ -110,6 +111,7 @@ window#waybar.empty #window {
 #network:hover,
 #custom-media:hover,
 #custom-notification:hover,
+#language:hover,
 #clock:hover {
   background: @glass-hover;
 }
@@ -124,6 +126,7 @@ window#waybar.empty #window {
 }
 
 #custom-notification,
+#language,
 #clock {
   color: @fg-primary;
 }
