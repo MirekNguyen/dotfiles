@@ -12,4 +12,5 @@ exec rofi \
   -show combi \
   -modi "combi,drun,run,web:$HOME/.config/dotfiles/linux/scripts/rofi-web.sh" \
   -combi-modi "drun,web" \
+  -combi-hide-mode-prefix \
   -show-icons
