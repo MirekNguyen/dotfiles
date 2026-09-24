@@ -1,0 +1,11 @@
+/* Liquid glass - dark.
+ * Swapped in by linux/scripts/theme-switch.sh via the ~/.config/rofi/colors.rasi
+ * symlink. Keep the variable names identical to the light variant. */
+* {
+    bg-base:                    rgba(22, 22, 24, 0.55);
+    bg-input:                   rgba(255, 255, 255, 0.08);
+    bg-hover:                   rgba(255, 255, 255, 0.16);
+    border-glass:               rgba(255, 255, 255, 0.18);
+    fg-primary:                 #ffffff;
+    fg-secondary:               rgba(235, 235, 245, 0.55);
+}

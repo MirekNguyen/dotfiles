@@ -1,0 +1,12 @@
+/* Liquid glass - light.
+ * Frosted white rather than a flat light grey: alpha stays well below 1 so the
+ * compositor blur still shows through, which is what makes it read as glass
+ * rather than as a plain panel. */
+* {
+    bg-base:                    rgba(250, 250, 252, 0.62);
+    bg-input:                   rgba(0, 0, 0, 0.05);
+    bg-hover:                   rgba(0, 0, 0, 0.08);
+    border-glass:               rgba(255, 255, 255, 0.65);
+    fg-primary:                 #1c1c1e;
+    fg-secondary:               rgba(60, 60, 67, 0.60);
+}
