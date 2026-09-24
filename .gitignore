@@ -8,4 +8,7 @@ linux/waybar/colors.css
 linux/swaync/colors.css
 
 # Active hyprlock palette - swapped by theme-switch.sh
-linux/hypr/hyprlock-colors.conf
+linux/hypr/hyprlock/colors.conf
+
+# hymission plugin source + build - cloned and compiled by rebuild.sh
+linux/hypr/hymission/build/

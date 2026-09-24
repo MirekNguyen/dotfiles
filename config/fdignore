@@ -84,3 +84,4 @@ dyad-apps/*/*
 .agent-browser
 .nv
 .steam
+**/hymission/build
