@@ -1,0 +1,16 @@
+[Desktop Entry]
+# Override of /usr/share/applications/spotify.desktop.
+#
+# The monitor runs at scale 2 with xwayland.force_zero_scaling = true, so
+# XWayland clients get a real 3840x2160 surface and have to scale themselves.
+# Spotify is CEF, which only reads the Chromium flag - it ignores GDK_SCALE.
+Type=Application
+Name=Spotify
+GenericName=Music Player
+Icon=spotify-client
+TryExec=spotify
+Exec=spotify --force-device-scale-factor=2 --uri=%u
+Terminal=false
+MimeType=x-scheme-handler/spotify;
+Categories=Audio;Music;Player;AudioVideo;
+StartupWMClass=spotify

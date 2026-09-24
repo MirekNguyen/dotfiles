@@ -1,0 +1,18 @@
+[Desktop Entry]
+# Override of /usr/share/applications/steam.desktop.
+#
+# Same reason as spotify.desktop: XWayland renders at 1x here, so Steam's own
+# UI scaling has to be forced. STEAM_FORCE_DESKTOPUI_SCALING covers the CEF
+# library/store views, GDK_SCALE the few GTK dialogs Steam still opens.
+# Only the main entry is overridden; the store/library/etc. actions from the
+# packaged file are dropped on purpose to keep this readable.
+Name=Steam
+Comment=Application for managing and playing games on Steam
+Exec=env STEAM_FORCE_DESKTOPUI_SCALING=2 GDK_SCALE=2 /usr/bin/steam %U
+Icon=steam
+Terminal=false
+Type=Application
+Categories=Network;FileTransfer;Game;
+MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
+PrefersNonDefaultGPU=true
+X-KDE-RunOnDiscreteGpu=true
