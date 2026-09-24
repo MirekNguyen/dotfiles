@@ -27,7 +27,9 @@ hl.on("hyprland.start", function()
         os.getenv("HOME") .. "/.config/dotfiles/linux/xremap/config.yml")
     hl.exec_cmd("pkill -x waybar; waybar")
     hl.exec_cmd("pkill -x swaync; swaync")
-    -- Light/dark theme, including the wallpaper. darkman is a systemd user
+    -- Wallpaper. See hypr/hyprpaper.conf.
+    hl.exec_cmd("pkill -x hyprpaper; hyprpaper")
+    -- Light/dark theme. darkman is a systemd user
     -- service started at login, before Hyprland exists, so its hooks can't
     -- reach hyprctl (the wallpaper silently stayed put). Hand it this session's
     -- variables and restart it; on startup it runs the hook for the current mode.
@@ -44,4 +46,10 @@ hl.on("hyprland.start", function()
     -- Started explicitly because graphical-session.target is never reached
     -- without uwsm, so `systemctl --user enable` alone would not start it.
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    -- Game streaming host for Moonlight. Launched here rather than via its
+    -- systemd unit so it inherits the Wayland session for screen capture.
+    -- See linux/sunshine/sunshine.conf.
+    local sunshine = os.getenv("HOME") .. "/.config/dotfiles/linux/sunshine"
+    hl.exec_cmd("command -v sunshine >/dev/null && { pkill -x sunshine; sunshine " ..
+        sunshine .. "/sunshine.conf file_apps=" .. sunshine .. "/apps.json; }")
 end)
