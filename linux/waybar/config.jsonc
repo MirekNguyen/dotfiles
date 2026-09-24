@@ -22,7 +22,7 @@
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["custom/media", "wireplumber", "bluetooth", "network", "tray", "hyprland/language", "clock", "custom/notification"],
+  "modules-right": ["custom/media", "custom/volume", "bluetooth", "network", "tray", "hyprland/language", "clock", "custom/notification"],
 
   "hyprland/workspaces": {
     "format": "{name}",
@@ -70,15 +70,20 @@
     "tooltip": false
   },
 
-  "wireplumber": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "󰝟  muted",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+  // Replaces the built-in wireplumber module: when audio goes out through the
+  // UCA202 the real volume lives on the Sonos Beam, which PipeWire knows
+  // nothing about. The script reports whichever volume actually matters and
+  // signals this module (RTMIN+8) after every key press, so it updates at once;
+  // the interval only catches changes made from the Sonos app.
+  "custom/volume": {
+    "exec": "~/.config/dotfiles/linux/scripts/sonos-volume.py status",
+    "return-type": "json",
+    "interval": 5,
+    "signal": 8,
+    "on-click": "~/.config/dotfiles/linux/scripts/sonos-volume.py mute",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-    "tooltip-format": "{node_name}"
+    "on-scroll-up": "~/.config/dotfiles/linux/scripts/sonos-volume.py up",
+    "on-scroll-down": "~/.config/dotfiles/linux/scripts/sonos-volume.py down"
   },
 
   "bluetooth": {

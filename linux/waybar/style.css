@@ -30,7 +30,7 @@ window#waybar > box {
 #workspaces,
 #window,
 #custom-media,
-#wireplumber,
+#custom-volume,
 #bluetooth,
 #network,
 #tray,
@@ -93,7 +93,7 @@ window#waybar.empty #window {
   color: @fg-secondary;
 }
 
-#wireplumber:hover,
+#custom-volume:hover,
 #bluetooth:hover,
 #network:hover,
 #custom-media:hover,
@@ -103,7 +103,8 @@ window#waybar.empty #window {
   background: @glass-hover;
 }
 
-#wireplumber.muted {
+#custom-volume.muted,
+#custom-volume.unreachable {
   color: @fg-secondary;
 }
 
