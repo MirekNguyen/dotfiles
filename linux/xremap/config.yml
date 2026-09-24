@@ -1,19 +1,14 @@
-# macOS-style Cmd shortcuts on Hyprland.
 modmap:
   - name: caps lock as escape
     remap:
       CapsLock: Esc
 
 keymap:
-  # Passthrough for screenshot
-  - name: let screenshot combos reach Hyprland
+  - name: passthrough to reach Hyprland
     remap:
       Super-Shift-3: Super-Shift-3
       Super-Shift-4: Super-Shift-4
       Super-Shift-5: Super-Shift-5
-      Super-C-Shift-3: Super-C-Shift-3
-      Super-C-Shift-4: Super-C-Shift-4
-      # Clipboard history and the light/dark toggle passthrough
       Super-Alt-Shift-c: Super-Alt-Shift-c
       Super-Alt-Shift-t: Super-Alt-Shift-t
 
@@ -57,7 +52,7 @@ keymap:
       # Delete to start line
       Super-backspace: [Shift-home, backspace]
 
-      # Option+arrow jumps by word, as on macOS.
+      # Option+arrow jumps by word
       Alt-left: C-left
       Alt-right: C-right
       Alt-Shift-left: C-Shift-left
