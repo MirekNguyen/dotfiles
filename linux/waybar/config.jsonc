@@ -22,7 +22,7 @@
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["custom/media", "custom/volume", "bluetooth", "network", "tray", "hyprland/language", "clock", "custom/notification"],
+  "modules-right": ["custom/media", "custom/volume", "bluetooth", "network", "custom/vpn", "tray", "hyprland/language", "clock", "custom/notification"],
 
   "hyprland/workspaces": {
     "format": "{name}",
@@ -48,6 +48,12 @@
     "format": "{title}",
     "max-length": 60,
     "separate-outputs": true
+  },
+
+  // Empty output hides the module.
+  "custom/vpn": {
+    "interval": 5,
+    "exec": "{ ip -br link show type wireguard; ip -br link show type tun; } | awk 'NR == 1 { printf \"󰖂  \" } { printf \"%s%s\", (NR > 1 ? \" \" : \"\"), $1 }'"
   },
 
   "custom/media": {

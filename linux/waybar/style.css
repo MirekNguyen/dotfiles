@@ -33,6 +33,7 @@ window#waybar > box {
 #custom-volume,
 #bluetooth,
 #network,
+#custom-vpn,
 #tray,
 #language,
 #custom-notification,
@@ -116,6 +117,11 @@ window#waybar.empty #window {
 #language,
 #clock {
   color: @fg-primary;
+}
+
+#tray {
+  padding: 0;
+  margin: 0;
 }
 
 #tray menu {
