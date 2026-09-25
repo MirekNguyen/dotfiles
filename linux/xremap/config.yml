@@ -23,6 +23,7 @@ keymap:
       Super-z: C-z           # undo
       Super-s: C-s           # save
       Super-f: C-f           # find
+      Super-g: C-g           # find next
       Super-w: C-w           # close tab
       Super-t: C-t           # new tab
       Super-n: C-n           # new window
@@ -35,6 +36,7 @@ keymap:
       Super-Shift-v: C-Shift-v
       Super-Shift-t: C-Shift-t
       Super-Shift-n: C-Shift-n
+      Super-Shift-g: C-Shift-g # find previous
 
       # Tabs
       Super-1: C-1
