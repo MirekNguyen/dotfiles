@@ -102,6 +102,12 @@ git clone --recurse-submodules git@github.com:MirekNguyen/dotfiles.git ~/.config
 stow --restow --dir ~/.config/dotfiles --target ~/.config config
 ```
 
+Wallpapers and rofi bookmark icons are in a separate private repo:
+
+```sh
+git clone git@github.com:MirekNguyen/wallpapers.git ~/Pictures/wallpapers
+```
+
 The Linux-only configs are two more stow packages, laid out like their targets:
 
 ```sh

@@ -30,10 +30,10 @@ while IFS=$'\t' read -r name url icon; do
   esac
   [ -n "${url:-}" ] || continue
   icon="${icon:-$DEFAULT_ICON}"
-  # Relative paths (icons/foo.png) are resolved against the bookmarks directory.
+  # Relative paths (icons/foo.png) live in the wallpapers repo.
   case "$icon" in
     /*) ;;
-    */*) icon="$(dirname "$BOOKMARKS")/$icon" ;;
+    */*) icon="$HOME/Pictures/wallpapers/icons/rofi/${icon#icons/}" ;;
   esac
   printf '%s\0icon\x1f%s\x1finfo\x1f%s\n' "$name" "$icon" "$url"
 done < "$BOOKMARKS"

@@ -62,7 +62,7 @@ be clicked through once per machine. Everything below is a manual step.
 
 ### Wallpaper
 
-Set manually.
+Set manually: pick `~/Pictures/wallpapers/mac` (the private `wallpapers` repo).
 
 ### Trackpad
 
