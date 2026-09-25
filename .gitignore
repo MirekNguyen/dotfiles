@@ -12,3 +12,6 @@ linux/hypr/hyprlock/colors.conf
 
 # hymission plugin source + build - cloned and compiled by rebuild.sh
 linux/hypr/hymission/build/
+
+linux/wallpapers
+linux/rofi/icons
