@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [],
-  "shell": "/opt/homebrew/bin/fish",
   "compaction": {
     "auto": true,
     "prune": true,
@@ -27,6 +26,9 @@
         },
         "deepseek-v4-pro": {
           "name": "Deepseek V4 Pro"
+        },
+        "claude-5.5-opus": {
+          "name": "Claude 5.5 Opus"
         }
       }
     },
