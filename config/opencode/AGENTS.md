@@ -31,3 +31,10 @@ should be run and why, and let them decide.
   groups.
 
 If unsure whether something persists, ask.
+
+## Keep it simple
+
+- Prefer a small, plain function over configurable or clever code. Don't add
+  guards, fallbacks or abstractions for cases that don't happen.
+- Few code comments: only where the code can't explain itself.
+- Keep replies short. Say what changed and what the user has to do, nothing more.

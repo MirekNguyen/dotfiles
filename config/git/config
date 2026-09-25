@@ -39,7 +39,7 @@
     hunk-header-style = file line-number syntax
 
 [alias]
-  delta = !delta $(defaults read -g AppleInterfaceStyle &>/dev/null || echo --light)
+  delta = !delta $( (defaults read -g AppleInterfaceStyle || [ \"$(darkman get)\" = dark ]) &>/dev/null || echo --light)
 
 [pager]
 	show = git delta
