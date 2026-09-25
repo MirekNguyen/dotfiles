@@ -65,7 +65,7 @@ hl.layer_rule({
 
 -- Liquid glass for the waybar bar, same reasoning as rofi above: GTK cannot
 -- blur what is behind a layer surface, so the compositor has to do it. The bar
--- itself is transparent and its inner box carries the tint (linux/waybar/style.css).
+-- itself is transparent and its inner box carries the tint (linux/config/waybar/style.css).
 hl.layer_rule({
     name         = "waybar-glass",
     match        = { namespace = "^waybar$" },

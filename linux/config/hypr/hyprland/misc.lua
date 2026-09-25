@@ -13,7 +13,7 @@ hl.config({
     -- scale its own UI, or it draws at half size.
     --
     -- Toolkit apps do that from GDK_SCALE / QT_SCALE_FACTOR; Spotify (CEF) and
-    -- Steam need their own flags, see linux/applications/*.desktop.
+    -- Steam need their own flags, see linux/local/share/applications/*.desktop.
     xwayland = {
         force_zero_scaling = true,
     },

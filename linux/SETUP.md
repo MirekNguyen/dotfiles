@@ -102,18 +102,11 @@ git clone --recurse-submodules git@github.com:MirekNguyen/dotfiles.git ~/.config
 stow --restow --dir ~/.config/dotfiles --target ~/.config config
 ```
 
-The Linux-only configs are linked by hand:
+The Linux-only configs are two more stow packages, laid out like their targets:
 
 ```sh
-D=~/.config/dotfiles/linux
-ln -sfn $D/hypr   ~/.config/hypr
-ln -sfn $D/waybar ~/.config/waybar
-ln -sfn $D/swaync ~/.config/swaync
-ln -sfn $D/nwg-dock-hyprland ~/.config/nwg-dock-hyprland
-mkdir -p ~/.local/share/darkman ~/.local/share/applications
-ln -sfn $D/darkman/theme-switch.sh ~/.local/share/darkman/theme-switch.sh
-ln -sfn $D/applications/steam.desktop   ~/.local/share/applications/
-ln -sfn $D/applications/spotify.desktop ~/.local/share/applications/
+stow --restow --dir ~/.config/dotfiles/linux --target ~/.config config
+stow --restow --dir ~/.config/dotfiles/linux --target ~/.local  local
 ```
 
 fish plugins (the list is `config/fish/fish_plugins`): `fisher update`.

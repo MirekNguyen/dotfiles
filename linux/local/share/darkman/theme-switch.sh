@@ -38,10 +38,10 @@ done
 
 # 3. rofi, waybar and swaync read a palette file; swap where the symlink points.
 ln -sfn "$REPO/linux/rofi/colors-$mode.rasi" "$HOME/.config/rofi/colors.rasi"
-ln -sfn "colors-$mode.css" "$REPO/linux/waybar/colors.css"
-ln -sfn "colors-$mode.css" "$REPO/linux/swaync/colors.css"
+ln -sfn "colors-$mode.css" "$REPO/linux/config/waybar/colors.css"
+ln -sfn "colors-$mode.css" "$REPO/linux/config/swaync/colors.css"
 # hyprlock reads its palette each time it starts, so no reload is needed.
-ln -sfn "colors-$mode.conf" "$REPO/linux/hypr/hyprlock/colors.conf"
+ln -sfn "colors-$mode.conf" "$REPO/linux/config/hypr/hyprlock/colors.conf"
 
 # waybar reloads its CSS on SIGUSR2 without dropping the bar or its tray.
 # --older 2 skips a waybar that is still starting up: until it installs its

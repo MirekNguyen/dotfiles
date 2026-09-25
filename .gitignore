@@ -4,14 +4,14 @@
 Alfred.alfredpreferences
 
 # Active theme palettes - target is swapped at runtime by theme-switch.sh
-linux/waybar/colors.css
-linux/swaync/colors.css
+linux/config/waybar/colors.css
+linux/config/swaync/colors.css
 
 # Active hyprlock palette - swapped by theme-switch.sh
-linux/hypr/hyprlock/colors.conf
+linux/config/hypr/hyprlock/colors.conf
 
 # hymission plugin source + build - cloned and compiled by rebuild.sh
-linux/hypr/hymission/build/
+linux/config/hypr/hymission/build/
 
 linux/wallpapers
 linux/rofi/icons
