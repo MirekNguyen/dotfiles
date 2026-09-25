@@ -75,8 +75,9 @@ hl.bind("SUPER + SHIFT + 5", hyprshot("-m active -m window " .. shotFile))
 hl.bind("SUPER + CTRL + SHIFT + 3", hyprshot("-m active -m output --clipboard-only"))
 hl.bind("SUPER + CTRL + SHIFT + 4", hyprshot("-z -m region --clipboard-only"))
 
--- `alt-f` = fullscreen
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+-- `alt-f` = maximize, `alt-shift-f` = fullscreen
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 
 -- `alt-slash` / `alt-comma` = layout toggles
 -- dwindle has no accordion, so comma toggles a tabbed group instead
