@@ -7,99 +7,111 @@
 # One-time setup that isn't a package (services, groups, pacman.conf, ...)
 # is in SETUP.md.
 
-# Installed by archinstall. Listed only so `diff` stays clean; everything
-# below this section was installed by hand afterwards (see
-# /var/log/pacman.log, which starts with the archinstall run).
+# --- Installed by archinstall ------------------------------------------------
+# Listed only so `diff` stays clean; everything below was installed by hand
+# afterwards (see /var/log/pacman.log, which starts with the archinstall run).
 base
 linux
 linux-firmware
-amd-ucode
+amd-ucode                     # CPU microcode
 mkinitcpio
 sudo
 efibootmgr
-zram-generator
+zram-generator                # compressed swap in RAM
 
-# Core
+# --- Core --------------------------------------------------------------------
 networkmanager
 openssh
 git
-base-devel                    # needed to build yay
-yay
+base-devel                    # makepkg toolchain, needed to build yay
+yay                           # AUR helper
 
-# NVIDIA
-nvidia-open
+# --- NVIDIA ------------------------------------------------------------------
+nvidia-open                   # kernel modules
 nvidia-utils
 nvidia-settings
 
-# Desktop
-hyprland
-hypridle
-hyprlock
-hyprpaper
-hyprpolkitagent
-hyprshot
+# --- Hyprland ----------------------------------------------------------------
+hyprland                      # compositor
+hypridle                      # screen off / lock on idle
+hyprlock                      # lock screen
+hyprpaper                     # wallpaper rotation
+hyprpolkitagent               # password prompt for admin actions
+hyprshot                      # screenshots (SUPER+SHIFT+3/4/5)
 xdg-desktop-portal-hyprland   # screen sharing
-waybar
-swaync
-rofi
-wofi
-darkman
-wl-clipboard
-cliphist
-xremap-hypr-bin               # needs the input group, see SETUP.md
-otf-font-awesome
-ttf-iosevka-nerd
 
-# Audio
-pipewire-pulse
-wireplumber
+# --- Wayland desktop ---------------------------------------------------------
+waybar                        # top bar
+swaync                        # notifications
+rofi                          # launcher, bookmarks, clipboard picker
+wofi                          # old launcher, replaced by rofi
+wl-clipboard                  # wl-copy / wl-paste
+cliphist                      # clipboard history
+darkman                       # light/dark theme by sunrise and sunset
+xremap-hypr-bin               # macOS-style shortcuts; needs the input group, see SETUP.md
+
+# --- Fonts -------------------------------------------------------------------
+otf-font-awesome              # waybar icons
+ttf-iosevka-nerd              # terminal and bar font
+
+# --- Audio -------------------------------------------------------------------
+pipewire-pulse                # PulseAudio compatibility for PipeWire
+wireplumber                   # PipeWire session manager (wpctl)
 alsa-utils
 pavucontrol                   # right-click on the waybar volume
 
-# Bluetooth
+# --- Bluetooth ---------------------------------------------------------------
 bluez
-bluez-utils
+bluez-utils                   # bluetoothctl
 overskride                    # click on the waybar bluetooth icon
 
-# Terminal and CLI
+# --- Terminal and shell ------------------------------------------------------
 kitty
 fish
-fisher
-starship
+fisher                        # fish plugin manager
+starship                      # prompt
+
+# --- Editor ------------------------------------------------------------------
 neovim
-tree-sitter-cli
-fd
-fzf
-eza
-git-delta
-lazygit
-github-cli
-bottom
-yazi
-gum
-stow
+tree-sitter-cli               # builds nvim-treesitter parsers
+
+# --- CLI tools ---------------------------------------------------------------
+fd                            # find
+fzf                           # fuzzy finder
+eza                           # ls
+bottom                        # system monitor (btm)
+yazi                          # file manager
+gum                           # prompts in shell scripts
+stow                          # symlinks dotfiles
 zip
 unzip
-opencode
 
-# Network and VPN
-wireguard-tools
-systemd-resolvconf
-vpn-slice
+# --- Git and dev -------------------------------------------------------------
+git-delta                     # diff pager
+lazygit
+github-cli                    # gh
+opencode                      # coding agent
 
-# Apps
-helium-browser-bin
-nautilus
-gnome-calendar
+# --- VPN ---------------------------------------------------------------------
+wireguard-tools               # wg-quick, home VPN
+systemd-resolvconf            # lets wg-quick set the VPN's DNS
+vpn-slice                     # split tunnel for the work VPN
+
+# --- Apps --------------------------------------------------------------------
+helium-browser-bin            # browser
+nautilus                      # file manager
+gnome-calendar                # click on the waybar clock
+proton-pass-bin               # passwords
+localsend                     # AirDrop replacement
 spotify
+jellium-desktop-git           # Jellyfin client
+
+# --- Chat --------------------------------------------------------------------
 discord
 telegram-desktop
 teams-for-linux
-proton-pass-bin
-jellium-desktop-git
-localsend
 
-# Games and streaming
+# --- Games and streaming -----------------------------------------------------
 steam                         # needs multilib, see SETUP.md
-lutris
-sunshine-bin
+lutris                        # non-Steam games
+sunshine-bin                  # game streaming host for Moonlight
