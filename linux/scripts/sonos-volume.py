@@ -162,6 +162,16 @@ def waybar(vol: int | None, muted: bool, target: str) -> None:
     print(json.dumps({"text": text, "tooltip": target, "class": cls}, ensure_ascii=False), flush=True)
 
 
+def osd(vol: int, muted: bool) -> None:
+    icon = "audio-volume-muted-symbolic" if muted else "audio-volume-high-symbolic"
+    subprocess.run(
+        ["swayosd-client", "--custom-icon", icon,
+         "--custom-progress", str(0 if muted else vol / 100),
+         "--custom-progress-text", "muted" if muted else f"{vol}%"],
+        stderr=subprocess.DEVNULL,
+    )
+
+
 def on_sonos() -> bool:
     return SONOS_SINK in default_sink() or sonos_playing()
 
@@ -246,12 +256,14 @@ def main() -> int:
         return 0
 
     if on_sonos():
-        ok = with_speaker(action) is not None
+        state = with_speaker(action)
     else:
         wpctl(action)
-        ok = True
+        state = pipewire_state()
     poke_watcher()
-    return 0 if ok else 1
+    if state:
+        osd(*state)
+    return 0 if state else 1
 
 
 if __name__ == "__main__":
