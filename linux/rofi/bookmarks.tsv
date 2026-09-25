@@ -1,0 +1,112 @@
+# Web shortcuts for the rofi launcher.
+# Format: Name<TAB>URL[<TAB>Icon]   -- separators must be real tabs, not spaces.
+# Lines starting with # and blank lines are ignored.
+# Read by linux/scripts/rofi-web.sh
+
+# Personal
+Freshrss	https://freshrss.mirekng.com	icons/freshrss.png
+Mail	https://mail.proton.me/u/3/inbox	icons/proton-mail.png
+# Gemini	https://gemini.google.com/app	icons/gemini.png
+Docs	https://docs.craft.do/
+Photos	http://photos.mirekng.com/
+ChatGPT	https://chat.mirekng.com	icons/chatgpt.png
+MNG apps	https://app.mirekng.com/	icons/dokploy.png
+Vikunja	https://vikunja.mirekng.com	icons/vikunja.png
+Organizr	https://organizr.mirekng.com/	icons/organizr.png
+Google sheets	https://docs.google.com/spreadsheets/u/0/?ec=wgc-sheets-[module]-goto	icons/google-sheets.png
+Database manager	http://localhost:4983	icons/drizzle-studio.png
+
+# O2 - general
+O2 Intranet	https://intranet.o2.cz	icons/o2.png
+O2 IAM	https://iam.intranet.cz.o2/overview/overview.html	icons/o2.png
+O2 SSP	https://ssp.cz.o2	icons/o2.png
+O2 Virtual university	https://vu.o2.cz/	icons/o2.png
+O2 ITS	https://p2k.cz.o2/cats/index.fcgi?PG=login&url=MK2VT	icons/o2.png
+O2 OrdoSD	https://ordosd.cz.o2/	icons/o2.png
+O2 P2K	https://p2k.cz.o2/P2K	icons/o2.png
+O2 Lunch	https://www.goodlunch.cz/kantyny/o2	icons/goodlunch.png
+O2 Cibule	http://www.cervena-cibule.cz/cz/poledni-menu/	icons/cervena-cibule.png
+O2 CMDB	https://expert.to2.to2cz.cz/cmdb/	icons/o2.png
+O2 Soctheme	https://soctheme.cz.o2/	icons/o2.png
+O2 Sprint	https://jira.intranet.o2.cz/secure/RapidBoard.jspa?rapidView=922&projectKey=SSD	icons/jira.png
+O2 Tempo	https://jira.intranet.o2.cz/secure/Tempo.jspa	icons/tempo.png
+O2 Benefity	https://online.benefity.cz/cafeteria	icons/benefity.png
+O2 Confluence	https://confluence.cz.o2/	icons/confluence.png
+O2 Dokuwiki	https://lxbus401.ux.to2cz.cz/wiki/doku.php?id=start	icons/dokuwiki.png
+O2 SSD Documentation	https://docs.lxappssd401.ux.to2cz.cz/	icons/docs.png
+O2 OMNI Documentation	http://lxsentry401.ux.to2cz.cz:4200/	icons/docs.png
+O2 Sentry	http://lxsentry401.ux.to2cz.cz:4200/	icons/sentry.png
+O2 SSD Uptime kuma	https://uptime.lxappssd401.ux.to2cz.cz	icons/uptime-kuma.png
+O2 OMNI Uptime Kuma	http://lxsentry401.ux.to2cz.cz:3001/	icons/uptime-kuma.png
+O2 Registry	https://registry.lxbus401.ux.to2cz.cz/	icons/registry.png
+O2 Dashboard	https://dashboard.lxappssd401.ux.to2cz.cz/	icons/dashboard.png
+O2 Azure	https://portal.azure.com	icons/azure.png
+O2 Jenkins	https://jenkins-drap-tst-a-moje.o2.cz:8443/	icons/jenkins.png
+O2 Monitor	https://monitor.lxappssd401.ux.to2cz.cz/	icons/monitor.png
+O2 Logs	https://logs.lxappssd401.ux.to2cz.cz/	icons/logs.png
+O2 Nexus	https://nexus.lxappssd401.ux.to2cz.cz	icons/nexus.png
+O2 APFNexus	https://apfnexus.cz.o2	icons/nexus.png
+O2 Coffee	https://v0-coffee-tracking-app.vercel.app/	icons/coffee.png
+O2 Jira issues	https://jira.intranet.o2.cz/issues/?jql=project%20%3D%20SSD%20AND%20Sprint%20%3D%202543%20AND%20assignee%20in%20(currentUser())%20ORDER%20BY%20priority%20DESC%2C%20updated%20DESC	icons/jira.png
+O2 Chat	https://open-webui-ai-a-moje.o2.cz
+O2 Grafana	https://grafana.lxappssd401.ux.to2cz.cz	icons/grafana.png
+O2 Miro	https://miro.com/app/dashboard/	icons/miro.png
+
+# O2 - production
+O2 Formulare (prod)	https://formulare.nadaceo2.cz	icons/o2-app.png
+O2 Nadace (prod)	https://nadace.lxbus401.ux.to2cz.cz/	icons/o2-app.png
+O2 Spokojenost (prod)	https://lxbus401.ux.to2cz.cz/Spokojenost	icons/o2-app.png
+O2 Onecomm (prod)	http://lxonecomm401.ux.to2cz.cz/	icons/o2-app.png
+O2 GTM Scoring (prod)	https://lxbus401.ux.to2cz.cz/GtmScoring/	icons/o2-app.png
+O2 Pohotovost (prod)	https://pohotovost.lxbus401.ux.to2cz.cz/	icons/o2-app.png
+O2 Customer Portal (prod)	https://lxbus401.ux.to2cz.cz/CustomerPortal	icons/o2-app.png
+O2 Decision rule (prod)	https://decision-rule.lxappssd401.ux.to2cz.cz/	icons/o2-app.png
+O2 AkceLeto (prod)	https://lxbus401.ux.to2cz.cz/AkceLeto2020	icons/o2-app.png
+O2 Direct sales (prod)	https://direct-sales.intranet.o2.cz/direct-sales/	icons/o2-app.png
+O2 Direct sales - Kibana (prod)	https://lxlogs401.azure.to2cz.cz:8443/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h%2Fh,to:now))&_a=(columns:!(message),dataSource:(dataViewId:'50062153-0bc7-4a2a-9952-5dcf7468afc5',type:dataView),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,field:message,index:'50062153-0bc7-4a2a-9952-5dcf7468afc5',key:message,negate:!t,params:(query:'Authentication%20process%20started'),type:phrase),query:(match_phrase:(message:'Authentication%20process%20started'))),('$state':(store:appState),meta:(alias:!n,disabled:!f,field:message,index:'50062153-0bc7-4a2a-9952-5dcf7468afc5',key:message,negate:!t,params:(query:mappedRole),type:phrase),query:(match_phrase:(message:mappedRole))),('$state':(store:appState),meta:(alias:!n,disabled:!f,field:message,index:'50062153-0bc7-4a2a-9952-5dcf7468afc5',key:message,negate:!t,params:(query:'Logged%20event'),type:phrase),query:(match_phrase:(message:'Logged%20event'))),('$state':(store:appState),meta:(alias:!n,disabled:!f,field:message,index:'50062153-0bc7-4a2a-9952-5dcf7468afc5',key:message,negate:!t,params:(query:rawRole),type:phrase),query:(match_phrase:(message:rawRole))),('$state':(store:appState),meta:(alias:!n,disabled:!f,field:message,index:'50062153-0bc7-4a2a-9952-5dcf7468afc5',key:message,negate:!t,params:(query:request.headers.role),type:phrase),query:(match_phrase:(message:request.headers.role)))),interval:auto,query:(language:kuery,query:''),sort:!(!('@timestamp',desc)))	icons/kibana.png
+O2 Infoservis (prod)	https://infoservis.cz.o2/	icons/o2-app.png
+O2 Logisticky portal (prod)	https://lxbus401.ux.to2cz.cz/LogisticPortal	icons/o2-app.png
+O2 Survikus	https://survikus.lxappssd401.ux.to2cz.cz	icons/o2-app.png
+
+# O2 - pre-production (ppt)
+O2 Nadace (ppt)	https://nadace-ppt.lxbus401.ux.to2cz.cz/	icons/o2-app.png
+O2 Spokojenost (ppt)	https://lxbus401.ux.to2cz.cz/SpokojenostTest	icons/o2-app.png
+O2 Onecomm (ppt)	http://lxonecomm401ppt.ux.to2cz.cz/	icons/o2-app.png
+O2 GTM Scoring (ppt)	https://lxbus401.ux.to2cz.cz/GtmScoringTest/	icons/o2-app.png
+O2 Customer Portal (ppt)	https://lxbus401.ux.to2cz.cz/CustomerPortalTest	icons/o2-app.png
+O2 Decision rule (ppt)	https://ppt-decision-rule.lxappssd401.ux.to2cz.cz/	icons/o2-app.png
+O2 AkceLeto (ppt)	https://lxbus401.ux.to2cz.cz/AkceLeto2020Test	icons/o2-app.png
+O2 Direct sales (ppt)	https://ppt-direct-sales.intranet.o2.cz/direct-sales/	icons/o2-app.png
+O2 Direct sales - Kibana (ppt)	https://lxlogspre401.azure.to2cz.cz:8443/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=(columns:!(message),dataSource:(dataViewId:'7256c35b-aa42-4480-a093-da610ef9a1d2',type:dataView),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,field:message,index:'7256c35b-aa42-4480-a093-da610ef9a1d2',key:message,negate:!t,params:(query:'Authentication%20process%20started'),type:phrase),query:(match_phrase:(message:'Authentication%20process%20started')))),interval:auto,query:(language:kuery,query:''),sort:!(!('@timestamp',desc)))	icons/kibana.png
+O2 Spokojenost v2 (ppt)	https://ppt.lxspoko401.ux.to2cz.cz/	icons/o2-app.png
+
+# O2 - dev / test
+O2 Spokojenost (dev)	http://localhost:5173	icons/o2-app.png
+O2 Direct sales (tst)	https://drap-tst-a-moje.o2.cz/direct-sales/	icons/o2-app.png
+O2 Direct sales - Kibana (tst)	https://lxlogspre401.azure.to2cz.cz:8443/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=(columns:!(message),dataSource:(dataViewId:'6ef5c2ef-594c-4c2b-aafb-262515f71f18',type:dataView),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,field:message,index:'6ef5c2ef-594c-4c2b-aafb-262515f71f18',key:message,negate:!t,params:(query:'Authentication%20process%20started'),type:phrase),query:(match_phrase:(message:'Authentication%20process%20started')))),interval:auto,query:(language:kuery,query:''),sort:!(!('@timestamp',desc)))	icons/kibana.png
+
+# O2 - repositories
+O2 Gitlab GTM scoring	https://github.com/o2cz-it-dev/SSD_gtm-scoring	icons/github.png
+O2 Github Nadace	https://github.com/o2cz-it-dev/SSD_nadace	icons/github.png
+O2 Gitlab Omnichannel	https://github.com/o2cz-it-dev/OMNI_omnichannel	icons/github.png
+O2 Gitlab APF	https://apfgit.cz.o2/	icons/gitlab.png
+O2 Github Spokojenost	https://github.com/o2cz-it-dev/SSD_spokojenost	icons/github.png
+O2 Github IT	https://github.com/o2cz-it-dev	icons/github.png
+O2 Github AkceLeto	https://github.com/o2cz-it-dev/SSD_akceleto2020	icons/github.png
+O2 Github Decision rule	https://github.com/o2cz-it-dev/SSD_decision-rule	icons/github.png
+O2 Github Servers	https://github.com/o2cz-it-dev/SSD_servers	icons/github.png
+O2 Github Direct sales BE	https://github.com/o2cz-it-dev/SSD_direct-sales-be	icons/github.png
+O2 Github Direct sales FE	https://github.com/o2cz-it-dev/SSD_direct-sales-fe	icons/github.png
+O2 Github Logisticky portal	https://github.com/o2cz-it-dev/SSD_logisticky-portal	icons/github.png
+O2 Github Infoservis	https://github.com/o2cz-it-dev/SSD_infoservis	icons/github.png
+O2 Github Metrics	https://github.com/o2cz-devops/GH-METRICS_dashboards	icons/github.png
+O2 Github SSD Documentation	https://github.com/o2cz-it-dev/SSD_documentation	icons/github.png
+
+# O2 - servers
+O2 lxappssd401	https://lxappssd401.ux.to2cz.cz	icons/server.png
+O2 lxbus401	https://lxbus401.ux.to2cz.cz/	icons/server.png
+O2 lxspoko401	https://lxspoko401.ux.to2cz.cz/	icons/server.png
+O2 lxlunam401	http://lxlunam401.ux.to2cz.cz/	icons/server.png
+O2 lxnadace401	https://lxnadace401.ux.to2cz.cz	icons/server.png
+O2 lxzakportal401	https://lxzakportal401.ux.to2cz.cz/	icons/server.png
+O2 lxssd401	https://lxssd401.ux.to2cz.cz/	icons/server.png
