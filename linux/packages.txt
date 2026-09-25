@@ -1,0 +1,105 @@
+# Packages installed on the Arch machine, one per line. `# ...` is a comment.
+# Official repo and AUR packages live side by side: yay installs both.
+#
+#   linux/packages.sh install   install whatever here is missing
+#   linux/packages.sh diff      compare this list with what is installed
+#
+# One-time setup that isn't a package (services, groups, pacman.conf, ...)
+# is in SETUP.md.
+
+# Installed by archinstall. Listed only so `diff` stays clean; everything
+# below this section was installed by hand afterwards (see
+# /var/log/pacman.log, which starts with the archinstall run).
+base
+linux
+linux-firmware
+amd-ucode
+mkinitcpio
+sudo
+efibootmgr
+zram-generator
+
+# Core
+networkmanager
+openssh
+git
+base-devel                    # needed to build yay
+yay
+
+# NVIDIA
+nvidia-open
+nvidia-utils
+nvidia-settings
+
+# Desktop
+hyprland
+hypridle
+hyprlock
+hyprpaper
+hyprpolkitagent
+hyprshot
+xdg-desktop-portal-hyprland   # screen sharing
+waybar
+swaync
+rofi
+wofi
+darkman
+wl-clipboard
+cliphist
+xremap-hypr-bin               # needs the input group, see SETUP.md
+otf-font-awesome
+ttf-iosevka-nerd
+
+# Audio
+pipewire-pulse
+wireplumber
+alsa-utils
+pavucontrol                   # right-click on the waybar volume
+
+# Bluetooth
+bluez
+bluez-utils
+overskride                    # click on the waybar bluetooth icon
+
+# Terminal and CLI
+kitty
+fish
+fisher
+starship
+neovim
+tree-sitter-cli
+fd
+fzf
+eza
+git-delta
+lazygit
+github-cli
+bottom
+yazi
+gum
+stow
+zip
+unzip
+opencode
+
+# Network and VPN
+wireguard-tools
+systemd-resolvconf
+vpn-slice
+
+# Apps
+helium-browser-bin
+nautilus
+gnome-calendar
+spotify
+discord
+telegram-desktop
+teams-for-linux
+proton-pass-bin
+jellium-desktop-git
+localsend
+
+# Games and streaming
+steam                         # needs multilib, see SETUP.md
+lutris
+sunshine-bin
