@@ -139,8 +139,14 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(volume .. " up"),   { locked = t
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(volume .. " down"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(volume .. " mute"), { locked = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
+-- The script steps while the key is held; releasing the key stops it.
+-- NuPhy F1/F2 (brightness) send F14/F15, which xkb names XF86Launch5/6.
+local brightness = os.getenv("HOME") .. "/.config/dotfiles/linux/scripts/brightness.sh"
+for key, dir in pairs({ XF86MonBrightnessUp = "up", XF86Launch6 = "up",
+                        XF86MonBrightnessDown = "down", XF86Launch5 = "down" }) do
+    hl.bind(key, hl.dsp.exec_cmd(brightness .. " " .. dir), { locked = true })
+    hl.bind(key, hl.dsp.exec_cmd("pkill -f 'brightness.sh " .. dir .. "'"), { locked = true, release = true })
+end
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
