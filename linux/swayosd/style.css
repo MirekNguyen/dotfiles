@@ -1,0 +1,42 @@
+@import "colors.css";
+
+window#osd {
+  border-radius: 16px;
+  border: 1px solid @glass-edge;
+  background: @glass-bg;
+}
+
+window#osd #container {
+  margin: 14px 18px;
+}
+
+window#osd image,
+window#osd label {
+  color: @fg-primary;
+  font-family: "Iosevka Nerd Font";
+  font-size: 13px;
+  font-weight: bold;
+}
+
+window#osd progressbar:disabled,
+window#osd image:disabled {
+  opacity: 0.5;
+}
+
+window#osd progressbar {
+  min-height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+window#osd trough {
+  min-height: inherit;
+  border-radius: inherit;
+  background: @fg-dim;
+}
+
+window#osd progress {
+  min-height: inherit;
+  border-radius: inherit;
+  background: @fg-primary;
+}
