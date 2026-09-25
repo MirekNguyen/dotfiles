@@ -72,14 +72,13 @@
 
   // Replaces the built-in wireplumber module: when audio goes out through the
   // UCA202 the real volume lives on the Sonos Beam, which PipeWire knows
-  // nothing about. The script reports whichever volume actually matters and
-  // signals this module (RTMIN+8) after every key press, so it updates at once;
-  // the interval only catches changes made from the Sonos app.
+  // nothing about. The script keeps running and reports whichever volume
+  // actually matters: output switches and key presses show up at once, changes
+  // made from the Sonos app within a few seconds.
   "custom/volume": {
-    "exec": "~/.config/dotfiles/linux/scripts/sonos-volume.py status",
+    "exec": "~/.config/dotfiles/linux/scripts/sonos-volume.py watch",
     "return-type": "json",
-    "interval": 5,
-    "signal": 8,
+    "restart-interval": 2,
     "on-click": "~/.config/dotfiles/linux/scripts/sonos-volume.py mute",
     "on-click-right": "pavucontrol",
     "on-scroll-up": "~/.config/dotfiles/linux/scripts/sonos-volume.py up",
@@ -102,10 +101,7 @@
     "format-ethernet": "󰈀  {ipaddr}",
     "format-linked": "󰈀  no IP",
     "format-disconnected": "󰤭  offline",
-    "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}",
-    // rofi picker rather than a GTK dialog: it inherits the liquid glass
-    // theme, and nm-connection-editor is an editor rather than a picker.
-    "on-click": "/home/binh/.config/dotfiles/linux/scripts/rofi-wifi.sh"
+    "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}"
   },
 
   "tray": {
