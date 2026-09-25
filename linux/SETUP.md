@@ -109,6 +109,7 @@ D=~/.config/dotfiles/linux
 ln -sfn $D/hypr   ~/.config/hypr
 ln -sfn $D/waybar ~/.config/waybar
 ln -sfn $D/swaync ~/.config/swaync
+ln -sfn $D/nwg-dock-hyprland ~/.config/nwg-dock-hyprland
 mkdir -p ~/.local/share/darkman ~/.local/share/applications
 ln -sfn $D/darkman/theme-switch.sh ~/.local/share/darkman/theme-switch.sh
 ln -sfn $D/applications/steam.desktop   ~/.local/share/applications/

@@ -43,6 +43,7 @@ xdg-desktop-portal-hyprland   # screen sharing
 # --- Wayland desktop ---------------------------------------------------------
 waybar                        # top bar
 swaync                        # notifications
+nwg-dock-hyprland             # bottom dock
 swayosd                       # volume/brightness popup
 ddcutil                       # monitor brightness over DDC/CI, see SETUP.md
 rofi                          # launcher, bookmarks, clipboard picker

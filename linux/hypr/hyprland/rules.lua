@@ -91,6 +91,13 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
+    name         = "nwg-dock-glass",
+    match        = { namespace = "^nwg-dock$" },
+    blur         = true,
+    ignore_alpha = 0.2,
+})
+
+hl.layer_rule({
     name         = "swayosd-glass",
     match        = { namespace = "^swayosd$" },
     blur         = true,

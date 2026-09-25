@@ -1,0 +1,57 @@
+/* nwg-dock-hyprland - liquid glass, same palette as waybar. */
+@import "colors.css";
+
+/* The window must stay transparent; #box carries the tint so the compositor
+ * blur (hypr/hyprland/rules.lua) shows through. */
+window {
+  background: transparent;
+  border: none;
+}
+
+#box {
+  background: @glass-bg;
+  border: 1px solid @glass-edge;
+  border-radius: 22px;
+  padding: 6px 8px;
+}
+
+button,
+image {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: @fg-primary;
+}
+
+button {
+  padding: 4px;
+  margin: 0 3px;
+  border-radius: 12px;
+}
+
+button:hover {
+  background: @glass-hover;
+}
+
+button:focus {
+  box-shadow: none;
+}
+
+#active {
+  background: @glass-active;
+  border-radius: 12px;
+}
+
+/* Sharp icons at scale 2: the dock renders icons at -i 84 and they are halved
+ * here back to 42. Without this it draws 42px bitmaps that get upscaled.
+ * The running-app dots sit next to the button and need the same treatment.
+ * Keep `button image` last: `box > image` matches the icon too. */
+box > image {
+  -gtk-icon-transform: scale(0.5);
+  margin: -3px -21px;
+}
+
+button image {
+  -gtk-icon-transform: scale(0.5);
+  margin: -21px;
+}

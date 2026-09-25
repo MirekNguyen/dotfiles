@@ -31,6 +31,10 @@ hl.config({
             natural_scroll = false,
         },
     },
+    -- Focusing a window from the dock would otherwise jump the pointer into it.
+    cursor = {
+        no_warps = true,
+    },
 })
 
 hl.gesture({

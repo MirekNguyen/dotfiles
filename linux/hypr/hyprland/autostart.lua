@@ -27,6 +27,7 @@ hl.on("hyprland.start", function()
         os.getenv("HOME") .. "/.config/dotfiles/linux/xremap/config.yml")
     hl.exec_cmd("pkill -x waybar; waybar")
     hl.exec_cmd("pkill -x swaync; swaync")
+    hl.exec_cmd("pkill -x nwg-dock-hyprland; nwg-dock-hyprland -d -hd 300 -i 84 -mb 8 -nolauncher")
     hl.exec_cmd("pkill -x swayosd-server; swayosd-server --config ~/.config/dotfiles/linux/swayosd/config.toml --style ~/.config/dotfiles/linux/swayosd/style.css")
     -- Wallpaper. See hypr/hyprpaper.conf.
     hl.exec_cmd("pkill -x hyprpaper; hyprpaper")
