@@ -4,8 +4,9 @@
 #   packages.sh install   install every listed package that is missing
 #   packages.sh diff      show installed-but-unlisted and listed-but-missing
 #
-# diff compares against explicitly installed packages (pacman -Qqe), so
-# dependencies pulled in automatically never show up as noise.
+# diff reports unlisted packages only among explicitly installed ones
+# (pacman -Qqe), so dependencies pulled in automatically never show up as
+# noise; a listed package counts as installed however it got there.
 set -euo pipefail
 
 list="$(dirname "$(readlink -f "$0")")/packages.txt"
@@ -20,9 +21,9 @@ case "${1:-}" in
     yay -S --needed "${pkgs[@]}"
     ;;
   diff)
-    installed=$(pacman -Qqe | grep -v -- '-debug$' | sort)
-    extra=$(comm -13 <(wanted) <(echo "$installed"))
-    missing=$(comm -23 <(wanted) <(echo "$installed"))
+    explicit=$(pacman -Qqe | grep -v -- '-debug$' | sort)
+    extra=$(comm -13 <(wanted) <(echo "$explicit"))
+    missing=$(comm -23 <(wanted) <(pacman -Qq | sort))
     [ -n "$extra" ] && printf 'Installed but not in packages.txt:\n%s\n\n' "$(sed 's/^/  /' <<<"$extra")"
     [ -n "$missing" ] && printf 'In packages.txt but not installed:\n%s\n\n' "$(sed 's/^/  /' <<<"$missing")"
     [ -z "$extra$missing" ] && echo "packages.txt matches the system."

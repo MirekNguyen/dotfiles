@@ -43,6 +43,8 @@ xdg-desktop-portal-hyprland   # screen sharing
 # --- Wayland desktop ---------------------------------------------------------
 waybar                        # top bar
 swaync                        # notifications
+swayosd                       # volume/brightness popup
+ddcutil                       # monitor brightness over DDC/CI, see SETUP.md
 rofi                          # launcher, bookmarks, clipboard picker
 wofi                          # old launcher, replaced by rofi
 wl-clipboard                  # wl-copy / wl-paste
@@ -53,6 +55,7 @@ xremap-hypr-bin               # macOS-style shortcuts; needs the input group, se
 # --- Fonts -------------------------------------------------------------------
 otf-font-awesome              # waybar icons
 ttf-iosevka-nerd              # terminal and bar font
+noto-fonts-emoji              # color emoji
 
 # --- Audio -------------------------------------------------------------------
 pipewire-pulse                # PulseAudio compatibility for PipeWire
@@ -91,10 +94,12 @@ git-delta                     # diff pager
 lazygit
 github-cli                    # gh
 opencode                      # coding agent
+npm                           # for aicommit2 (lazygit commit messages), see SETUP.md
 
 # --- VPN ---------------------------------------------------------------------
 wireguard-tools               # wg-quick, home VPN
 systemd-resolvconf            # lets wg-quick set the VPN's DNS
+openconnect                   # work VPN client (work-vpn in work.fish)
 vpn-slice                     # split tunnel for the work VPN
 
 # --- Apps --------------------------------------------------------------------
