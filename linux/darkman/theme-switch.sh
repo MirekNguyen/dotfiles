@@ -44,7 +44,11 @@ ln -sfn "colors-$mode.css" "$REPO/linux/swaync/colors.css"
 ln -sfn "colors-$mode.conf" "$REPO/linux/hypr/hyprlock/colors.conf"
 
 # waybar reloads its CSS on SIGUSR2 without dropping the bar or its tray.
-pkill -SIGUSR2 -x waybar 2>/dev/null
+# --older 2 skips a waybar that is still starting up: until it installs its
+# handler, SIGUSR2 kills it outright. At login darkman runs this at the same
+# moment autostart.lua launches waybar, which left the session with no bar.
+# A waybar that new reads colors.css itself, so it needs no signal.
+pkill -SIGUSR2 -x waybar --older 2 2>/dev/null
 
 # swaync has a dedicated CSS reload, so the panel re-themes without restarting
 # the daemon -- restarting would drop any notifications already in the tray.
