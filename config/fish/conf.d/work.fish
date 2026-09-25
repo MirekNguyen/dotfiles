@@ -77,12 +77,15 @@ function home-vpn
 end
 
 function o2-vpn
-    set -l conf "$HOME"/.local/secrets/Macbook-Air.conf
+    # Each machine is its own peer. wg-quick names the interface after the file.
+    set -l iface o2-desktop
+    test (uname) = Darwin; and set iface o2-macbook
+    set -l conf "$HOME"/.local/secrets/$iface.conf
     switch (gum choose connect disconnect)
         case connect
             wg-quick up $conf; or return
             __work_hosts add
-            __work_dns_up Macbook-Air
+            __work_dns_up $iface
         case disconnect
             wg-quick down $conf
             __work_hosts remove
