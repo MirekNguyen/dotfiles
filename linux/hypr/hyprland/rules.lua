@@ -114,7 +114,7 @@ local appWorkspaces = {
     { ws = 1, class = "^(helium)$" },
     { ws = 2, class = "^(kitty)$" },
     { ws = 3, class = "^(discord)$" },            -- macOS: Telegram/WhatsApp/Messenger slot
-    { ws = 3, class = "^([Tt]elegram)$" },
+    { ws = 3, class = "^(org\\.telegram\\.desktop)$" },
     { ws = 4, class = "^(teams-for-linux)$" },
     { ws = 5, class = "^([Ss]potify)$" },
     { ws = 5, class = "^(mpv)$" },
