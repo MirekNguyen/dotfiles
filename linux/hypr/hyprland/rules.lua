@@ -90,6 +90,13 @@ hl.layer_rule({
     ignore_alpha = 0.2,
 })
 
+hl.layer_rule({
+    name         = "swayosd-glass",
+    match        = { namespace = "^swayosd$" },
+    blur         = true,
+    ignore_alpha = 0.2,
+})
+
 -- Games and fullscreen video keep the screen on. Controller input does not
 -- count as activity to hypridle, so without this a long cutscene or a game
 -- played on a pad would get the display turned off.
