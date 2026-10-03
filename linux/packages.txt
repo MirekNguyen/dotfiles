@@ -1,11 +1,16 @@
 # Packages installed on the Arch machine, one per line. `# ...` is a comment.
-# Official repo and AUR packages live side by side: yay installs both.
+# Split in two: official repo packages (pacman) first, then AUR packages (yay).
+# `pacman -Qqm` lists what came from the AUR.
 #
 #   linux/packages.sh install   install whatever here is missing
 #   linux/packages.sh diff      compare this list with what is installed
 #
 # One-time setup that isn't a package (services, groups, pacman.conf, ...)
 # is in SETUP.md.
+
+# =============================================================================
+# Official repos - pacman
+# =============================================================================
 
 # --- Installed by archinstall ------------------------------------------------
 # Listed only so `diff` stays clean; everything below was installed by hand
@@ -24,7 +29,6 @@ networkmanager
 openssh
 git
 base-devel                    # makepkg toolchain, needed to build yay
-yay                           # AUR helper
 
 # --- NVIDIA ------------------------------------------------------------------
 nvidia-open                   # kernel modules
@@ -51,11 +55,12 @@ wofi                          # old launcher, replaced by rofi
 wl-clipboard                  # wl-copy / wl-paste
 cliphist                      # clipboard history
 darkman                       # light/dark theme by sunrise and sunset
-xremap-hypr-bin               # macOS-style shortcuts; needs the input group, see SETUP.md
 
 # --- Fonts -------------------------------------------------------------------
 otf-font-awesome              # waybar icons
 ttf-iosevka-nerd              # terminal and bar font
+noto-fonts                    # most scripts and symbols; also the system-ui font
+noto-fonts-cjk                # Chinese, Japanese, Korean
 noto-fonts-emoji              # color emoji
 
 # --- Audio -------------------------------------------------------------------
@@ -67,7 +72,6 @@ pavucontrol                   # right-click on the waybar volume
 # --- Bluetooth ---------------------------------------------------------------
 bluez
 bluez-utils                   # bluetoothctl
-overskride                    # click on the waybar bluetooth icon
 
 # --- Terminal and shell ------------------------------------------------------
 kitty
@@ -101,23 +105,42 @@ npm                           # for aicommit2 (lazygit commit messages), see SET
 wireguard-tools               # wg-quick, home VPN
 systemd-resolvconf            # lets wg-quick set the VPN's DNS
 openconnect                   # work VPN client (work-vpn in work.fish)
-vpn-slice                     # split tunnel for the work VPN
 
 # --- Apps --------------------------------------------------------------------
-helium-browser-bin            # browser
 nautilus                      # file manager
 gnome-calendar                # click on the waybar clock
-proton-pass-bin               # passwords
-localsend                     # AirDrop replacement
-spotify
-jellium-desktop-git           # Jellyfin client
+songrec                       # Shazam-style song recognition
 
 # --- Chat --------------------------------------------------------------------
 discord
 telegram-desktop
-teams-for-linux
 
 # --- Games and streaming -----------------------------------------------------
 steam                         # needs multilib, see SETUP.md
 lutris                        # non-Steam games
+
+# =============================================================================
+# AUR - yay
+# =============================================================================
+
+# --- System ------------------------------------------------------------------
+yay                           # AUR helper, built by hand once, see SETUP.md
+downgrade                     # roll a package back to a cached/archived version
+
+# --- Desktop -----------------------------------------------------------------
+xremap-hypr-bin               # macOS-style shortcuts; needs the input group, see SETUP.md
+overskride                    # click on the waybar bluetooth icon
+
+# --- VPN ---------------------------------------------------------------------
+vpn-slice                     # split tunnel for the work VPN
+
+# --- Apps --------------------------------------------------------------------
+helium-browser-bin            # browser
+proton-pass-bin               # passwords
+localsend                     # AirDrop replacement
+spotify
+jellium-desktop-git           # Jellyfin client
+teams-for-linux
+
+# --- Games and streaming -----------------------------------------------------
 sunshine-bin                  # game streaming host for Moonlight
