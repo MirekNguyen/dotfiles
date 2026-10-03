@@ -48,6 +48,9 @@ hl.on("hyprland.start", function()
     -- Started explicitly because graphical-session.target is never reached
     -- without uwsm, so `systemctl --user enable` alone would not start it.
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    -- Calendar reminders (GNOME Calendar/Evolution). Normally started via XDG
+    -- autostart, which Hyprland does not run.
+    hl.exec_cmd("pkill -f '^/usr/lib/evolution-data-server/evolution-alarm-notify'; /usr/lib/evolution-data-server/evolution-alarm-notify")
     -- Game streaming host for Moonlight. Launched here rather than via its
     -- systemd unit so it inherits the Wayland session for screen capture.
     -- See linux/sunshine/sunshine.conf.
