@@ -29,8 +29,10 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("pkill -x swaync; swaync")
     hl.exec_cmd("pkill -x nwg-dock-hyprland; nwg-dock-hyprland -d -hd 300 -i 84 -mb 8 -nolauncher")
     hl.exec_cmd("pkill -x swayosd-server; swayosd-server --config ~/.config/dotfiles/linux/swayosd/config.toml --style ~/.config/dotfiles/linux/swayosd/style.css")
-    -- Wallpaper. See hypr/hyprpaper.conf.
-    hl.exec_cmd("pkill -x hyprpaper; hyprpaper")
+    -- Wallpaper. awww-daemon restores the last one; the loop rotates every 30 min.
+    -- See linux/scripts/wallpaper.sh.
+    hl.exec_cmd("pkill -x awww-daemon; awww-daemon")
+    hl.exec_cmd("pkill -f '^bash .*wallpaper.sh rotate'; " .. os.getenv("HOME") .. "/.config/dotfiles/linux/scripts/wallpaper.sh rotate")
     -- Light/dark theme. darkman is a systemd user
     -- service started at login, before Hyprland exists, so its hooks can't
     -- reach hyprctl (the wallpaper silently stayed put). Hand it this session's

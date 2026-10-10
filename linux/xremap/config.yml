@@ -11,6 +11,9 @@ keymap:
       Super-Shift-5: Super-Shift-5
       Super-Alt-Shift-c: Super-Alt-Shift-c
       Super-Alt-Shift-t: Super-Alt-Shift-t
+      Super-Alt-Shift-w: Super-Alt-Shift-w
+      Super-Shift-r: Super-Shift-r
+      Super-Alt-Shift-r: Super-Alt-Shift-r
 
   - name: macOS Cmd shortcuts
     application:
@@ -37,6 +40,8 @@ keymap:
       Super-Shift-t: C-Shift-t
       Super-Shift-n: C-Shift-n
       Super-Shift-g: C-Shift-g # find previous
+      Super-Shift-i: C-Shift-i # password manager autofill
+      Super-Shift-u: C-Shift-u # password manager window
 
       # Tabs
       Super-1: C-1
@@ -53,6 +58,16 @@ keymap:
 
       # Delete to start line
       Super-backspace: [Shift-home, backspace]
+
+      # Cmd+arrow jumps to line / document edges
+      Super-left: home
+      Super-right: end
+      Super-up: C-home
+      Super-down: C-end
+      Super-Shift-left: Shift-home
+      Super-Shift-right: Shift-end
+      Super-Shift-up: C-Shift-home
+      Super-Shift-down: C-Shift-end
 
       # Option+arrow jumps by word
       Alt-left: C-left

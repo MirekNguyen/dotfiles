@@ -39,9 +39,9 @@ nvidia-settings
 hyprland                      # compositor
 hypridle                      # screen off / lock on idle
 hyprlock                      # lock screen
-hyprpaper                     # wallpaper rotation
 hyprpolkitagent               # password prompt for admin actions
 hyprshot                      # screenshots (SUPER+SHIFT+3/4/5)
+gpu-screen-recorder           # screen recording on the GPU (SUPER+SHIFT+R)
 xdg-desktop-portal-hyprland   # screen sharing
 
 # --- Wayland desktop ---------------------------------------------------------
@@ -54,6 +54,9 @@ rofi                          # launcher, bookmarks, clipboard picker
 wofi                          # old launcher, replaced by rofi
 wl-clipboard                  # wl-copy / wl-paste
 cliphist                      # clipboard history
+awww                          # wallpaper with transitions, see scripts/wallpaper.sh
+rofi-calc                     # Calc tab in the launcher
+imagemagick                   # wallpaper thumbnails for the launcher
 darkman                       # light/dark theme by sunrise and sunset
 
 # --- Fonts -------------------------------------------------------------------
@@ -108,6 +111,9 @@ openconnect                   # work VPN client (work-vpn in work.fish)
 
 # --- Apps --------------------------------------------------------------------
 nautilus                      # file manager
+loupe                         # image viewer, Quick Look in clipboard history
+nwg-look                      # GTK theme, icons, cursor settings
+nwg-displays                  # monitor settings
 gnome-calendar                # click on the waybar clock
 songrec                       # Shazam-style song recognition
 

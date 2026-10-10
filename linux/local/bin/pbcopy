@@ -1,0 +1,3 @@
+#!/bin/sh
+# macOS pbcopy on Wayland, so shared scripts work on both machines.
+exec wl-copy "$@"

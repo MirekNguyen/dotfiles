@@ -161,6 +161,59 @@
   margin: -5px;
 }
 
+/* Quick settings: round glass buttons, accent fill when a toggle is on. */
+.widget-buttons-grid {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 14px;
+  padding: 8px;
+  margin: 0 4px 8px 4px;
+}
+
+.widget-buttons-grid flowboxchild > button {
+  background: @glass-hover;
+  border: none;
+  border-radius: 12px;
+  color: @fg-primary;
+  font-size: 20px;
+  min-height: 44px;
+  margin: 4px;
+}
+
+.widget-buttons-grid flowboxchild > button.toggle:checked {
+  background: @accent;
+}
+
+.widget-slider {
+  background: @glass-panel;
+  border: 1px solid @glass-edge;
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin: 0 4px 8px 4px;
+  color: @fg-primary;
+}
+
+.widget-slider trough {
+  background: @glass-hover;
+  border: none;
+  border-radius: 10px;
+  min-height: 7px;
+}
+
+.widget-slider highlight {
+  background: @accent;
+  border-radius: 10px;
+  min-height: 7px;
+}
+
+.widget-slider slider {
+  background: #ffffff;
+  border-radius: 50%;
+  min-width: 15px;
+  min-height: 15px;
+  margin: -5px;
+}
+
 .per-app-volume {
   background: transparent;
   color: @fg-secondary;

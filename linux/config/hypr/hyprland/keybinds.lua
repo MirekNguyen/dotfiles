@@ -49,7 +49,10 @@ hl.bind("SUPER + ALT + SHIFT + T", hl.dsp.exec_cmd("darkman toggle"))
 -- SUPER+SHIFT+V is unavailable regardless: xremap claims it for
 -- paste-without-formatting and runs below the compositor, so a bind there would
 -- never fire.
-hl.bind("SUPER + ALT + SHIFT + C", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/dotfiles/linux/scripts/rofi-clipboard.sh"))
+-- These open the launcher straight on a tab; Ctrl+Tab switches tabs from any of them.
+hl.bind("SUPER + ALT + SHIFT + C", hl.dsp.exec_cmd(launcher .. " clipboard"))
+hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd(launcher .. " calc"))
+hl.bind("SUPER + ALT + SHIFT + W", hl.dsp.exec_cmd(launcher .. " wallpaper"))
 
 -- Screenshots, following macOS semantics:
 --   Cmd+Shift+3        whole screen  -> file
@@ -74,6 +77,11 @@ hl.bind("SUPER + SHIFT + 4", hyprshot("-z -m region " .. shotFile))
 hl.bind("SUPER + SHIFT + 5", hyprshot("-m active -m window " .. shotFile))
 hl.bind("SUPER + CTRL + SHIFT + 3", hyprshot("-m active -m output --clipboard-only"))
 hl.bind("SUPER + CTRL + SHIFT + 4", hyprshot("-z -m region --clipboard-only"))
+
+-- Screen recording to ~/Videos; press again to stop. See linux/scripts/screen-record.sh.
+local record = os.getenv("HOME") .. "/.config/dotfiles/linux/scripts/screen-record.sh"
+hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd(record .. " region"))
+hl.bind("SUPER + ALT + SHIFT + R", hl.dsp.exec_cmd(record .. " screen"))
 
 -- `alt-f` = maximize, `alt-shift-f` = fullscreen
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))

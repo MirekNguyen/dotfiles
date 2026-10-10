@@ -1,6 +1,7 @@
 .DS_Store
 .env
 *.bak
+examples
 Alfred.alfredpreferences
 
 # Active theme palettes - target is swapped at runtime by theme-switch.sh

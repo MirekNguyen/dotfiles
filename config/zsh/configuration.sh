@@ -1,4 +1,4 @@
-export PATH="$HOME"/.config/dotfiles/scripts:/opt/homebrew/bin:$PATH
+export PATH="$HOME"/.config/dotfiles/scripts:"$HOME"/.local/bin:/opt/homebrew/bin:$PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
