@@ -96,6 +96,7 @@ gum                           # prompts in shell scripts
 stow                          # symlinks dotfiles
 zip
 unzip
+cifs-utils                    # mount SMB shares (mount -t cifs)
 
 # --- Git and dev -------------------------------------------------------------
 git-delta                     # diff pager
@@ -150,3 +151,11 @@ teams-for-linux
 
 # --- Games and streaming -----------------------------------------------------
 sunshine-bin                  # game streaming host for Moonlight
+serein-bin                    # discord client
+
+
+# --- Office ------------------------------------------------------------------
+wordcraft-bin                 # ms-word alternative
+gridcraft-bin                 # excel alternative
+deckcraft-bin                 # powerpoint alternative
+pdfcraft-bin                  # pdf reader

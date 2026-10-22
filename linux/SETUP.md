@@ -33,7 +33,13 @@ Then `linux/packages.sh install`. When Steam asks, pick `lib32-nvidia-utils`.
 sudo timedatectl set-timezone Europe/Prague
 ```
 
-NVIDIA: kernel modesetting, needed by Hyprland.
+NVIDIA: kernel modesetting, needed by Hyprland. Also load the modules from the
+initramfs, otherwise autologin can start Hyprland before `nvidia_drm` is up and
+it crashes with "Found no gpus to use". In `/etc/mkinitcpio.conf`:
+
+```
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
 
 ```sh
 echo 'options nvidia_drm modeset=1 fbdev=1' | sudo tee /etc/modprobe.d/nvidia.conf
@@ -60,6 +66,32 @@ Sudo without a password prompt:
 echo 'binh ALL=(ALL:ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/00_binh
 sudo chmod 440 /etc/sudoers.d/00_binh
 ```
+
+Wake on LAN for the wired port `eno1`. Only the first matching `.link` file
+applies, so this one repeats the naming lines from `99-default.link`.
+`/etc/systemd/network/10-eno1-wol.link`:
+
+```ini
+[Match]
+MACAddress=bc:fc:e7:53:ba:b6
+
+[Link]
+NamePolicy=keep kernel database onboard slot path
+AlternativeNamesPolicy=database onboard slot path mac
+MACAddressPolicy=persistent
+WakeOnLan=magic
+```
+
+NetworkManager also manages `eno1`, so set it there too. Then reboot.
+
+```sh
+nmcli c modify "Wired connection 1" 802-3-ethernet.wake-on-lan magic
+```
+
+In the BIOS: enable "Power On By PCI-E" and disable ErP. Check with
+`cat /sys/class/net/eno1/device/power/wakeup` (should say `enabled`). Wake it
+from another machine on the LAN with
+`wakeonlan -i 192.168.1.255 bc:fc:e7:53:ba:b6`, or `wake-pc` from fish.
 
 ## 3. Login straight into Hyprland
 
