@@ -70,7 +70,7 @@ noto-fonts-emoji              # color emoji
 pipewire-pulse                # PulseAudio compatibility for PipeWire
 wireplumber                   # PipeWire session manager (wpctl)
 alsa-utils
-pavucontrol                   # right-click on the waybar volume
+pwvucontrol                   # click on the waybar volume
 
 # --- Bluetooth ---------------------------------------------------------------
 bluez
@@ -137,6 +137,7 @@ downgrade                     # roll a package back to a cached/archived version
 # --- Desktop -----------------------------------------------------------------
 xremap-hypr-bin               # macOS-style shortcuts; needs the input group, see SETUP.md
 overskride                    # click on the waybar bluetooth icon
+adwaita-network-bin           # click on the waybar network icon
 
 # --- VPN ---------------------------------------------------------------------
 vpn-slice                     # split tunnel for the work VPN

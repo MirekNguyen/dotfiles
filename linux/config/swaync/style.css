@@ -185,11 +185,14 @@
   padding: 10px 16px;
 }
 
+/* One shared column for the icons and the per-app names below them, so every
+ * slider starts at the same x. */
 .widget-slider label,
 .widget-volume label {
   color: @fg-primary;
   font-size: 20px;
-  min-width: 28px;
+  min-width: 64px;
+  margin-right: 8px;
 }
 
 .widget-slider trough,
@@ -218,12 +221,23 @@
   margin: -7px;
 }
 
+/* The expand button is the trailing column. Its width is fixed, and the
+ * brightness and per-app rows reserve the same 32px, so every slider in the
+ * panel starts and ends at the same x. */
 .widget-volume > box > button {
   background: transparent;
   border: none;
   border-radius: 999px;
   box-shadow: none;
   color: @fg-secondary;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-slider scale {
+  margin-right: 32px;
 }
 
 .widget-volume > box > button:hover {
@@ -234,6 +248,24 @@
   background: transparent;
   margin: 8px 0 0 0;
   color: @fg-secondary;
+}
+
+/* App names instead of icons: swaync only finds an icon when the stream
+ * reports a name the theme has, so most apps got the same generic one.
+ * The right margin is the expand button's 32px column, see above, less the
+ * 5.5px that swaync already insets the per-app rows by (measured). */
+.per-app-volume > row {
+  padding: 0;
+  margin-right: 26.5px;
+}
+
+/* The rows sit 4px further left than the main row; shift the name back over
+ * the icon column without moving the slider. */
+.per-app-volume label {
+  color: @fg-secondary;
+  font-size: 13px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 /* ---- Now playing ------------------------------------------------------- */

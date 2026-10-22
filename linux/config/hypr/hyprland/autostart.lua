@@ -30,8 +30,10 @@ hl.on("hyprland.start", function()
     -- ext-background-effect protocol. Hyprland then ignores the blur layer
     -- rules for them, so the glass was plain see-through. Hiding the protocol
     -- from GTK lets the rules in rules.lua apply, as for waybar and the dock.
+    -- swaync runs as its systemd unit, which is where its copy of the variable
+    -- lives (linux/config/systemd/user/swaync.service.d/blur.conf).
     local noGtkBlur = "GDK_WAYLAND_DISABLE=ext_background_effect_manager_v1 "
-    hl.exec_cmd("pkill -x swaync; " .. noGtkBlur .. "swaync")
+    hl.exec_cmd("systemctl --user restart swaync")
     hl.exec_cmd("pkill -x nwg-dock-hyprland; nwg-dock-hyprland -d -hd 300 -i 84 -mb 8 -nolauncher")
     hl.exec_cmd("pkill -x swayosd-server; " .. noGtkBlur .. "swayosd-server --config ~/.config/dotfiles/linux/swayosd/config.toml --style ~/.config/dotfiles/linux/swayosd/style.css")
     -- Wallpaper. awww-daemon restores the last one; the loop rotates every 30 min.

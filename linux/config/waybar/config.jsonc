@@ -85,8 +85,10 @@
     "exec": "~/.config/dotfiles/linux/scripts/sonos-volume.py watch",
     "return-type": "json",
     "restart-interval": 2,
-    "on-click": "~/.config/dotfiles/linux/scripts/sonos-volume.py mute",
-    "on-click-right": "pavucontrol",
+    // Click opens the app, like the other modules; mute moves to middle-click,
+    // as play/pause does on custom/media.
+    "on-click": "pwvucontrol",
+    "on-click-middle": "~/.config/dotfiles/linux/scripts/sonos-volume.py mute",
     "on-scroll-up": "~/.config/dotfiles/linux/scripts/sonos-volume.py up",
     "on-scroll-down": "~/.config/dotfiles/linux/scripts/sonos-volume.py down"
   },
@@ -107,7 +109,8 @@
     "format-ethernet": "󰈀  {ipaddr}",
     "format-linked": "󰈀  no IP",
     "format-disconnected": "󰤭  offline",
-    "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}"
+    "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}",
+    "on-click": "adwaita-network"
   },
 
   "tray": {
