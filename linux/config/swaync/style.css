@@ -7,7 +7,11 @@
  * Borders: only those two outer surfaces get the 1px edge. Everything inside is
  * a borderless fill, so no card ever shows a double outline.
  *
- * Corners are concentric: panel 26px, 8px padding, platters 18px.
+ * Layout grid, in logical px from the panel's inner edge:
+ *   12  outer keyline: every platter and card (8px padding + 4px margin)
+ *   28  content keyline: text and controls sit 16px inside a card, both sides
+ * Gaps between platters are 8px. Corners are concentric: platters 18px, so the
+ * panel is 18 + 12 = 30px.
  */
 
 @import "colors.css";
@@ -24,7 +28,9 @@
 }
 
 * {
-  font-family: "Adwaita Sans", "Iosevka Nerd Font";
+  /* Propo, not plain "Nerd Font": there the icons overhang their advance
+   * width, so a centred glyph landed 0-4px right of centre, by glyph. */
+  font-family: "Adwaita Sans", "Iosevka Nerd Font Propo";
   font-size: 14px;
   /* GTK draws focus rings that shift content by a pixel on hover otherwise. */
   outline: none;
@@ -41,13 +47,18 @@
 .control-center {
   background: @glass-bg;
   border: 1px solid @glass-edge;
-  border-radius: 26px;
+  border-radius: 30px;
   padding: 8px;
   color: @fg-primary;
 }
 
+/* GTK pads list rows by 2px, which pulled the cards off the outer keyline. */
 .control-center-list {
   background: transparent;
+}
+
+.control-center-list > row {
+  padding: 0;
 }
 
 .control-center scrollbar {
@@ -84,10 +95,12 @@
 
 /* ---- Title + Do Not Disturb (headers above the list, no platter) -------- */
 
+/* 16px sides put the text on the content keyline and the Clear button and
+ * switch on its mirror, like the text inside the cards. */
 .widget-title,
 .widget-dnd {
   background: transparent;
-  padding: 4px 8px;
+  padding: 4px 16px;
 }
 
 .widget-title {
@@ -129,6 +142,14 @@
   box-shadow: none;
 }
 
+.widget-dnd > switch:hover {
+  background: @fill-hover;
+}
+
+.widget-dnd > switch:checked:hover {
+  background: shade(@accent, 1.15);
+}
+
 .widget-dnd > switch:checked {
   background: @accent;
 }
@@ -145,8 +166,11 @@
 
 /* ---- Quick settings ----------------------------------------------------- */
 
+/* 12px + the buttons' 1px margin + the flowbox's own 3px = the 16px content
+ * inset. Gaps between buttons come out at 8px, the same as between platters,
+ * which makes each button 89px wide. */
 .widget-buttons-grid {
-  padding: 6px;
+  padding: 12px;
 }
 
 .widget-buttons-grid flowboxchild,
@@ -162,7 +186,7 @@
   box-shadow: none;
   color: @fg-primary;
   min-height: 52px;
-  margin: 4px;
+  margin: 1px;
 }
 
 .widget-buttons-grid flowboxchild > button label {
@@ -178,6 +202,10 @@
   color: #ffffff;
 }
 
+.widget-buttons-grid flowboxchild > button.toggle:checked:hover {
+  background: shade(@accent, 1.15);
+}
+
 /* ---- Sliders (brightness, volume) --------------------------------------- */
 
 .widget-slider,
@@ -185,14 +213,20 @@
   padding: 10px 16px;
 }
 
-/* One shared column for the icons and the per-app names below them, so every
- * slider starts at the same x. */
 .widget-slider label,
 .widget-volume label {
   color: @fg-primary;
   font-size: 20px;
-  min-width: 64px;
-  margin-right: 8px;
+}
+
+/* The brightness and volume icons are centred under the first column of
+ * tiles (24px column, 32.5px in from the content edge), and the trough starts
+ * 12px after the column; the scale itself adds ~5px before its trough. */
+.widget-slider > label,
+.widget-volume > box > label {
+  min-width: 24px;
+  margin-left: 32.5px;
+  margin-right: 7px;
 }
 
 .widget-slider trough,
@@ -221,6 +255,16 @@
   margin: -7px;
 }
 
+.widget-slider scale:hover highlight,
+.widget-volume scale:hover highlight {
+  background: shade(@accent, 1.15);
+}
+
+.widget-slider scale:hover slider,
+.widget-volume scale:hover slider {
+  box-shadow: 0 0 0 4px @fill-hover, 0 1px 4px rgba(0, 0, 0, 0.30);
+}
+
 /* The expand button is the trailing column. Its width is fixed, and the
  * brightness and per-app rows reserve the same 32px, so every slider in the
  * panel starts and ends at the same x. */
@@ -244,28 +288,30 @@
   background: @fill-hover;
 }
 
+/* Per-app volumes are their own inset group: app names don't fit the 24px
+ * icon column, so the sliders start later than the main one. The 20px row
+ * margin plus the 12px padding keeps their ends on the main slider's end
+ * (the expand button's 32px column). */
 .per-app-volume {
-  background: transparent;
+  background: @fill;
+  border-radius: 12px;
   margin: 8px 0 0 0;
+  padding: 4px 12px;
   color: @fg-secondary;
 }
 
 /* App names instead of icons: swaync only finds an icon when the stream
- * reports a name the theme has, so most apps got the same generic one.
- * The right margin is the expand button's 32px column, see above, less the
- * 5.5px that swaync already insets the per-app rows by (measured). */
+ * reports a name the theme has, so most apps got the same generic one. */
 .per-app-volume > row {
   padding: 0;
-  margin-right: 26.5px;
+  margin-right: 20px;
+  background: transparent;
 }
 
-/* The rows sit 4px further left than the main row; shift the name back over
- * the icon column without moving the slider. */
 .per-app-volume label {
   color: @fg-secondary;
   font-size: 13px;
-  margin-left: 4px;
-  margin-right: 4px;
+  min-width: 64px;
 }
 
 /* ---- Now playing ------------------------------------------------------- */
@@ -282,7 +328,19 @@
 }
 
 .widget-mpris .widget-mpris-player .mpris-overlay {
-  padding: 12px;
+  padding: 16px;
+}
+
+/* The prev/next arrows sat outside the card and squeezed it off the keyline.
+ * Players still switch by scrolling or swiping over the card; the dots below
+ * show where you are. */
+.widget-mpris > box > button {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  -gtk-icon-size: 0;
 }
 
 .widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
@@ -324,8 +382,9 @@
   box-shadow: none;
 }
 
+/* No side padding: cards sit on the outer keyline like the platters. */
 .notification-row .notification-background {
-  padding: 4px;
+  padding: 4px 0;
 }
 
 /* Toast spacing: lines up with the control center's 12px inset and its top. */
@@ -351,7 +410,7 @@
 }
 
 .notification-row .notification-background .notification .notification-default-action {
-  padding: 12px;
+  padding: 16px;
   border-radius: 18px;
 }
 
@@ -379,7 +438,13 @@
   color: @fg-secondary;
   font-size: 12px;
   font-weight: normal;
-  margin-right: 32px;
+  margin: 0;
+}
+
+/* The close button appears on hover in the time's place, top right on the
+ * content keyline, instead of the time leaving a permanent gap for it. */
+.notification:hover .time {
+  opacity: 0;
 }
 
 .close-button {
@@ -390,7 +455,7 @@
   box-shadow: none;
   min-width: 24px;
   min-height: 24px;
-  margin: 10px 10px 0 0;
+  margin: 14px 16px 0 0;
 }
 
 .close-button:hover {
@@ -449,4 +514,18 @@
   border: none;
   border-radius: 12px;
   color: @fg-primary;
+}
+
+/* Slider values show as a tooltip on hover. Tooltips are their own popup
+ * surface without compositor blur, so they need an opaque background. */
+tooltip {
+  background: #2c2c2e;
+  border: 1px solid @glass-edge;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+tooltip label {
+  font-size: 13px;
+  padding: 2px 4px;
 }
