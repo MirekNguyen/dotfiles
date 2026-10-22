@@ -7,12 +7,11 @@
  * Borders: only those two outer surfaces get the 1px edge. Everything inside is
  * a borderless fill, so no card ever shows a double outline.
  *
- * Layout, from the panel's outer edge (1px edge + 3px padding + 4px margin):
- *    8  outer keyline: every card, 8px apart
- *   24  content keyline: text and controls sit 16px inside a card
- * Corners: panel and toasts 17px like every screen-level surface; cards
- * 17 - 8 = 9px, concentric with the panel; images and boxes nested deeper
- * inside a card 6px. Controls are capsules.
+ * Layout, from the panel's outer edge (1px edge + 11px padding + 4px margin):
+ *   16  outer keyline: every card, 8px apart
+ *   32  content keyline: text and controls sit 16px inside a card
+ * Corners: panel and toasts 17px like every screen-level surface; cards 12px;
+ * images and boxes nested inside a card 6px. Controls are capsules.
  */
 
 @import "colors.css";
@@ -24,7 +23,7 @@
   --font-size-summary: 15px;
   --font-size-body: 14px;
   --border: none;
-  --border-radius: 9px;
+  --border-radius: 12px;
   --notification-shadow: none;
 }
 
@@ -49,7 +48,7 @@
   background: @glass-bg;
   border: 1px solid @glass-edge;
   border-radius: 17px;
-  padding: 3px;
+  padding: 11px;
   color: @fg-primary;
 }
 
@@ -83,7 +82,7 @@
 .widget {
   margin: 4px;
   padding: 12px;
-  border-radius: 9px;
+  border-radius: 12px;
   background: @fill;
   color: @fg-primary;
 }
@@ -167,16 +166,17 @@
 
 /* ---- Quick settings ----------------------------------------------------- */
 
-/* 13px + the flowbox's own 3px = the 16px content inset. Gaps between
- * buttons are the flowbox's 6px, the same as between cards. */
+/* 12px + the 4px around each tile = the 16px content inset; tiles are 8px
+ * apart, the same as the cards. */
 .widget-buttons-grid {
-  padding: 13px;
+  padding: 12px;
 }
 
 .widget-buttons-grid flowboxchild,
 .widget-buttons-grid flowboxchild:hover,
 .widget-buttons-grid flowboxchild:selected {
   background: transparent;
+  padding: 4px;
 }
 
 .widget-buttons-grid flowboxchild > button {
@@ -187,8 +187,8 @@
   color: @fg-primary;
   min-height: 52px;
   /* The flowbox isn't homogeneous, so tiles took their glyph's natural width
-   * and came out 89-92px. (374 - 3 x 6) / 4 = 89 makes all four equal. */
-  min-width: 89px;
+   * and came out 89-92px. (372 - 3 x 8) / 4 = 87 makes all four equal. */
+  min-width: 87px;
   padding: 0;
   margin: 0;
 }
@@ -327,7 +327,7 @@
 
 .widget-mpris .widget-mpris-player {
   margin: 0;
-  border-radius: 9px;
+  border-radius: 12px;
   box-shadow: none;
 }
 
@@ -399,7 +399,7 @@
 .notification-row .notification-background .notification {
   background: @fill;
   border: none;
-  border-radius: 9px;
+  border-radius: 12px;
   box-shadow: none;
 }
 
@@ -421,7 +421,7 @@
 
 .notification-row .notification-background .notification .notification-default-action {
   padding: 16px;
-  border-radius: 9px;
+  border-radius: 12px;
 }
 
 .notification-row .notification-background .notification .notification-default-action:hover {
@@ -551,20 +551,3 @@ tooltip label {
   font-size: 13px;
   padding: 2px 4px;
 }
-/*DEBUG*/
-.control-center { background: #000000; }
-* { color: transparent; box-shadow: none; }
-.widget-slider scale *, .widget-volume scale * { background: #0000ff; }
-.widget { background: #303030; }
-.widget-buttons-grid flowboxchild > button { background: #ff0000; }
-.widget-slider label, .widget-volume label { background: #00ff00; }
-.widget-slider scale, .widget-volume scale { background: #0000ff; }
-.widget-volume > box > button { background: #ffff00; }
-.widget-title > label, .widget-dnd > label { background: #ff00ff; }
-.widget-title > button, .widget-dnd > switch { background: #00ffff; }
-.widget-mpris .widget-mpris-player { background: #ff8000; }
-.widget-mpris-title { background: #ff00ff; }
-.control-center .control-center-list .notification { background: #808080; }
-.summary { background: #ff00ff; }
-.time { background: #00ffff; }
-.body { background: #ffff00; }
