@@ -1,3 +1,4 @@
+plugins
 # Runtime / installed by opencode itself
 node_modules
 package.json

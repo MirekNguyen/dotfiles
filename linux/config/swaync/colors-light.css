@@ -1,34 +1,20 @@
-/* Liquid glass - light.
- * Alpha stays well below 1 so the compositor blur still shows through; an
- * opaque light panel would read as a plain sheet rather than as glass. */
-@define-color glass-bg      rgba(250, 250, 252, 0.62);
-@define-color glass-panel   rgba(255, 255, 255, 0.55);
-@define-color glass-edge    rgba(255, 255, 255, 0.65);
-@define-color glass-hover   rgba(0, 0, 0, 0.06);
-@define-color glass-active  rgba(0, 0, 0, 0.10);
-@define-color fg-primary    #1c1c1e;
-@define-color fg-secondary  rgba(60, 60, 67, 0.60);
-@define-color accent        #0071e3;
+/* swaync - light. See colors-dark.css; values mirror waybar/colors-light.css. */
+@import "../waybar/colors-light.css";
 
-/* swaync 0.12's built-in stylesheet is always loaded underneath style.css and
- * themes almost everything through these variables, with dark values baked in.
- * Left unset, light mode got white-on-white labels and dark notification cards,
- * so every one it uses is mapped onto this palette. */
 :root {
-  --cc-bg: rgba(250, 250, 252, 0.62);
-  --noti-border-color: rgba(255, 255, 255, 0.65);
-  --noti-bg: 255, 255, 255;
-  --noti-bg-alpha: 0.55;
-  --noti-bg-alt: rgba(255, 255, 255, 0.55);
-  --noti-bg-darker: rgba(255, 255, 255, 0.55);
-  --noti-bg-hover: rgba(0, 0, 0, 0.06);
+  --cc-bg: rgba(246, 246, 248, 0.72);
+  --noti-border-color: transparent;
+  --noti-bg: 120, 120, 128;
+  --noti-bg-alpha: 0.12;
+  --noti-bg-alt: rgba(120, 120, 128, 0.12);
+  --noti-bg-darker: rgba(120, 120, 128, 0.12);
+  --noti-bg-hover: rgba(120, 120, 128, 0.20);
   --noti-bg-focus: transparent;
-  --noti-close-bg: rgba(0, 0, 0, 0.06);
-  --noti-close-bg-hover: rgba(0, 0, 0, 0.10);
+  --noti-close-bg: rgba(120, 120, 128, 0.20);
+  --noti-close-bg-hover: rgba(120, 120, 128, 0.28);
   --text-color: #1c1c1e;
-  --text-color-disabled: rgba(60, 60, 67, 0.60);
-  --bg-selected: #0071e3;
-  --notification-shadow: none;
+  --text-color-disabled: rgba(60, 60, 67, 0.30);
+  --bg-selected: #007aff;
   --mpris-album-art-overlay: rgba(255, 255, 255, 0.55);
-  --mpris-button-hover: rgba(0, 0, 0, 0.06);
+  --mpris-button-hover: rgba(0, 0, 0, 0.08);
 }

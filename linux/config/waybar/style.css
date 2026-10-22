@@ -1,27 +1,31 @@
-/* Waybar - liquid glass. */
+/* Waybar - liquid glass. Palette in colors.css, shared with swaync, the dock and swayosd. */
 @import "colors.css";
 
 * {
-  font-family: "Iosevka Nerd Font";
-  font-size: 13px;
-  font-weight: bold;
+  /* Adwaita Sans for text; the Nerd Font only supplies the icon glyphs. */
+  font-family: "Adwaita Sans", "Iosevka Nerd Font";
+  font-size: 14px;
+  font-weight: 500;
+  /* Fixed-width digits, so the clock and percentages don't shift the bar. */
+  font-feature-settings: "tnum";
   /* GTK draws a 1px focus ring on hover otherwise, which shifts the labels. */
   border: none;
   border-radius: 0;
   min-height: 0;
 }
 
-/* The bar itself must be fully transparent -- the visible surface is #waybar
+/* The bar itself must be fully transparent -- the visible surface is the box
  * below. Tinting this instead would defeat the compositor blur. */
 window#waybar {
   background: transparent;
 }
 
+/* Capsule: radius is half the 34px bar height. */
 window#waybar > box {
   background: @glass-bg;
   border: 1px solid @glass-edge;
-  border-radius: 16px;
-  padding: 0 6px;
+  border-radius: 17px;
+  padding: 0 4px;
   color: @fg-primary;
 }
 
@@ -39,26 +43,27 @@ window#waybar > box {
 #custom-notification,
 #clock {
   padding: 0 10px;
-  margin: 4px 2px;
-  border-radius: 10px;
+  margin: 4px 1px;
+  border-radius: 13px;
   background: transparent;
+  color: @fg-primary;
 }
 
 #workspaces {
-  padding: 0 2px;
+  padding: 0;
 }
 
 #workspaces button {
-  padding: 0 9px;
+  padding: 0 8px;
   margin: 0 1px;
-  min-width: 18px;
+  min-width: 14px;
   color: @fg-secondary;
   background: transparent;
-  border-radius: 9px;
+  border-radius: 13px;
 }
 
 #workspaces button:hover {
-  background: @glass-hover;
+  background: @fill-hover;
   color: @fg-primary;
 }
 
@@ -69,16 +74,17 @@ window#waybar > box {
 }
 
 #workspaces button.active {
-  background: @glass-active;
+  background: @fill-active;
   color: @fg-primary;
 }
 
 #workspaces button.urgent {
-  background: @urgent-bg;
-  color: @fg-primary;
+  background: @urgent;
+  color: #ffffff;
 }
 
-#window {
+#window,
+#custom-media {
   color: @fg-secondary;
   font-weight: normal;
 }
@@ -90,50 +96,39 @@ window#waybar.empty #window {
   margin: 0;
 }
 
-#custom-media {
-  color: @fg-secondary;
-}
-
 #custom-volume:hover,
 #bluetooth:hover,
 #custom-media:hover,
 #custom-notification:hover,
 #language:hover,
 #clock:hover {
-  background: @glass-hover;
+  background: @fill-hover;
 }
 
 #custom-volume.muted,
-#custom-volume.unreachable {
-  color: @fg-secondary;
-}
-
+#custom-volume.unreachable,
 #bluetooth.disabled,
 #network.disconnected {
   color: @fg-secondary;
 }
 
-#custom-notification,
-#language,
-#clock {
-  color: @fg-primary;
+/* Icon-only module: glyphs read small at text size. */
+#custom-notification {
+  font-size: 16px;
 }
 
 #tray {
-  padding: 0;
-  margin: 0;
+  padding: 0 6px;
 }
 
-#tray menu {
-  background: @glass-bg;
-  border: 1px solid @glass-edge;
-  border-radius: 12px;
-  color: @fg-primary;
-}
-
+#tray menu,
 tooltip {
   background: @glass-bg;
   border: 1px solid @glass-edge;
   border-radius: 12px;
   color: @fg-primary;
+}
+
+tooltip label {
+  padding: 4px;
 }

@@ -1,21 +1,27 @@
+/* swayosd - liquid glass, same palette as waybar. Blur: see autostart.lua. */
 @import "colors.css";
 
 window#osd {
-  border-radius: 16px;
+  border-radius: 28px;
   border: 1px solid @glass-edge;
   background: @glass-bg;
 }
 
 window#osd #container {
-  margin: 14px 18px;
+  margin: 14px 20px;
 }
 
 window#osd image,
 window#osd label {
   color: @fg-primary;
-  font-family: "Iosevka Nerd Font";
-  font-size: 13px;
-  font-weight: bold;
+  font-family: "Adwaita Sans", "Iosevka Nerd Font";
+  font-size: 15px;
+  font-weight: 600;
+  font-feature-settings: "tnum";
+}
+
+window#osd image {
+  -gtk-icon-size: 22px;
 }
 
 window#osd progressbar:disabled,
@@ -32,7 +38,7 @@ window#osd progressbar {
 window#osd trough {
   min-height: inherit;
   border-radius: inherit;
-  background: @fg-dim;
+  background: @fill-active;
 }
 
 window#osd progress {

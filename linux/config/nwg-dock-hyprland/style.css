@@ -11,8 +11,8 @@ window {
 #box {
   background: @glass-bg;
   border: 1px solid @glass-edge;
-  border-radius: 22px;
-  padding: 6px 8px;
+  border-radius: 24px;
+  padding: 6px;
 }
 
 button,
@@ -23,14 +23,15 @@ image {
   color: @fg-primary;
 }
 
+/* Inner radius = box radius - box padding, so the corners stay concentric. */
 button {
   padding: 4px;
-  margin: 0 3px;
-  border-radius: 12px;
+  margin: 0 2px;
+  border-radius: 18px;
 }
 
 button:hover {
-  background: @glass-hover;
+  background: @fill-hover;
 }
 
 button:focus {
@@ -38,8 +39,8 @@ button:focus {
 }
 
 #active {
-  background: @glass-active;
-  border-radius: 12px;
+  background: @fill-active;
+  border-radius: 18px;
 }
 
 /* Sharp icons at scale 2: the dock renders icons at -i 84 and they are halved

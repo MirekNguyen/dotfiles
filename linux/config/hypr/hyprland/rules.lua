@@ -75,7 +75,8 @@ hl.layer_rule({
 
 -- Liquid glass for swaync. Two namespaces: the control center panel, and the
 -- floating toasts, which are a separate surface and would otherwise sit
--- unblurred over the desktop.
+-- unblurred over the desktop. swaync and swayosd are GTK4 and only honour
+-- these rules because autostart.lua starts them with GDK_WAYLAND_DISABLE.
 hl.layer_rule({
     name         = "swaync-cc-glass",
     match        = { namespace = "^swaync-control-center$" },

@@ -8,11 +8,12 @@ hl.config({
         gaps_in  = 5,
         gaps_out = 20,
 
-        border_size = 2,
+        -- A hairline edge like the glass panels, not a coloured frame.
+        border_size = 1,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = "rgba(ffffff59)",
+            inactive_border = "rgba(ffffff1f)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -25,18 +26,21 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 10,
+        rounding       = 12,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
 
+        -- Soft, wide shadow as on macOS, rather than a hard dark rim.
         shadow = {
             enabled      = true,
-            range        = 4,
+            range        = 24,
             render_power = 3,
-            color        = 0xee1a1a1a,
+            offset       = "0 6",
+            color        = 0x55000000,
+            color_inactive = 0x33000000,
         },
 
         blur = {

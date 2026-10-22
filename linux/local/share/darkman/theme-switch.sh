@@ -5,7 +5,8 @@
 # at sunrise/sunset and on `darkman toggle`
 #
 # Most of the desktop follows the XDG portal's org.freedesktop.appearance and every libadwaita app (Overskride, swaync) pick it up with no help.
-# This script exists for the three things that do *not* watch the portal: GTK3, rofi, waybar, swaync and hyprlock.
+# This script exists for the things that do *not* watch the portal: GTK3, rofi, waybar and swaync.
+# hyprlock keeps one palette in both modes (white text on the dimmed wallpaper).
 
 set -uo pipefail
 
@@ -40,8 +41,6 @@ done
 ln -sfn "$REPO/linux/rofi/colors-$mode.rasi" "$HOME/.config/rofi/colors.rasi"
 ln -sfn "colors-$mode.css" "$REPO/linux/config/waybar/colors.css"
 ln -sfn "colors-$mode.css" "$REPO/linux/config/swaync/colors.css"
-# hyprlock reads its palette each time it starts, so no reload is needed.
-ln -sfn "colors-$mode.conf" "$REPO/linux/config/hypr/hyprlock/colors.conf"
 
 # waybar reloads its CSS on SIGUSR2 without dropping the bar or its tray.
 # --older 2 skips a waybar that is still starting up: until it installs its

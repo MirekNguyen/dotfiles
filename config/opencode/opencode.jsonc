@@ -7,45 +7,45 @@
     "reserved": 10000
   },
   "provider": {
-    "litellm-o2cz-public": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "LiteLLM: O2CZ",
-      "options": {
-        "baseURL": "https://litellm-ai-a-moje.o2.cz/v1",
-        "apiKey": "{env:O2_LITELLM_API_KEY}"
-      },
-      "models": {
-        "claude-4.6-sonnet": {
-          "name": "Claude 4.6 Sonnet"
-        },
-        "gemini-3.5-flash": {
-          "name": "Gemini 3.5 Flash"
-        },
-        "deepseek-v4-flash": {
-          "name": "Deepseek V4 Flash"
-        },
-        "deepseek-v4-pro": {
-          "name": "Deepseek V4 Pro"
-        },
-        "claude-5.5-opus": {
-          "name": "Claude 5.5 Opus"
-        },
-        "gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol"
-        }
-      }
-    },
-    "deepseek": {
-      "models": {
-        "deepseek-v4-flash": {
-          "limit": {
-            "context": 192000,
-            "input": 192000,
-            "output": 8192
-          }
-        }
-      }
-    }
+    // "litellm-o2cz-public": {
+    //   "npm": "@ai-sdk/openai-compatible",
+    //   "name": "LiteLLM: O2CZ",
+    //   "options": {
+    //     "baseURL": "https://litellm-ai-a-moje.o2.cz/v1",
+    //     "apiKey": "{env:O2_LITELLM_API_KEY}"
+    //   },
+    //   "models": {
+    //     "claude-4.6-sonnet": {
+    //       "name": "Claude 4.6 Sonnet"
+    //     },
+    //     "gemini-3.5-flash": {
+    //       "name": "Gemini 3.5 Flash"
+    //     },
+    //     "deepseek-v4-flash": {
+    //       "name": "Deepseek V4 Flash"
+    //     },
+    //     "deepseek-v4-pro": {
+    //       "name": "Deepseek V4 Pro"
+    //     },
+    //     "claude-5.5-opus": {
+    //       "name": "Claude 5.5 Opus"
+    //     },
+    //     "gpt-6.1-sol": {
+    //       "name": "GPT-6.1 Sol"
+    //     }
+    //   }
+    // },
+    // "deepseek": {
+    //   "models": {
+    //     "deepseek-v4-flash": {
+    //       "limit": {
+    //         "context": 192000,
+    //         "input": 192000,
+    //         "output": 8192
+    //       }
+    //     }
+    //   }
+    // }
   },
   "mcp": {
     "agent-browser": {

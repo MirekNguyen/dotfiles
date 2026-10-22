@@ -13,7 +13,7 @@
   "control-center-margin-left": 0,
   "control-center-width": 420,
   "control-center-height": 700,
-  "notification-window-width": 400,
+  "notification-window-width": 420,
   "//cover-screen": "Default true puts a click-catcher over the whole screen, making everything behind it unreachable until dismissed. Off keeps the desktop live, as on macOS.",
   "layer-shell-cover-screen": false,
   "//theme": "ignore-gtk-theme keeps swaync on its own stylesheet instead of inheriting Adwaita, which is what lets the glass palette apply cleanly in both modes.",
@@ -31,11 +31,11 @@
   "hide-on-action": true,
   "text-empty": "No Notifications",
   "widgets": [
-    "title",
     "buttons-grid",
     "slider#brightness",
     "volume",
     "mpris",
+    "title",
     "dnd",
     "notifications"
   ],
@@ -113,5 +113,5 @@
       "max_limit": 100
     }
   },
-  "//widgets": "Quick settings like the macOS Control Center: toggles and buttons from scripts/control-center.sh, then brightness (DDC/CI) and volume."
+  "//widgets": "Quick settings like the macOS Control Center: toggles and buttons from scripts/control-center.sh, then brightness (DDC/CI), volume and now playing; the notification list sits below them."
 }

@@ -27,6 +27,8 @@ case "$tab" in
   *)         layout='' ;;
 esac
 
+# The inputbar and "element selected" -theme-str drop the inner outlines from
+# config.rasi: only the window keeps an edge, as on the other glass surfaces.
 exec rofi \
   -show "$tab" \
   -modi "combi,calc,Clipboard:$s/rofi-clipboard.sh,Wallpaper:$s/wallpaper.sh" \
@@ -38,7 +40,9 @@ exec rofi \
   -calc-command "echo -n '{result}' | wl-copy" \
   -show-icons \
   -theme-str 'mainbox { children: [ inputbar, message, listview, mode-switcher ]; }' \
-  -theme-str 'message { margin: 12px 0 0 0; padding: 12px 18px; border: 1px; border-color: @border-glass; border-radius: 14px; background-color: @bg-input; }' \
+  -theme-str 'inputbar { border: 0; }' \
+  -theme-str 'element selected { border-color: transparent; }' \
+  -theme-str 'message { margin: 12px 0 0 0; padding: 12px 18px; border-radius: 14px; background-color: @bg-input; }' \
   -theme-str 'textbox { font: "Adwaita Sans 15"; }' \
   -theme-str 'mode-switcher { margin: 12px 0 0 0; spacing: 6px; }' \
   -theme-str 'button { padding: 6px; border-radius: 10px; text-color: @fg-secondary; }' \

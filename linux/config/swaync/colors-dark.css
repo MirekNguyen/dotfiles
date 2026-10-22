@@ -1,34 +1,23 @@
-/* Liquid glass - dark.
- * Swapped in by linux/local/share/darkman/theme-switch.sh via the colors.css symlink.
- * Variable names must stay identical to the light variant. */
-@define-color glass-bg      rgba(22, 22, 24, 0.55);
-@define-color glass-panel   rgba(255, 255, 255, 0.07);
-@define-color glass-edge    rgba(255, 255, 255, 0.18);
-@define-color glass-hover   rgba(255, 255, 255, 0.12);
-@define-color glass-active  rgba(255, 255, 255, 0.18);
-@define-color fg-primary    #ffffff;
-@define-color fg-secondary  rgba(235, 235, 245, 0.55);
-@define-color accent        #0a84ff;
+/* swaync - dark. The palette itself is waybar's (imported here so swaync uses
+ * the same colors); this file only feeds swaync's built-in stylesheet, which
+ * is always loaded underneath style.css and themes itself through these
+ * variables. Values mirror waybar/colors-dark.css. */
+@import "../waybar/colors-dark.css";
 
-/* swaync 0.12's built-in stylesheet is always loaded underneath style.css and
- * themes almost everything through these variables, with dark values baked in.
- * Left unset, light mode got white-on-white labels and dark notification cards,
- * so every one it uses is mapped onto this palette. */
 :root {
-  --cc-bg: rgba(22, 22, 24, 0.55);
-  --noti-border-color: rgba(255, 255, 255, 0.18);
-  --noti-bg: 255, 255, 255;
-  --noti-bg-alpha: 0.07;
-  --noti-bg-alt: rgba(255, 255, 255, 0.07);
-  --noti-bg-darker: rgba(255, 255, 255, 0.07);
-  --noti-bg-hover: rgba(255, 255, 255, 0.12);
+  --cc-bg: rgba(30, 30, 32, 0.72);
+  --noti-border-color: transparent;
+  --noti-bg: 120, 120, 128;
+  --noti-bg-alpha: 0.24;
+  --noti-bg-alt: rgba(120, 120, 128, 0.24);
+  --noti-bg-darker: rgba(120, 120, 128, 0.24);
+  --noti-bg-hover: rgba(120, 120, 128, 0.36);
   --noti-bg-focus: transparent;
-  --noti-close-bg: rgba(255, 255, 255, 0.12);
-  --noti-close-bg-hover: rgba(255, 255, 255, 0.18);
+  --noti-close-bg: rgba(120, 120, 128, 0.36);
+  --noti-close-bg-hover: rgba(120, 120, 128, 0.48);
   --text-color: #ffffff;
-  --text-color-disabled: rgba(235, 235, 245, 0.55);
+  --text-color-disabled: rgba(235, 235, 245, 0.30);
   --bg-selected: #0a84ff;
-  --notification-shadow: none;
-  --mpris-album-art-overlay: rgba(0, 0, 0, 0.55);
-  --mpris-button-hover: rgba(255, 255, 255, 0.12);
+  --mpris-album-art-overlay: rgba(0, 0, 0, 0.50);
+  --mpris-button-hover: rgba(255, 255, 255, 0.16);
 }
