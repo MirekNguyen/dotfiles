@@ -153,12 +153,12 @@ def pipewire_state() -> tuple[int, bool]:
 def waybar(vol: int | None, muted: bool, target: str) -> None:
     """One line of JSON for waybar's custom module (return-type: json)."""
     if vol is None:
-        text, cls = "󰖁  --", "unreachable"
+        text, cls = "󰖁  Unavailable", "unreachable"
     elif muted:
-        text, cls = "󰝟  muted", "muted"
+        text, cls = "󰝟  Muted", "muted"
     else:
         icon = "󰕿" if vol < 34 else "󰖀" if vol < 67 else "󰕾"
-        text, cls = f"{icon}  {vol}%", ""
+        text, cls = f"{icon}  {vol}%", ""
     print(json.dumps({"text": text, "tooltip": target, "class": cls}, ensure_ascii=False), flush=True)
 
 

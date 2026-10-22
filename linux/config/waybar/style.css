@@ -2,8 +2,11 @@
 @import "colors.css";
 
 * {
-  /* Adwaita Sans for text; the Nerd Font only supplies the icon glyphs. */
-  font-family: "Adwaita Sans", "Iosevka Nerd Font";
+  /* Adwaita Sans for text; the Nerd Font only supplies the icon glyphs. The
+   * Propo variant gives each icon its real width; the plain variant's icons
+   * overhang into the text. Icons are followed by a space plus a six-per-em
+   * space (U+2006): about 6.5px of clear space, the same for every item. */
+  font-family: "Adwaita Sans", "Iosevka Nerd Font Propo";
   font-size: 14px;
   font-weight: 500;
   /* Fixed-width digits, so the clock and percentages don't shift the bar. */
@@ -25,7 +28,8 @@ window#waybar > box {
   background: @glass-bg;
   border: 1px solid @glass-edge;
   border-radius: 17px;
-  padding: 0 4px;
+  /* 3px + the pills' 1px margin = 4px, the same inset as top and bottom. */
+  padding: 0 3px;
   color: @fg-primary;
 }
 
@@ -44,13 +48,17 @@ window#waybar > box {
 #clock {
   padding: 0 10px;
   margin: 4px 1px;
-  border-radius: 13px;
+  /* 24px tall pills 5px inside the bar's outer edge: 17 - 5 = 12, which is
+   * also exactly a capsule. */
+  border-radius: 12px;
   background: transparent;
   color: @fg-primary;
 }
 
+/* The buttons carry the 1px side margin themselves, so the group doesn't. */
 #workspaces {
   padding: 0;
+  margin: 4px 0;
 }
 
 #workspaces button {
@@ -59,7 +67,7 @@ window#waybar > box {
   min-width: 14px;
   color: @fg-secondary;
   background: transparent;
-  border-radius: 13px;
+  border-radius: 12px;
 }
 
 #workspaces button:hover {
@@ -83,10 +91,10 @@ window#waybar > box {
   color: #ffffff;
 }
 
+/* Now Playing is greyed like the window title: secondary information. */
 #window,
 #custom-media {
   color: @fg-secondary;
-  font-weight: normal;
 }
 
 /* Hyprland reports an empty title on a bare workspace; collapse the padding so
@@ -98,6 +106,8 @@ window#waybar.empty #window {
 
 #custom-volume:hover,
 #bluetooth:hover,
+#network:hover,
+#custom-vpn:hover,
 #custom-media:hover,
 #custom-notification:hover,
 #language:hover,
@@ -108,13 +118,10 @@ window#waybar.empty #window {
 #custom-volume.muted,
 #custom-volume.unreachable,
 #bluetooth.disabled,
-#network.disconnected {
+#network.disconnected,
+#network.disabled,
+#network.linked {
   color: @fg-secondary;
-}
-
-/* Icon-only module: glyphs read small at text size. */
-#custom-notification {
-  font-size: 16px;
 }
 
 #tray {

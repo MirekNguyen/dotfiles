@@ -34,7 +34,7 @@ hl.on("hyprland.start", function()
     -- lives (linux/config/systemd/user/swaync.service.d/blur.conf).
     local noGtkBlur = "GDK_WAYLAND_DISABLE=ext_background_effect_manager_v1 "
     hl.exec_cmd("systemctl --user restart swaync")
-    hl.exec_cmd("pkill -x nwg-dock-hyprland; nwg-dock-hyprland -d -hd 300 -i 84 -mb 8 -nolauncher")
+    hl.exec_cmd("pkill -f '^nwg-dock-hyprland'; nwg-dock-hyprland -d -hd 300 -i 84 -mb 12 -nolauncher")
     hl.exec_cmd("pkill -x swayosd-server; " .. noGtkBlur .. "swayosd-server --config ~/.config/dotfiles/linux/swayosd/config.toml --style ~/.config/dotfiles/linux/swayosd/style.css")
     -- Wallpaper. awww-daemon restores the last one; the loop rotates every 30 min.
     -- See linux/scripts/wallpaper.sh.

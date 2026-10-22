@@ -1,13 +1,13 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "//": "Tracked in the repo, symlinked to ~/.config/swaync. NOTE: swaync parses this with json-glib, which is strict JSON - no // comments, unlike waybar's jsonc. Styling is in style.css; the palette comes from colors.css, whose symlink theme-switch.sh swaps for light/dark.",
-  "//positioning": "Hyprland already places the panel below the bar's reserved space (8px margin + 34px bar), so control-center-margin-top is only the gap under the bar: 8px, the same as the bar's gap above it. The 12px right margin matches the bar's side inset, so the panel lines up with its right edge. fit-to-screen runs it down to the bottom margin: at a fixed height the expanded per-app volume list made the panel scroll and clip the top row.",
+  "//positioning": "Hyprland already places the panel below the bar's reserved space (12px margin + 34px bar), so control-center-margin-top is only the gap under the bar: 12px, the same as the bar's gap above it and the window gaps. The 12px right margin matches the bar's side inset, so the panel lines up with its right edge. fit-to-screen runs it down to the bottom margin: at a fixed height the expanded per-app volume list made the panel scroll and clip the top row.",
   "positionX": "right",
   "positionY": "top",
   "layer": "overlay",
   "control-center-layer": "top",
   "layer-shell": true,
-  "control-center-margin-top": 8,
+  "control-center-margin-top": 12,
   "control-center-margin-bottom": 12,
   "control-center-margin-right": 12,
   "control-center-margin-left": 0,
@@ -54,6 +54,7 @@
     "volume": {
       "label": "󰕾",
       "show-per-app": true,
+      "expand-per-app": true,
       "show-per-app-icon": false,
       "show-per-app-label": true
     },

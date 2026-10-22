@@ -15,13 +15,17 @@
 
   // Floating bar. The gap is what sells the glass -- a full-width slab reads as
   // a solid panel, whereas an inset rounded bar lets the wallpaper blur around it.
-  "margin-top": 8,
+  "margin-top": 12,
   "margin-left": 12,
   "margin-right": 12,
   "spacing": 4,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
+  // Every item behaves the same way: hover highlights it, left click opens the
+  // app behind it, right click is its quick action (mute, play/pause,
+  // Bluetooth on/off, Do Not Disturb), scrolling adjusts it where that means
+  // something. The window title is plain text, so it has no hover.
   "modules-right": ["custom/media", "custom/volume", "bluetooth", "network", "custom/vpn", "tray", "hyprland/language", "clock", "custom/notification"],
 
   "hyprland/workspaces": {
@@ -50,10 +54,12 @@
     "separate-outputs": true
   },
 
-  // Empty output hides the module.
+  // Status in words like the network item; the tunnel names go in the tooltip
+  // (second output line). Empty output hides the module.
   "custom/vpn": {
     "interval": 5,
-    "exec": "{ ip -br link show type wireguard; ip -br link show type tun; } | awk 'NR == 1 { printf \"󰖂  \" } { printf \"%s%s\", (NR > 1 ? \" \" : \"\"), $1 }'"
+    "exec": "{ ip -br link show type wireguard; ip -br link show type tun; } | awk '{ n = n (n ? \", \" : \"\") $1 } END { if (n) printf \"󰖂  VPN\\n%s\\n\", n }'",
+    "on-click": "adwaita-network"
   },
 
   "custom/media": {
@@ -62,15 +68,14 @@
     "interval": 2,
     // playerctl exits non-zero when nothing is playing; the || keeps waybar
     // from rendering an error string in that case.
-    "exec": "playerctl metadata --format '󰎆  {{artist}} - {{title}}' 2>/dev/null || true",
+    "exec": "playerctl metadata --format '󰎆  {{artist}} – {{title}}' 2>/dev/null || true",
     // Track titles containing & (or < >) are otherwise fed to Pango as markup
     // and fail to render: "Entity did not end with a semicolon". escape makes
     // waybar entity-encode the output first.
     "escape": true,
-    // Click raises Spotify, as clicking Now Playing does on macOS;
-    // play/pause moves to middle-click.
+    // Click raises Spotify, as clicking Now Playing does on macOS.
     "on-click": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:Spotify\" })'",
-    "on-click-middle": "playerctl play-pause",
+    "on-click-right": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
     "tooltip": false
@@ -85,10 +90,8 @@
     "exec": "~/.config/dotfiles/linux/scripts/sonos-volume.py watch",
     "return-type": "json",
     "restart-interval": 2,
-    // Click opens the app, like the other modules; mute moves to middle-click,
-    // as play/pause does on custom/media.
     "on-click": "pwvucontrol",
-    "on-click-middle": "~/.config/dotfiles/linux/scripts/sonos-volume.py mute",
+    "on-click-right": "~/.config/dotfiles/linux/scripts/sonos-volume.py mute",
     "on-scroll-up": "~/.config/dotfiles/linux/scripts/sonos-volume.py up",
     "on-scroll-down": "~/.config/dotfiles/linux/scripts/sonos-volume.py down"
   },
@@ -96,25 +99,32 @@
   "bluetooth": {
     "format": "󰂯",
     "format-disabled": "󰂲",
-    "format-connected": "󰂱  {num_connections}",
+    "format-connected": "󰂱  {num_connections}",
     "tooltip-format": "{controller_alias}\n{status}",
     "tooltip-format-connected": "{device_enumerate}",
     // Overskride is GTK4/libadwaita and follows the portal colour-scheme,
     // so it matches the bar in both light and dark mode.
-    "on-click": "overskride"
+    "on-click": "overskride",
+    "on-click-right": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
   },
 
   "network": {
-    "format-wifi": "󰤨  {essid}",
-    "format-ethernet": "󰈀  {ipaddr}",
-    "format-linked": "󰈀  no IP",
-    "format-disconnected": "󰤭  offline",
-    "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}",
+    // Status in words, as GNOME and macOS show it; the address is in the tooltip.
+    // "linked" is a cable with no address yet, i.e. still getting one.
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": "󰈀  Wired",
+    "format-linked": "󰌚  Connecting…",
+    "format-disconnected": "󰌙  Not Connected",
+    "format-disabled": "󰌙  Network Off",
+    "tooltip-format-wifi": "{essid}, {signalStrength}%\n{ipaddr}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+    "tooltip-format-disconnected": "No network connection",
     "on-click": "adwaita-network"
   },
 
   "tray": {
-    "icon-size": 16,
+    // Same 14px as the symbol icons around it.
+    "icon-size": 14,
     "spacing": 10
   },
 
@@ -124,15 +134,16 @@
     // Must be "{}" when format-<lang> entries exist: waybar fills those in
     // positionally, and a named placeholder fails with "argument not found".
     "format": "{}",
-    "format-en": "EN",
-    "format-cs": "CZ",
+    "format-en": "󰌌  EN",
+    "format-cs": "󰌌  CZ",
     "keyboard-name": "xremap",
     "on-click": "hyprctl switchxkblayout all next"
   },
 
   "clock": {
-    // Matches the sketchybar format: date '+%A %d.%b %H:%M'
-    "format": "{:%a %d.%b  %H:%M}",
+    // Date and time as macOS shows them: "Thu 22 Oct  22:21". Text only, no
+    // icon, like every system clock.
+    "format": "{:%a %d %b  %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "month",

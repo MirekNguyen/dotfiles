@@ -11,7 +11,7 @@ window {
 #box {
   background: @glass-bg;
   border: 1px solid @glass-edge;
-  border-radius: 24px;
+  border-radius: 17px;
   padding: 6px;
 }
 
@@ -27,7 +27,7 @@ image {
 button {
   padding: 4px;
   margin: 0 2px;
-  border-radius: 18px;
+  border-radius: 11px;
 }
 
 button:hover {
@@ -40,7 +40,7 @@ button:focus {
 
 #active {
   background: @fill-active;
-  border-radius: 18px;
+  border-radius: 11px;
 }
 
 /* Sharp icons at scale 2: the dock renders icons at -i 84 and they are halved

@@ -2,7 +2,7 @@
 @import "colors.css";
 
 window#osd {
-  border-radius: 28px;
+  border-radius: 17px;
   border: 1px solid @glass-edge;
   background: @glass-bg;
 }

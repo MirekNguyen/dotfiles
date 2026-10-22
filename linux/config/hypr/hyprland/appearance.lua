@@ -5,8 +5,10 @@
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 20,
+        -- One 12px margin for everything: screen edges, under the bar, and
+        -- between windows (6 + 6). Matches the bar's and panel's insets.
+        gaps_in  = 6,
+        gaps_out = 12,
 
         -- A hairline edge like the glass panels, not a coloured frame.
         border_size = 1,
@@ -26,7 +28,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 12,
+        rounding       = 17,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows

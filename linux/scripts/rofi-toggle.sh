@@ -29,6 +29,7 @@ esac
 
 # The inputbar and "element selected" -theme-str drop the inner outlines from
 # config.rasi: only the window keeps an edge, as on the other glass surfaces.
+# Corners: 17px like every screen-level surface, inner 17 - 8 padding = 9px.
 exec rofi \
   -show "$tab" \
   -modi "combi,calc,Clipboard:$s/rofi-clipboard.sh,Wallpaper:$s/wallpaper.sh" \
@@ -40,11 +41,14 @@ exec rofi \
   -calc-command "echo -n '{result}' | wl-copy" \
   -show-icons \
   -theme-str 'mainbox { children: [ inputbar, message, listview, mode-switcher ]; }' \
+  -theme-str 'window { border-radius: 17px; padding: 8px; }' \
+  -theme-str 'inputbar { border-radius: 9px; }' \
+  -theme-str 'element { border-radius: 9px; }' \
   -theme-str 'inputbar { border: 0; }' \
   -theme-str 'element selected { border-color: transparent; }' \
-  -theme-str 'message { margin: 12px 0 0 0; padding: 12px 18px; border-radius: 14px; background-color: @bg-input; }' \
+  -theme-str 'message { margin: 12px 0 0 0; padding: 12px 18px; border-radius: 9px; background-color: @bg-input; }' \
   -theme-str 'textbox { font: "Adwaita Sans 15"; }' \
   -theme-str 'mode-switcher { margin: 12px 0 0 0; spacing: 6px; }' \
-  -theme-str 'button { padding: 6px; border-radius: 10px; text-color: @fg-secondary; }' \
+  -theme-str 'button { padding: 6px; border-radius: 9px; text-color: @fg-secondary; }' \
   -theme-str 'button selected { background-color: @bg-hover; text-color: @fg-primary; }' \
   -theme-str "$layout"
