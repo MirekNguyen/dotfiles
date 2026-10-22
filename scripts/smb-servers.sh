@@ -8,9 +8,15 @@ for tool in jq gum; do
   fi
 done
 
-# Check if either mount_smbfs or sshfs is installed
-if ! command -v mount_smbfs >/dev/null 2>&1 && ! command -v sshfs >/dev/null 2>&1; then
-  echo "Error: Neither mount_smbfs nor sshfs is installed."
+if [ "$(uname)" = "Darwin" ]; then
+  smb_tool=mount_smbfs
+else
+  smb_tool=mount.cifs
+fi
+
+# Check if either the SMB tool or sshfs is installed
+if ! command -v "$smb_tool" >/dev/null 2>&1 && ! command -v sshfs >/dev/null 2>&1; then
+  echo "Error: Neither $smb_tool nor sshfs is installed."
   exit 1
 fi
 
@@ -73,12 +79,17 @@ mkdir -p "$mountpoint"
 # Mount based on protocol
 case "$protocol" in
   smb)
-    if ! command -v mount_smbfs >/dev/null 2>&1; then
-      echo "Error: mount_smbfs is required for SMB but not found."
+    if ! command -v "$smb_tool" >/dev/null 2>&1; then
+      echo "Error: $smb_tool is required for SMB but not found."
       exit 1
     fi
     echo "Mounting SMB share..."
-    mount_smbfs "//$user:$password@${hostname}$subdirectory" "$mountpoint"
+    if [ "$smb_tool" = "mount_smbfs" ]; then
+      mount_smbfs "//$user:$password@${hostname}$subdirectory" "$mountpoint"
+    else
+      sudo mount -t cifs "//${hostname}$subdirectory" "$mountpoint" \
+        -o "username=$user,password=$password,uid=$(id -u),gid=$(id -g)"
+    fi
     ;;
   sshfs)
     if ! command -v sshfs >/dev/null 2>&1; then
