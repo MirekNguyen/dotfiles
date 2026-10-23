@@ -34,7 +34,15 @@ hl.on("hyprland.start", function()
     -- lives (linux/config/systemd/user/swaync.service.d/blur.conf).
     local noGtkBlur = "GDK_WAYLAND_DISABLE=ext_background_effect_manager_v1 "
     hl.exec_cmd("systemctl --user restart swaync")
-    hl.exec_cmd("pkill -f '^nwg-dock-hyprland'; nwg-dock-hyprland -d -hd 300 -i 84 -mb 12 -nolauncher")
+    -- Window corner buttons and the dock's bottom-edge trigger (linux/quickshell).
+    hl.exec_cmd("pkill -f '^qs -p .*/linux/quickshell'; qs -p " .. os.getenv("HOME") ..
+        "/.config/dotfiles/linux/quickshell")
+    -- -hl top puts the dock's own hotspot under linux/quickshell/DockEdge.qml,
+    -- which shows the dock instead, macOS-style. The XDG_DATA_DIRS entry swaps in
+    -- the dock's running-app dots (linux/config/nwg-dock-hyprland/data).
+    hl.exec_cmd("pkill -f '^nwg-dock-hyprland'; XDG_DATA_DIRS=" .. os.getenv("HOME") ..
+        "/.config/dotfiles/linux/config/nwg-dock-hyprland/data:${XDG_DATA_DIRS:-/usr/local/share:/usr/share} " ..
+        "nwg-dock-hyprland -d -hl top -i 84 -mb 12 -nolauncher")
     hl.exec_cmd("pkill -x swayosd-server; " .. noGtkBlur .. "swayosd-server --config ~/.config/dotfiles/linux/swayosd/config.toml --style ~/.config/dotfiles/linux/swayosd/style.css")
     -- Wallpaper. awww-daemon restores the last one; the loop rotates every 30 min.
     -- See linux/scripts/wallpaper.sh.
@@ -44,7 +52,10 @@ hl.on("hyprland.start", function()
     -- service started at login, before Hyprland exists, so its hooks can't
     -- reach hyprctl (the wallpaper silently stayed put). Hand it this session's
     -- variables and restart it; on startup it runs the hook for the current mode.
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP && systemctl --user restart darkman")
+    -- The scaling variables from env.lua go along, so apps started through
+    -- D-Bus or systemd (links, portals, notifications) scale like the rest.
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP " ..
+        "GDK_SCALE QT_QPA_PLATFORM ELECTRON_OZONE_PLATFORM_HINT STEAM_FORCE_DESKTOPUI_SCALING && systemctl --user restart darkman")
     -- Clipboard history. Nothing is recorded unless this watcher is running, so
     -- the SUPER+ALT+C menu would simply come up empty without it.
     -- The pkill pattern is anchored with ^ on purpose: this line runs via

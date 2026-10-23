@@ -105,6 +105,17 @@ hl.layer_rule({
     ignore_alpha = 0.2,
 })
 
+-- The Float/Maximize/Close buttons on a window's corner (linux/quickshell/WindowActions.qml).
+-- no_anim: the surface follows the focused window, and the layers animation
+-- made it slide across the screen after every focus change.
+hl.layer_rule({
+    name         = "window-actions-glass",
+    match        = { namespace = "^window-actions$" },
+    blur         = true,
+    ignore_alpha = 0.2,
+    no_anim      = true,
+})
+
 -- Games and fullscreen video keep the screen on. Controller input does not
 -- count as activity to hypridle, so without this a long cutscene or a game
 -- played on a pad would get the display turned off.

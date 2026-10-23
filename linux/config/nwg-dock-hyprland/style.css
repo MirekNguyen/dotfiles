@@ -1,4 +1,13 @@
-/* nwg-dock-hyprland - liquid glass, same palette as waybar. */
+/* nwg-dock-hyprland - liquid glass, same palette as waybar.
+ *
+ * Layout, from the dock's outer edge: every tile sits 6px in (1px edge +
+ * 5px padding, or 2px padding + 3px tile margin at the sides), tiles are 6px
+ * apart, and the icon is 8px inside its tile. Tile corners are 17 - 6 = 11px,
+ * concentric with the dock. The running-app dot sits inside the tile's bottom
+ * padding, so the tile is centred in the dock like everything else.
+ *
+ * The dots are drawn by the SVGs in data/nwg-dock-hyprland/images, which
+ * autostart.lua puts on XDG_DATA_DIRS; the stock ones are cyan. */
 @import "colors.css";
 
 /* The window must stay transparent; #box carries the tint so the compositor
@@ -12,7 +21,7 @@ window {
   background: @glass-bg;
   border: 1px solid @glass-edge;
   border-radius: 17px;
-  padding: 6px;
+  padding: 5px 2px;
 }
 
 button,
@@ -23,33 +32,50 @@ image {
   color: @fg-primary;
 }
 
-/* Inner radius = box radius - box padding, so the corners stay concentric. */
-button {
-  padding: 4px;
-  margin: 0 2px;
+/* #box raises it above Adwaita's button.image-button, which narrowed the side padding. */
+#box button {
+  padding: 8px;
+  margin: 0 3px;
   border-radius: 11px;
+  outline: none;
+  transition: background 150ms ease;
 }
 
 button:hover {
   background: @fill-hover;
 }
 
+button:active {
+  background: @fill-active;
+}
+
 button:focus {
   box-shadow: none;
 }
 
-#active {
-  background: @fill-active;
-  border-radius: 11px;
+tooltip {
+  background: @glass-bg;
+  border: 1px solid @glass-edge;
+  border-radius: 12px;
+  color: @fg-primary;
+}
+
+tooltip label {
+  font-family: "Adwaita Sans";
+  font-size: 13px;
+  padding: 4px;
 }
 
 /* Sharp icons at scale 2: the dock renders icons at -i 84 and they are halved
- * here back to 42. Without this it draws 42px bitmaps that get upscaled.
- * The running-app dots sit next to the button and need the same treatment.
+ * here back to 42. The negative margins shrink each widget's allocation to
+ * what is drawn.
+ * Dot (84x10, drawn 42x5): -9px top pulls it 4px up into the tile's 8px bottom
+ * padding (centre 4px above the tile's edge, 2px clear of the icon), and -1px
+ * bottom makes it take no height of its own.
  * Keep `button image` last: `box > image` matches the icon too. */
 box > image {
   -gtk-icon-transform: scale(0.5);
-  margin: -3px -21px;
+  margin: -9px -21px -1px;
 }
 
 button image {

@@ -12,8 +12,7 @@ hl.config({
     -- the full 3840x2160 surface and stay sharp -- but each app now has to
     -- scale its own UI, or it draws at half size.
     --
-    -- Toolkit apps do that from GDK_SCALE / QT_SCALE_FACTOR; Spotify (CEF) and
-    -- Steam need their own flags, see linux/local/share/applications/*.desktop.
+    -- env.lua sets that up from the monitor scale, so this stays on.
     xwayland = {
         force_zero_scaling = true,
     },

@@ -49,6 +49,7 @@ waybar                        # top bar
 swaync                        # notifications
 nwg-dock-hyprland             # bottom dock
 swayosd                       # volume/brightness popup
+quickshell                    # window corner buttons, dock edge trigger
 ddcutil                       # monitor brightness over DDC/CI, see SETUP.md
 rofi                          # launcher, bookmarks, clipboard picker
 wofi                          # old launcher, replaced by rofi
