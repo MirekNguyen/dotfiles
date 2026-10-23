@@ -8,8 +8,9 @@ existing one, so the pieces keep looking like one system.
 | --- | --- |
 | Bar (waybar) | `config/waybar/style.css`, `config/waybar/colors-{dark,light}.css` |
 | Notification center and toasts (swaync) | `config/swaync/style.css`, `config/swaync/colors-{dark,light}.css`, `config/swaync/config.json` |
-| Dock (nwg-dock-hyprland) | `config/nwg-dock-hyprland/style.css` |
+| Dock (nwg-dock-hyprland) | `config/nwg-dock-hyprland/style.css`, `quickshell/DockEdge.qml` (shows it from the bottom edge) |
 | Volume/brightness popup (swayosd) | `swayosd/style.css` |
+| Window corner buttons (quickshell) | `quickshell/WindowActions.qml` |
 | Launcher (rofi) | `rofi/colors-{dark,light}.rasi`, `scripts/rofi-toggle.sh`, `~/.config/rofi/config.rasi` (not in the repo) |
 | Lock screen (hyprlock) | `config/hypr/hyprlock/hyprlock.conf` |
 | Windows, blur, shadows (Hyprland) | `config/hypr/hyprland/appearance.lua`, `config/hypr/hyprland/rules.lua` |
@@ -101,25 +102,30 @@ about 85 logical px tall), day 32 semibold (about 21px), date 26 regular (about 
 
 ## Shape and spacing
 
+Every screen-level surface has the same 17px corners, set by the capsule bar
+(34px tall). Anything inside one is concentric: its radius is 17 minus its inset.
+
 | Element | Radius | Notes |
 | --- | --- | --- |
-| Bar | 17px (capsule) | 34px tall, 8px from the top, 12px side insets |
-| Notification center panel | 26px | 8px padding |
-| Cards inside it, toasts | 18px | 26 - 8 = 18 |
-| Dock | 24px | 6px padding, buttons 18px |
-| Launcher window / input / rows | 22 / 14 / 12px | (config.rasi) |
-| swayosd | 28px | |
+| Bar | 17px (capsule) | 34px tall, 12px from the top and sides |
+| Windows | 17px | Hyprland `rounding`; `gaps_out` 12, `gaps_in` 6 |
+| Notification center panel, toasts | 17px | 1px edge + 7px padding; toast content 16px (17 - 1 edge) |
+| Cards inside the panel | 12px | cards sit 12px in, 8px apart, content 16px inside |
+| Images and boxes inside a card | 6px | album art, notification image, per-app volume box |
+| Dock | 17px | 58px tiles 6px in and 6px apart, 11px corners; 42px icons |
+| Launcher window / input, rows, tabs | 17 / 9px | 8px padding (scripts/rofi-toggle.sh) |
+| swayosd | 17px | |
+| Bar pills | 12px (capsule) | 24px tall, 4px inside the bar, 6px apart |
 | Tooltips, tray menu | 12px | |
-| Thumbnails, album art | 12px | |
 | Controls (buttons, toggles, switches, slider knobs) | 999px | |
-| Windows | 12px | Hyprland `rounding` |
 
 Touch targets: at least 44px tall where possible (quick toggles are 52px,
 switch and slider knobs 20-22px on a full-width row).
 
-Placement: the notification center and the toasts both sit 12px from the
-right edge, just below the bar (`control-center-margin-top: 50`), so a toast
-lines up with the panel.
+Placement: one 12px margin everywhere. The bar sits 12px from the top and
+sides, windows 12px from the screen edges, the bar and each other, and the
+notification center and toasts 12px below the bar and from the right edge, so
+their right edges line up with the bar's. The dock floats 12px above the bottom.
 
 ## Material: blur
 
@@ -176,8 +182,10 @@ surface (`glass-bg` + `glass-edge`). Critical toasts get an `urgent` edge.
 Summary 15/600, body 14 `fg-primary`, time 12 `fg-secondary`. Close button and
 action buttons are `fill` capsules.
 
-**Dock.** Glass box, icon buttons with `fill-hover` on hover and `fill-active`
-for running apps.
+**Dock.** Glass box, icon tiles with `fill-hover` on hover and `fill-active`
+while pressed. Running apps get a 4px systemGray (`#8e8e93`) dot inside the
+tile under the icon, two for several windows, readable on both glass tints.
+Tooltips match the bar's.
 
 **swayosd.** Capsule glass, `fg-primary` label, 6px progress bar with a
 `fill-active` trough and a `fg-primary` fill.
